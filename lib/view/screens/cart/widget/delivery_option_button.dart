@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+
 import 'package:emarket_user/helper/price_converter.dart';
-import 'package:emarket_user/localization/language_constrants.dart';
 import 'package:emarket_user/provider/order_provider.dart';
 import 'package:emarket_user/provider/splash_provider.dart';
 import 'package:emarket_user/utill/dimensions.dart';
@@ -19,18 +19,23 @@ class DeliveryOptionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<OrderProvider>(
       builder: (context, order, child) {
+
+        var s = PriceConverter.convertPrice(
+          context,
+          Provider.of<SplashProvider>(context, listen: false)
+              .configModel
+              .deliveryChargeBaghdad,);
+        var s1 =  PriceConverter.convertPrice(
+          context,
+          Provider.of<SplashProvider>(context, listen: false)
+              .configModel
+              .deliveryChargeOther,
+        );
+        print(s);
+        print(s1);
         var text = value == 'baghdad'
-            ? PriceConverter.convertPrice(
-                context,
-                Provider.of<SplashProvider>(context, listen: false)
-                    .configModel
-                    .deliveryChargeBaghdad)
-            : PriceConverter.convertPrice(
-                context,
-                Provider.of<SplashProvider>(context, listen: false)
-                    .configModel
-                    .deliveryChargeOther,
-              );
+            ? s
+            : s1;
         return InkWell(
           onTap: () => order.setOrderType('delivery'),
           child: Row(
