@@ -1,4 +1,4 @@
-package com.u6amtech.emarket_user
+package com.bandtech.victoria
 
 import io.flutter.embedding.android.FlutterActivity
 
