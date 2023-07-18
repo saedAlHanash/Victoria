@@ -41,9 +41,9 @@ dependencies:
   image: ^3.0.2
   flutter_widget_from_html_core: ^0.8.5+1
   phone_number: ^1.0.0
-  country_code_picker: ^2.0.2
-  flutter_typeahead: ^4.0.0
-  fwfh_selectable_text: ^0.8.3+1
+  country_code_picker: 
+  flutter_typeahead: 
+  fwfh_selectable_text: 
 
 
 dev_dependencies:
