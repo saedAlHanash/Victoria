@@ -1,34 +1,113 @@
 {
   "project_info": {
-    "project_number": "151590191214",
-    "project_id": "emarket-e420c",
-    "storage_bucket": "emarket-e420c.appspot.com"
+    "project_number": "584365733795",
+    "project_id": "ali-gabory",
+    "storage_bucket": "ali-gabory.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:151590191214:android:86a426bd597613a5a5667f",
+        "mobilesdk_app_id": "1:584365733795:android:8761156f549bfc13624c16",
         "android_client_info": {
-          "package_name": "com.bandtech.victoria"
+          "package_name": "com.ahmad.algubouri"
         }
       },
       "oauth_client": [
         {
-          "client_id": "151590191214-k9lbc0mjia9jtpdaunvhgjadshvbcb00.apps.googleusercontent.com",
+          "client_id": "584365733795-8iq8graekpkk8trr781rn7nbc378cv79.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBA39xMnUe1ldzaPeq9MUmxTxmhUbuX9Lw"
+          "current_key": "AIzaSyAZE_vAyAIghlKY52B2YHpHbcxoQm9tBI4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "151590191214-k9lbc0mjia9jtpdaunvhgjadshvbcb00.apps.googleusercontent.com",
+              "client_id": "584365733795-8iq8graekpkk8trr781rn7nbc378cv79.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "584365733795-0v0b8pf94asb10jnj3ejf6epblpdmh8j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.aliGabory"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584365733795:android:4d73ece5f95e2cf2624c16",
+        "android_client_info": {
+          "package_name": "com.ali.algubouri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584365733795-8iq8graekpkk8trr781rn7nbc378cv79.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZE_vAyAIghlKY52B2YHpHbcxoQm9tBI4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584365733795-8iq8graekpkk8trr781rn7nbc378cv79.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "584365733795-0v0b8pf94asb10jnj3ejf6epblpdmh8j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.aliGabory"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584365733795:android:6b718a74042cd027624c16",
+        "android_client_info": {
+          "package_name": "com.bandtech.victoria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584365733795-8iq8graekpkk8trr781rn7nbc378cv79.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZE_vAyAIghlKY52B2YHpHbcxoQm9tBI4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584365733795-8iq8graekpkk8trr781rn7nbc378cv79.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "584365733795-0v0b8pf94asb10jnj3ejf6epblpdmh8j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.aliGabory"
+              }
             }
           ]
         }
