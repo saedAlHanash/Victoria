@@ -12,13 +12,15 @@ class ThemeProvider with ChangeNotifier {
   bool get darkTheme => _darkTheme;
 
   void toggleTheme() {
-    _darkTheme = !_darkTheme;
-    sharedPreferences.setBool(AppConstants.THEME, _darkTheme);
+    ///  todo: saed change it to removing light theam
+    // _darkTheme = !_darkTheme;
+    // sharedPreferences.setBool(AppConstants.THEME, _darkTheme);
     notifyListeners();
   }
 
   void _loadCurrentTheme() async {
-    _darkTheme = sharedPreferences.getBool(AppConstants.THEME) ?? false;
+    /// todo: saed change it to removing light theam
+    // _darkTheme = sharedPreferences.getBool(AppConstants.THEME) ?? false;
     notifyListeners();
   }
 }

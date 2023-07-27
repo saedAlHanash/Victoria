@@ -122,28 +122,6 @@ class _WebAppBarState extends State<WebAppBar> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: Dimensions.PADDING_SIZE_EXTRA_SMALL),
-                        child: Text(getTranslated('dark_mode', context),
-                            style: rubikRegular.copyWith(
-                                color: ColorResources.COLOR_WHITE,
-                                fontSize: Dimensions.PADDING_SIZE_DEFAULT)),
-                      ),
-                      // StatusWidget(),
-                      Transform.scale(
-                        scale: 1,
-                        child: Switch(
-                          onChanged: (bool isActive) =>
-                              Provider.of<ThemeProvider>(context, listen: false)
-                                  .toggleTheme(),
-                          value: Provider.of<ThemeProvider>(context).darkTheme,
-                          activeColor: Colors.black26,
-                          activeTrackColor: Colors.grey,
-                          inactiveThumbColor: Colors.white,
-                          inactiveTrackColor: ColorResources.BORDER_COLOR,
-                        ),
-                      ),
                       SizedBox(width: Dimensions.PADDING_SIZE_SMALL),
 
                       SizedBox(

@@ -34,7 +34,7 @@ class WelcomeScreen extends StatelessWidget {
                         image: splash.baseUrls != null ? '${splash.baseUrls.ecommerceImageUrl}/${splash.configModel.ecommerceLogo}' : '',
                         height: 200,
                       ),
-                    ) : Image.asset(Images.logo, height: 200),
+                    ) : Image.asset(Images.logo, height: 200,fit: BoxFit.cover,),
                   ),
                   SizedBox(height: 30),
                   Text(

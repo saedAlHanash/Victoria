@@ -41,12 +41,9 @@ class _LoginScreenState extends State<LoginScreen> {
     _emailController.text =
         Provider.of<AuthProvider>(context, listen: false).getUserNumber() ?? '';
     _passwordController.text =
-        Provider.of<AuthProvider>(context, listen: false).getUserPassword() ??
-            '';
+        Provider.of<AuthProvider>(context, listen: false).getUserPassword() ?? '';
     _countryDialCode = CountryCode.fromCountryCode(
-            Provider.of<SplashProvider>(context, listen: false)
-                .configModel
-                .countryCode)
+            Provider.of<SplashProvider>(context, listen: false).configModel.countryCode)
         .dialCode;
   }
 
@@ -63,15 +60,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return Scaffold(
       appBar: ResponsiveHelper.isDesktop(context)
-          ? PreferredSize(
-              child: WebAppBar(), preferredSize: Size.fromHeight(120))
+          ? PreferredSize(child: WebAppBar(), preferredSize: Size.fromHeight(120))
           : null,
       body: SafeArea(
         child: Scrollbar(
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(ResponsiveHelper.isDesktop(context)
-                ? 0
-                : Dimensions.PADDING_SIZE_LARGE),
+            padding: EdgeInsets.all(
+                ResponsiveHelper.isDesktop(context) ? 0 : Dimensions.PADDING_SIZE_LARGE),
             physics: BouncingScrollPhysics(),
             child: Column(
               children: [
@@ -118,13 +113,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                     padding: const EdgeInsets.all(15.0),
                                     child: Image.asset(
                                       Images.logo,
-                                      height:
-                                          ResponsiveHelper.isDesktop(context)
-                                              ? 100.0
-                                              : MediaQuery.of(context)
-                                                      .size
-                                                      .height /
-                                                  4.5,
+                                      height: ResponsiveHelper.isDesktop(context)
+                                          ? 100.0
+                                          : MediaQuery.of(context).size.height / 4.5,
                                       fit: BoxFit.scaleDown,
                                       matchTextDirection: true,
                                     ),
@@ -134,18 +125,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Center(
                                     child: Text(
                                   getTranslated('login', context),
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headline3
-                                      .copyWith(
-                                          fontSize: 24,
-                                          color:
-                                              ColorResources.getGreyBunkerColor(
-                                                  context)),
+                                  style: Theme.of(context).textTheme.headline3.copyWith(
+                                      fontSize: 24,
+                                      color: ColorResources.getGreyBunkerColor(context)),
                                 )),
                                 SizedBox(height: 35),
-                                Provider.of<SplashProvider>(context,
-                                            listen: false)
+                                Provider.of<SplashProvider>(context, listen: false)
                                         .configModel
                                         .emailVerification
                                     ? Text(
@@ -155,8 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             .headline2
                                             .copyWith(
                                                 color:
-                                                    ColorResources.getHintColor(
-                                                        context)),
+                                                    ColorResources.getHintColor(context)),
                                       )
                                     : Text(
                                         getTranslated('mobile_number', context),
@@ -165,17 +149,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                             .headline2
                                             .copyWith(
                                                 color:
-                                                    ColorResources.getHintColor(
-                                                        context)),
+                                                    ColorResources.getHintColor(context)),
                                       ),
                                 SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
-                                Provider.of<SplashProvider>(context,
-                                            listen: false)
+                                Provider.of<SplashProvider>(context, listen: false)
                                         .configModel
                                         .emailVerification
                                     ? CustomTextField(
-                                        hintText: getTranslated(
-                                            'demo_gmail', context),
+                                        hintText: getTranslated('demo_gmail', context),
                                         isShowBorder: true,
                                         focusNode: _emailNumberFocus,
                                         nextFocus: _passwordFocus,
@@ -185,8 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     : Row(children: [
                                         CodePickerWidget(
                                           onChanged: (CountryCode countryCode) {
-                                            _countryDialCode =
-                                                countryCode.dialCode;
+                                            _countryDialCode = countryCode.dialCode;
                                           },
                                           initialSelection: _countryDialCode,
                                           favorite: [_countryDialCode],
@@ -201,8 +181,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                         Expanded(
                                             child: CustomTextField(
-                                          hintText: getTranslated(
-                                              'number_hint', context),
+                                          hintText: getTranslated('number_hint', context),
                                           isShowBorder: true,
                                           focusNode: _emailNumberFocus,
                                           nextFocus: _passwordFocus,
@@ -213,17 +192,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                 SizedBox(height: Dimensions.PADDING_SIZE_LARGE),
                                 Text(
                                   getTranslated('password', context),
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headline2
-                                      .copyWith(
-                                          color: ColorResources.getHintColor(
-                                              context)),
+                                  style: Theme.of(context).textTheme.headline2.copyWith(
+                                      color: ColorResources.getHintColor(context)),
                                 ),
                                 SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
                                 CustomTextField(
-                                  hintText:
-                                      getTranslated('password_hint', context),
+                                  hintText: getTranslated('password_hint', context),
                                   isShowBorder: true,
                                   isPassword: true,
                                   isShowSuffixIcon: true,
@@ -235,12 +209,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
                                 // for remember me section
                                 Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Consumer<AuthProvider>(
-                                        builder: (context, authProvider,
-                                                child) =>
+                                        builder: (context, authProvider, child) =>
                                             InkWell(
                                               onTap: () {
                                                 authProvider.toggleRememberMe();
@@ -255,21 +227,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                                                 .isActiveRememberMe
                                                             ? Theme.of(context)
                                                                 .primaryColor
-                                                            : ColorResources
-                                                                .COLOR_WHITE,
+                                                            : ColorResources.COLOR_WHITE,
                                                         border: Border.all(
                                                             color: authProvider
                                                                     .isActiveRememberMe
-                                                                ? Colors
-                                                                    .transparent
-                                                                : Theme.of(
-                                                                        context)
+                                                                ? Colors.transparent
+                                                                : Theme.of(context)
                                                                     .primaryColor),
                                                         borderRadius:
-                                                            BorderRadius
-                                                                .circular(3)),
-                                                    child: authProvider
-                                                            .isActiveRememberMe
+                                                            BorderRadius.circular(3)),
+                                                    child: authProvider.isActiveRememberMe
                                                         ? Icon(Icons.done,
                                                             color: ColorResources
                                                                 .COLOR_WHITE,
@@ -277,11 +244,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                                         : SizedBox.shrink(),
                                                   ),
                                                   SizedBox(
-                                                      width: Dimensions
-                                                          .PADDING_SIZE_SMALL),
+                                                      width:
+                                                          Dimensions.PADDING_SIZE_SMALL),
                                                   Text(
-                                                    getTranslated(
-                                                        'remember_me', context),
+                                                    getTranslated('remember_me', context),
                                                     style: Theme.of(context)
                                                         .textTheme
                                                         .headline2
@@ -289,30 +255,27 @@ class _LoginScreenState extends State<LoginScreen> {
                                                             fontSize: Dimensions
                                                                 .FONT_SIZE_EXTRA_SMALL,
                                                             color: ColorResources
-                                                                .getHintColor(
-                                                                    context)),
+                                                                .getHintColor(context)),
                                                   )
                                                 ],
                                               ),
                                             )),
                                     InkWell(
                                       onTap: () {
-                                        Navigator.pushNamed(context,
-                                            Routes.getForgetPassRoute());
+                                        Navigator.pushNamed(
+                                            context, Routes.getForgetPassRoute());
                                       },
                                       child: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Text(
-                                          getTranslated(
-                                              'forgot_password', context),
+                                          getTranslated('forgot_password', context),
                                           style: Theme.of(context)
                                               .textTheme
                                               .headline2
                                               .copyWith(
-                                                  fontSize: Dimensions
-                                                      .FONT_SIZE_SMALL,
-                                                  color: ColorResources
-                                                      .getHintColor(context)),
+                                                  fontSize: Dimensions.FONT_SIZE_SMALL,
+                                                  color: ColorResources.getHintColor(
+                                                      context)),
                                         ),
                                       ),
                                     )
@@ -325,8 +288,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   children: [
                                     authProvider.loginErrorMessage.length > 0
                                         ? CircleAvatar(
-                                            backgroundColor: Colors.red,
-                                            radius: 5)
+                                            backgroundColor: Colors.red, radius: 5)
                                         : SizedBox.shrink(),
                                     SizedBox(width: 8),
                                     Expanded(
@@ -336,8 +298,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             .textTheme
                                             .headline2
                                             .copyWith(
-                                              fontSize:
-                                                  Dimensions.FONT_SIZE_SMALL,
+                                              fontSize: Dimensions.FONT_SIZE_SMALL,
                                               color: Colors.red,
                                             ),
                                       ),
@@ -351,10 +312,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ? CustomButton(
                                         btnTxt: getTranslated('login', context),
                                         onTap: () async {
-                                          String _email =
-                                              _emailController.text.trim();
-                                          if (!Provider.of<SplashProvider>(
-                                                  context,
+                                          String _email = _emailController.text.trim();
+                                          if (!Provider.of<SplashProvider>(context,
                                                   listen: false)
                                               .configModel
                                               .emailVerification) {
@@ -365,52 +324,43 @@ class _LoginScreenState extends State<LoginScreen> {
                                           String _password =
                                               _passwordController.text.trim();
                                           if (_email.isEmpty) {
-                                            if (Provider.of<SplashProvider>(
-                                                    context,
+                                            if (Provider.of<SplashProvider>(context,
                                                     listen: false)
                                                 .configModel
                                                 .emailVerification) {
                                               showCustomSnackBar(
                                                   getTranslated(
-                                                      'enter_email_address',
-                                                      context),
+                                                      'enter_email_address', context),
                                                   context);
                                             } else {
                                               showCustomSnackBar(
                                                   getTranslated(
-                                                      'enter_phone_number',
-                                                      context),
+                                                      'enter_phone_number', context),
                                                   context);
                                             }
                                           } else if (_password.isEmpty) {
                                             showCustomSnackBar(
-                                                getTranslated(
-                                                    'enter_password', context),
+                                                getTranslated('enter_password', context),
                                                 context);
                                           } else if (_password.length < 6) {
                                             showCustomSnackBar(
                                                 getTranslated(
-                                                    'password_should_be',
-                                                    context),
+                                                    'password_should_be', context),
                                                 context);
                                           } else {
                                             authProvider
                                                 .login(_email, _password)
                                                 .then((status) async {
                                               if (status.isSuccess) {
-                                                if (authProvider
-                                                    .isActiveRememberMe) {
-                                                  authProvider
-                                                      .saveUserNumberAndPassword(
-                                                          _emailController.text,
-                                                          _password);
+                                                if (authProvider.isActiveRememberMe) {
+                                                  authProvider.saveUserNumberAndPassword(
+                                                      _emailController.text, _password);
                                                 } else {
                                                   authProvider
                                                       .clearUserNumberAndPassword();
                                                 }
 
-                                                await Provider.of<
-                                                            WishListProvider>(
+                                                await Provider.of<WishListProvider>(
                                                         context,
                                                         listen: false)
                                                     .initWishList(
@@ -421,11 +371,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                                       .locale
                                                       .languageCode,
                                                 );
-                                                Navigator
-                                                    .pushNamedAndRemoveUntil(
-                                                        context,
-                                                        Routes.getMainRoute(),
-                                                        (route) => false);
+                                                Navigator.pushNamedAndRemoveUntil(
+                                                    context,
+                                                    Routes.getMainRoute(),
+                                                    (route) => false);
                                               }
                                             });
                                           }
@@ -433,50 +382,42 @@ class _LoginScreenState extends State<LoginScreen> {
                                       )
                                     : Center(
                                         child: CircularProgressIndicator(
-                                        valueColor:
-                                            new AlwaysStoppedAnimation<Color>(
-                                                Theme.of(context).primaryColor),
+                                        valueColor: new AlwaysStoppedAnimation<Color>(
+                                            Theme.of(context).primaryColor),
                                       )),
 
                                 // for create an account
                                 SizedBox(height: 20),
                                 InkWell(
                                   onTap: () {
-                                    Navigator.pushNamed(
-                                        context, Routes.getSignUpRoute());
+                                    Navigator.pushNamed(context, Routes.getSignUpRoute());
                                   },
                                   child: Padding(
-                                    padding: EdgeInsets.all(
-                                        Dimensions.PADDING_SIZE_SMALL),
+                                    padding:
+                                        EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
                                     child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
+                                      mainAxisAlignment: MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          getTranslated(
-                                              'create_an_account', context),
+                                          getTranslated('create_an_account', context),
                                           style: Theme.of(context)
                                               .textTheme
                                               .headline2
                                               .copyWith(
-                                                  fontSize: Dimensions
-                                                      .FONT_SIZE_SMALL,
-                                                  color: ColorResources
-                                                      .getGreyColor(context)),
+                                                  fontSize: Dimensions.FONT_SIZE_SMALL,
+                                                  color: ColorResources.getGreyColor(
+                                                      context)),
                                         ),
-                                        SizedBox(
-                                            width:
-                                                Dimensions.PADDING_SIZE_SMALL),
+                                        SizedBox(width: Dimensions.PADDING_SIZE_SMALL),
                                         Text(
                                           getTranslated('signup', context),
                                           style: Theme.of(context)
                                               .textTheme
                                               .headline3
                                               .copyWith(
-                                                  fontSize: Dimensions
-                                                      .FONT_SIZE_SMALL,
-                                                  color: ColorResources
-                                                      .getGreyBunkerColor(
+                                                  fontSize: Dimensions.FONT_SIZE_SMALL,
+                                                  color:
+                                                      ColorResources.getGreyBunkerColor(
                                                           context)),
                                         ),
                                       ],
