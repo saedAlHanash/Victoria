@@ -29,7 +29,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
     <string>This app needs access to location to manage coverage of restaurant and when add a new address.</string>
     <key>NSPhotoLibraryUsageDescription</key>
-    <string>This app requires access to the camera.</string>
+    <string>This app requires access to the camera to upload customer profile picture.</string>
     <key>NSCameraUsageDescription</key>
     <string>This app requires access to the camera to upload customer profile picture.</string>
     <key>NSMicrophoneUsageDescription</key>
