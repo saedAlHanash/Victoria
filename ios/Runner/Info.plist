@@ -60,5 +60,14 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<!-- Permission options for the `location` group -->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Our app needs to access your location to provide you with the best experience possible. Would you like to allow us to use your location?</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Our app needs to access your location to provide you with the best experience possible. Would you like to allow us to use your location?</string>
+    <key>NSLocationUsageDescription</key>
+    <string>Our app needs to access your location to provide you with the best experience possible. Would you like to allow us to use your location?</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Our app needs to access your location to provide you with the best experience possible. Would you like to allow us to use your location?</string>
 </dict>
 </plist>
