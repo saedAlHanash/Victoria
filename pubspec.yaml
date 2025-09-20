@@ -1,72 +1,101 @@
-name: emarket_user
-description: A new Flutter restaurant application.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.0.1+6
+name: victoria
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.2+2
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=3.3.1 <4.0.0'
 
 dependencies:
-  flutter:
-    sdk: flutter
   flutter_localizations:
     sdk: flutter
+  flutter:
+    sdk: flutter
 
-  cupertino_icons: ^1.0.0
-  get_it: ^7.2.0
-  provider: ^6.0.3
-  shared_preferences: ^2.0.5
-  dio: ^4.0.0-prev2
-  image_picker: ^0.8.4+8
-  pin_code_fields: ^7.0.0
-  google_maps_flutter_web: ^0.4.0
-  google_maps_flutter: ^2.0.3
-  flutter_google_places: ^0.3.0
-  geocoding: ^2.0.0
-  geolocator: ^9.0.2
-  shimmer_animation: ^2.0.0
-  url_launcher: ^6.0.2
-  webview_flutter: ^3.0.0
-  firebase_core: ^2.2.0
-  firebase_messaging: ^14.1.0
-  flutter_local_notifications: ^12.0.3
-  path_provider: ^2.0.1
-  connectivity: ^3.0.3
-  photo_view: ^0.14.0
-  url_strategy: ^0.2.0
-  carousel_slider: ^4.0.0
-  fluro: ^2.0.3
-  universal_html: ^2.0.8
-  universal_ui: ^0.0.8
-  image: ^3.0.2
-  flutter_widget_from_html_core: ^0.8.5+1
-  phone_number: ^1.0.0
-  country_code_picker: ^2.0.2
-  flutter_typeahead: ^4.0.0
-  fwfh_selectable_text: ^0.8.3+1
 
+  drawable_text:
+    git:
+      url: https://github.com/saedAlHanash/drawable_text
+      ref: android
+
+  image_multi_type:
+    git:
+      url: https://github.com/saedAlHanash/image_multi_type
+
+  m_cubit:
+#    path: ../../packages/m_cubit
+    git:
+      url: https://github.com/saedAlHanash/m_cubit
+
+  cupertino_icons: ^1.0.8
+
+#  flutter_cached_pdfview: ^0.4.3
+#  screen_protector: ^1.4.2+1
+  group_button: ^5.3.4
+  flutter_bloc: ^9.1.1
+  equatable: ^2.0.7
+  get_it: ^8.2.0
+  http: ^1.5.0
+  shared_preferences: ^2.5.3
+  lottie: ^3.3.1
+  flutter_screenutil: ^5.9.3
+  pinput: ^5.0.2
+  carousel_slider: ^5.1.1
+#  image_picker: ^1.1.2
+  url_launcher: ^6.3.2
+#  url_launcher_ios: ^6.3.3
+  logger: ^2.6.1
+  dropdown_button2: ^2.3.9
+  google_maps_flutter: ^2.13.1
+#  firebase_core: ^4.0.0
+#  firebase_messaging: ^16.0.0
+#  firebase_auth: ^5.6.2
+#  app_links: ^6.4.0
+  intl: ^0.20.2
+  collection: ^1.19.1
+#  path_provider: ^2.1.5
+#  path: ^1.9.1
+  geolocator: ^14.0.2
+  flutter_local_notifications: ^19.4.1
+  package_info_plus: ^8.3.1
+#  hive: ^2.2.3
+#  share_plus: ^11.0.0
+  awesome_dialog: ^3.2.1
+#  google_sign_in: ^7.1.0
+#  file_picker: ^10.3.1
+  #  open_filex: ^4.7.0
+  curved_labeled_navigation_bar: ^2.0.6
+#  youtube_player_flutter: ^9.1.1
+  pull_to_refresh: ^2.0.0
+  string_similarity: ^2.1.1
+#  kiosk_mode: ^0.7.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-dependency_overrides:
-  modal_bottom_sheet: ^3.0.0-pre
+  flutter_lints: ^6.0.0
 
 flutter:
+  generate: true
   uses-material-design: true
 
   assets:
-    - assets/icon/
-    - assets/image/
-    - assets/language/
-
+    - assets/fonts/
+    - assets/icons/
+    - assets/images/
+    - assets/
   fonts:
-    - family: Rubik
+    - family: regular
       fonts:
-        - asset: assets/fonts/Rubik-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/Rubik-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/Rubik-Bold.ttf
-          weight: 700
+        - asset: assets/fonts/cairo.ttf
+    - family: semeBold
+      fonts:
+        - asset: assets/fonts/cairo_semi_bold.ttf
+    - family: bold
+      fonts:
+        - asset: assets/fonts/cairo_bold.ttf
+
+flutter_intl:
+  enabled: true
