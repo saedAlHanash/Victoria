@@ -4,12 +4,7 @@ class LoginInitial extends AbstractState<LoginResponse> {
   @override
   final LoginRequest request;
 
-  const LoginInitial({
-    required super.result,
-    super.error,
-    required this.request,
-    super.statuses,
-  });
+  const LoginInitial({required super.result, super.error, required this.request, super.statuses});
 
   factory LoginInitial.initial() {
     return LoginInitial(
@@ -20,17 +15,12 @@ class LoginInitial extends AbstractState<LoginResponse> {
     );
   }
 
-  bool get canSend => !request.email.isBlank && !request.password.isBlank;
+  bool get canSend => !request.phone.isBlank && !request.password.isBlank;
 
   @override
   List<Object> get props => [statuses, result, error];
 
-  LoginInitial copyWith({
-    CubitStatuses? statuses,
-    LoginResponse? result,
-    String? error,
-    LoginRequest? request,
-  }) {
+  LoginInitial copyWith({CubitStatuses? statuses, LoginResponse? result, String? error, LoginRequest? request}) {
     return LoginInitial(
       statuses: statuses ?? this.statuses,
       result: result ?? this.result,

@@ -95,11 +95,7 @@ class AppProvider {
         ctx!,
         text: 'تأكيد تسجيل الخروج',
         textButton: 'تسجيل الخروج',
-        image: ImageMultiType(
-          url: Assets.imagesLogo,
-          height: 100.0.r,
-          width: 100.0.r,
-        ),
+        image: ImageMultiType(url: Assets.imagesLogo, height: 100.0.r, width: 100.0.r),
         onConfirm: () async {
           await AppSharedPreference.logout();
           await AppSharedPreference.reload();
@@ -116,8 +112,8 @@ class AppProvider {
     }
   }
 
-  static Future<void> cacheEmail({required String email, required StartPage type}) async {
-    await AppSharedPreference.cashEmail(email);
+  static Future<void> cacheEmail({required String phone, required StartPage type}) async {
+    await AppSharedPreference.cashEmail(phone);
     await AppSharedPreference.cashStartPage(type);
   }
 

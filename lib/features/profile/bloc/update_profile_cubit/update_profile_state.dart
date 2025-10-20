@@ -25,10 +25,7 @@ class UpdateProfileInitial extends AbstractState<Profile> {
   List<Object> get props => [statuses, result, error];
 
   UpdateProfileInitial copyWith(
-      {CubitStatuses? statuses,
-      Profile? result,
-      String? error,
-      UpdateProfileRequest? request}) {
+      {CubitStatuses? statuses, Profile? result, String? error, UpdateProfileRequest? request}) {
     return UpdateProfileInitial(
       statuses: statuses ?? this.statuses,
       result: result ?? this.result,

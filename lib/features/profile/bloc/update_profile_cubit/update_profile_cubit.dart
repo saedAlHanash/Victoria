@@ -33,10 +33,7 @@ class UpdateProfileCubit extends MCubit<UpdateProfileInitial> {
   }
 
   Future<Pair<Profile?, String?>> _updateProfileApi() async {
-    final response = await APIService().uploadMultiPart(
-      url: PostUrl.updateProfile,
-      fields: state.mRequest.toJson(),
-    );
+    final response = await APIService().uploadMultiPart(url: PostUrl.updateProfile, fields: state.mRequest.toJson());
 
     if (response.statusCode.success) {
       return Pair(Profile.fromJson(response.jsonBody), null);
@@ -49,5 +46,5 @@ class UpdateProfileCubit extends MCubit<UpdateProfileInitial> {
 
   set setPhone(String? phone) => state.mRequest.phone = phone;
 
-  set setEmail(String? email) => state.mRequest.email = email;
+  set setEmail(String? phone) => state.mRequest.phone = phone;
 }

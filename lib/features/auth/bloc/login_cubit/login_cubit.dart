@@ -51,10 +51,7 @@ class LoginCubit extends Cubit<LoginInitial> {
       return pair;
     } else {
       if (response.statusCode == 311) {
-        await AppProvider.cacheEmail(
-          email: state.request.email!,
-          type: StartPage.signupOtp,
-        );
+        await AppProvider.cacheEmail(phone: state.request.phone!, type: StartPage.signupOtp);
 
         Navigator.pushNamed(ctx!, RouteName.confirmCode);
       }
@@ -62,13 +59,13 @@ class LoginCubit extends Cubit<LoginInitial> {
     }
   }
 
-  set setPhone(String? email) => state.request.email = email;
+  set setPhone(String? phone) => state.request.phone = phone;
 
   set setPassword(String? password) => state.request.password = password;
 
   String? get validatePhone {
-    if (state.request.email.isBlank) {
-      return '${S().email}'
+    if (state.request.phone.isBlank) {
+      return '${S().phoneNumber}'
           ' ${S().is_required}';
     }
     return null;

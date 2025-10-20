@@ -52,7 +52,7 @@ class _MenuScreenState extends State<MenuScreen> {
                     text: state.result.name,
                   ),
                   subtitle: DrawableText(
-                    text: state.result.email,
+                    text: state.result.phone,
                     color: Colors.black45,
                   ),
                   leading: CircleAvatar(

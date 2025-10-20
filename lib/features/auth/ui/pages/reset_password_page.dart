@@ -37,11 +37,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     return BlocListener<ResetPasswordCubit, ResetPasswordInitial>(
       listenWhen: (p, c) => c.statuses == CubitStatuses.done,
       listener: (context, state) {
-        Navigator.pushNamedAndRemoveUntil(
-          context,
-          RouteName.donePage,
-          (route) => false,
-        );
+        Navigator.pushNamedAndRemoveUntil(context, RouteName.donePage, (route) => false);
       },
       child: Scaffold(
         body: Column(
@@ -67,7 +63,6 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                               validator: (p0) => resetPassCubit.validatePassword,
                               label: S.of(context).password,
                               initialValue: resetPassCubit.state.request.password,
-                              keyBordType: TextInputType.emailAddress,
                               onChanged: (val) => resetPassCubit.setPassword = val,
                             ),
                             20.0.verticalSpace,
