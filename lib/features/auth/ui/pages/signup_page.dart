@@ -34,9 +34,7 @@ class _SignupPageState extends State<SignupPage> {
         Navigator.pushNamedAndRemoveUntil(context, RouteName.confirmCode, (route) => false);
       },
       child: Scaffold(
-        appBar: AppBarWidget(
-          zeroHeight: true,
-        ),
+        appBar: AppBarWidget(zeroHeight: true),
         body: ListView(
           children: [
             AuthCardImage(
@@ -49,12 +47,7 @@ class _SignupPageState extends State<SignupPage> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10.0).r,
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColorManager.black.withValues(alpha: 0.06),
-                    blurRadius: 24,
-                  ),
-                ],
+                boxShadow: [BoxShadow(color: AppColorManager.black.withValues(alpha: 0.06), blurRadius: 24)],
               ),
               child: Form(
                 key: _formKey,

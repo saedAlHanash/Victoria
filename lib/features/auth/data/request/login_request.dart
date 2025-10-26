@@ -1,29 +1,19 @@
 import 'package:victoria/services/firebase_service.dart';
 
 class LoginRequest {
-  String? email;
+  String? phone;
   String? password;
   String? code;
 
-  LoginRequest({
-    this.email,
-    this.password,
-    this.code,
-  });
+  LoginRequest({this.phone, this.password, this.code});
 
-  LoginRequest copyWith({
-    String? email,
-    String? password,
-  }) {
-    return LoginRequest(
-      email: email ?? this.email,
-      password: password ?? this.password,
-    );
+  LoginRequest copyWith({String? phone, String? password}) {
+    return LoginRequest(phone: phone ?? this.phone, password: password ?? this.password);
   }
 
   Future<Map<String, dynamic>> toJson() async {
     return {
-      'email': email,
+      'phone': phone,
       'password': password,
       'otp': code,
       'fcm_token': 'no token',

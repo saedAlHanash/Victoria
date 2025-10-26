@@ -49,9 +49,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ],
       child: Scaffold(
-        appBar: AppBarWidget(
-          zeroHeight: true,
-        ),
+        appBar: AppBarWidget(zeroHeight: true),
         body: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -67,12 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10.0).r,
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColorManager.black.withValues(alpha: 0.06),
-                        blurRadius: 24,
-                      ),
-                    ],
+                    boxShadow: [BoxShadow(color: AppColorManager.black.withValues(alpha: 0.06), blurRadius: 24)],
                   ),
                   child: Column(
                     children: [
@@ -82,14 +75,11 @@ class _LoginPageState extends State<LoginPage> {
                           child: Column(
                             children: [
                               MyTextFormOutLineWidget(
-                                autofillHints: const [
-                                  AutofillHints.username,
-                                  AutofillHints.email,
-                                ],
+                                autofillHints: const [AutofillHints.username, AutofillHints.telephoneNumber],
                                 validator: (p0) => p0.validateEmpty,
-                                hint: S.of(context).email,
-                                initialValue: loginCubit.state.request.email,
-                                keyBordType: TextInputType.emailAddress,
+                                hint: S.of(context).phoneNumber,
+                                initialValue: loginCubit.state.request.phone,
+                                keyBordType: TextInputType.phone,
                                 onChanged: (val) => loginCubit.setPhone = val,
                               ),
                               MyTextFormOutLineWidget(
@@ -112,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                               Navigator.pushNamed(
                                 context,
                                 RouteName.forgetPassword,
-                                arguments: loginCubit.state.request.email,
+                                arguments: loginCubit.state.request.phone,
                               );
                             },
                             child: DrawableText(
@@ -125,10 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                           DrawableText(
                             text: 'تذكرني',
                             color: Colors.grey,
-                            drawableEnd: Checkbox(
-                              value: true,
-                              onChanged: (value) {},
-                            ),
+                            drawableEnd: Checkbox(value: true, onChanged: (value) {}),
                           ),
                         ],
                       ),
@@ -185,10 +172,7 @@ class _ForgetAndRememberWidgetState extends State<_ForgetAndRememberWidget> {
       children: [
         DrawableText(
           text: S.of(context).rememberMe,
-          drawableEnd: Checkbox(
-            value: true,
-            onChanged: (value) {},
-          ),
+          drawableEnd: Checkbox(value: true, onChanged: (value) {}),
         ),
       ],
     );

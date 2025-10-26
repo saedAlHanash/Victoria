@@ -23,17 +23,17 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordInitial> {
       emit(state.copyWith(statuses: CubitStatuses.error, error: pair.second));
       showErrorFromApi(state);
     } else {
-      await AppProvider.cacheEmail(
-        email: state.phoneC.text,
-        type: StartPage.passwordOtp,
-      );
+      await AppProvider.cacheEmail(phone: state.phoneC.text, type: StartPage.passwordOtp);
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
     }
   }
 
   Future<Pair<bool?, String?>> _forgetPasswordApi() async {
-    final response = await APIService()
-        .callApi(type: ApiType.post, url: PostUrl.forgetPassword, body: {'phone': state.phoneC.text.fixPhone});
+    final response = await APIService().callApi(
+      type: ApiType.post,
+      url: PostUrl.forgetPassword,
+      body: {'phone': state.phoneC.text.fixPhone},
+    );
 
     if (response.statusCode.success) {
       return Pair(true, null);

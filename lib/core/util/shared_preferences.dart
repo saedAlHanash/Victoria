@@ -8,7 +8,7 @@ import '../strings/enum_manager.dart';
 class AppSharedPreference {
   //region Keys
   static const _token = '1';
-  static const _email = '2';
+  static const _phone = '2';
   static const _fireToken = '3';
   static const _lang = '4';
   static const _screenType = '5';
@@ -43,15 +43,15 @@ class AppSharedPreference {
   //endregion
 
   //region Email
-  static Future<void> cashEmail(String? email) async {
-    if (email == null) return;
-    await _prefs?.setString(_email, email);
+  static Future<void> cashEmail(String? phone) async {
+    if (phone == null) return;
+    await _prefs?.setString(_phone, phone);
   }
 
-  static String get getEmail => _prefs?.getString(_email) ?? '';
+  static String get getEmail => _prefs?.getString(_phone) ?? '';
 
   static Future<void> removeEmail() async {
-    await _prefs?.remove(_email);
+    await _prefs?.remove(_phone);
   }
 
   //endregion
@@ -137,8 +137,7 @@ class AppSharedPreference {
     await _prefs?.setString(_resendTime, d.toIso8601String());
   }
 
-  static DateTime get getResendDateTime =>
-      DateTime.tryParse(_prefs?.getString(_resendTime) ?? '') ?? DateTime.now();
+  static DateTime get getResendDateTime => DateTime.tryParse(_prefs?.getString(_resendTime) ?? '') ?? DateTime.now();
 
   //endregion
 
@@ -146,5 +145,5 @@ class AppSharedPreference {
   static Future<void> clear() async => await _prefs?.clear();
 
   static Future<void> logout() async => await _prefs?.clear();
-//endregion
+  //endregion
 }

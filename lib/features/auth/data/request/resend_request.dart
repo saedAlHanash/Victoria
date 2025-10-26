@@ -1,19 +1,13 @@
 import '../../../../core/util/shared_preferences.dart';
 
 class ResendRequest {
-  ResendRequest({
-    this.email,
-  });
+  ResendRequest({this.phone});
 
-  String? email;
+  String? phone;
 
   factory ResendRequest.fromJson(Map<String, dynamic> json) {
-    return ResendRequest(
-      email: json["email"] ?? "",
-    );
+    return ResendRequest(phone: json["phone"] ?? "");
   }
 
-  Map<String, dynamic> toJson() => {
-        "email": email ?? AppSharedPreference.getEmail,
-      };
+  Map<String, dynamic> toJson() => {"phone": phone ?? AppSharedPreference.getEmail};
 }

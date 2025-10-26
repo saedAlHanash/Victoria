@@ -50,13 +50,13 @@ class ConfirmCodeCubit extends Cubit<ConfirmCodeInitial> {
     }
   }
 
-  set setPhone(String? email) => state.request.email = email;
+  set setPhone(String? phone) => state.request.phone = phone;
 
   set setCode(String? code) => state.request.code = code;
 
   String? get validatePhone {
-    if (state.request.email.isBlank) {
-      return '${S().email}'
+    if (state.request.phone.isBlank) {
+      return '${S().phoneNumber}'
           ' ${S().is_required}';
     }
     return null;

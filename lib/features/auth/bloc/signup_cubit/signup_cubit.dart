@@ -27,21 +27,14 @@ class SignupCubit extends MCubit<SignupInitial> {
       emit(state.copyWith(error: pair.second, statuses: CubitStatuses.error));
       showErrorFromApi(state);
     } else {
-      await AppProvider.cacheEmail(
-        email: state.request.email!,
-        type: StartPage.signupOtp,
-      );
+      await AppProvider.cacheEmail(phone: state.request.phone!, type: StartPage.signupOtp);
 
       emit(state.copyWith(statuses: CubitStatuses.done, result: pair.first));
     }
   }
 
   Future<Pair<bool?, String?>> _signupApi() async {
-    final response = await APIService().callApi(
-      url: PostUrl.signup,
-      type: ApiType.post,
-      body: state.request.toJson(),
-    );
+    final response = await APIService().callApi(url: PostUrl.signup, type: ApiType.post, body: state.request.toJson());
 
     if (response.statusCode.success) {
       return Pair(true, null);
@@ -62,7 +55,7 @@ class SignupCubit extends MCubit<SignupInitial> {
   set setBirthday(DateTime? birthday) => state.request.birthday = birthday;
 
   set setPhone(String? phone) => state.request.phone = phone;
-  set setEmail(String? phone) => state.request.email = phone;
+  set setEmail(String? phone) => state.request.phone = phone;
 
   set setPassword(String? password) => state.request.password = password;
 
@@ -91,7 +84,7 @@ class SignupCubit extends MCubit<SignupInitial> {
 
   String? get validatePhone {
     if (state.request.phone.isBlank) {
-      return '${S().email} - ${S().phoneNumber}'
+      return '${S().phoneNumber}'
           ' ${S().is_required}';
     }
     return null;
