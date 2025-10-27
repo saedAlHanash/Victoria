@@ -346,5 +346,6 @@
   "notifications": "notifications",
   "quantity": "Quantity",
   "yourAccountHasBeenCreatedSuccessfully": "Your account has been created successfully.",
-  "no": "No"
+  "no": "No",
+  "needPay": "Need Pay"
 }

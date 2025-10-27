@@ -315,6 +315,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "needLogin": MessageLookupByLibrary.simpleMessage(
       "Please Log In to continue ",
     ),
+    "needPay": MessageLookupByLibrary.simpleMessage("Need Pay"),
     "new1": MessageLookupByLibrary.simpleMessage("New"),
     "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "new_arrival": MessageLookupByLibrary.simpleMessage("New Arrival"),

@@ -96,6 +96,15 @@ extension SplitByLength on String {
   }
 
   num get tryParseOrZero => num.tryParse(this) ?? 0;
+  bool get tryParseOrFalse {
+    if (toLowerCase() == 'true') return true;
+    if (toLowerCase() == 'false') return false;
+
+    final number = num.tryParse(this);
+    if (number == 1) return true;
+
+    return false;
+  }
 
   num tryParseOr(num n) => num.tryParse(this) ?? n;
 

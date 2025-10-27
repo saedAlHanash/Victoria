@@ -20,26 +20,27 @@ class TopSellingProducts extends StatelessWidget {
       create: (context) => sl<ProductsCubit>()..getData(type: GetProductsType.topSell),
       child: Builder(
         builder: (context) {
-          return Column(
-            children: [
-              SeeAllHeader(
-                title: S.of(context).topSellingProducts,
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    RouteName.products,
-                    arguments: [context.read<ProductsCubit>(), S.of(context).topSellingProducts],
-                  );
-                },
-              ),
-              10.0.verticalSpace,
-              SizedBox(
-                height: 220.0.h,
-                width: 1.0.sw,
-                child: BlocBuilder<ProductsCubit, ProductsInitial>(
-                  builder: (context, state) {
-                    final list = state.result.take(3).toList();
-                    return ListView.separated(
+          return BlocBuilder<ProductsCubit, ProductsInitial>(
+            builder: (context, state) {
+              if (state.isDataEmpty) return 0.0.verticalSpace;
+              final list = state.result.take(3).toList();
+              return Column(
+                children: [
+                  SeeAllHeader(
+                    title: S.of(context).topSellingProducts,
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        RouteName.products,
+                        arguments: [context.read<ProductsCubit>(), S.of(context).topSellingProducts],
+                      );
+                    },
+                  ),
+
+                  SizedBox(
+                    height: 213.0.h,
+                    width: 1.0.sw,
+                    child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       itemCount: list.length,
                       separatorBuilder: (_, i) => 10.0.horizontalSpace,
@@ -47,11 +48,11 @@ class TopSellingProducts extends StatelessWidget {
                         final item = list[i];
                         return ItemProduct(product: item);
                       },
-                    );
-                  },
-                ),
-              ),
-            ],
+                    ),
+                  ),
+                ],
+              );
+            },
           );
         },
       ),

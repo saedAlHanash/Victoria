@@ -1,3 +1,5 @@
+import 'package:victoria/core/extensions/extensions.dart';
+
 import '../../../../core/strings/enum_manager.dart';
 import '../../../address/data/response/address_response.dart';
 import '../../../product/data/response/product_response.dart';
@@ -30,6 +32,7 @@ class Order {
     required this.discount,
     required this.products,
     required this.address,
+    required this.isTemporary,
   });
 
   final int id;
@@ -40,17 +43,20 @@ class Order {
   final num discount;
   final List<Product> products;
   final Address address;
+  final bool isTemporary;
 
   factory Order.fromJson(Map<String, dynamic> json) {
     return Order(
       id: json["id"] ?? 0,
-      status: OrderStatus.getByNameOrIndex(json["status"]?.toString() ?? ""),
+      status: OrderStatus.getByNameOrIndex(
+          (json["is_temporary"]).toString().tryParseOrFalse ? 'need_pay' : (json["status"]?.toString() ?? "")),
       total: json["total"] ?? 0,
       deliveryPrice: json["delivery_price"] ?? 0,
       totalWithDeliveryPrice: json["total_with_delivery_price"] ?? 0,
       discount: json["discount"] ?? 0,
       products: json["product"] == null ? [] : List<Product>.from(json["product"]!.map((x) => Product.fromJson(x))),
       address: Address.fromJson(json["address"] ?? {}),
+      isTemporary: (json["is_temporary"]).toString().tryParseOrFalse,
     );
   }
 
@@ -63,5 +69,29 @@ class Order {
         "discount": discount,
         "product": products.map((x) => x.toJson()).toList(),
         "address": address.toJson(),
+        "is_temporary": isTemporary,
       };
+}
+
+class PayOrderResponse {
+  PayOrderResponse({
+    required this.paymentUrl,
+    required this.paymentId,
+  });
+
+  final String paymentUrl;
+  final int paymentId;
+
+  factory PayOrderResponse.fromJson(Map<String, dynamic> json){
+    return PayOrderResponse(
+      paymentUrl: json["payment_url"] ?? "",
+      paymentId: json["payment_id"] ?? 0,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+    "payment_url": paymentUrl,
+    "payment_id": paymentId,
+  };
+
 }

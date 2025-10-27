@@ -6,6 +6,7 @@ class Assets {
   static const String fontsCairoBold = 'assets/fonts/cairo_bold.ttf';
   static const String fontsCairoSemiBold = 'assets/fonts/cairo_semi_bold.ttf';
   static const String iconsAppBarBack = 'assets/icons/app_bar_back.svg';
+  static const String iconsBack = 'assets/icons/back.svg';
   static const String iconsBox = 'assets/icons/box.svg';
   static const String iconsCart = 'assets/icons/cart.svg';
   static const String iconsCartF = 'assets/icons/cart_f.svg';
@@ -32,4 +33,5 @@ class Assets {
   static const String imagesEmpty = 'assets/images/empty.png';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesUser = 'assets/images/user.png';
+
 }

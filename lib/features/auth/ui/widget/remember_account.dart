@@ -16,7 +16,7 @@ class RememberPassword extends StatelessWidget {
     return Center(
       child: DrawableText(
         text: S.of(context).iRememberedMyPassword,
-        color: AppColorManager.gray,
+        color: AppColorManager.grey,
         drawablePadding: 7.0.w,
         drawableEnd: InkWell(
           onTap: () {
@@ -43,7 +43,7 @@ class RememberAccount extends StatelessWidget {
     return Center(
       child: DrawableText(
         text: S.of(context).iWantToChangeAccount,
-        color: AppColorManager.gray,
+        color: AppColorManager.grey,
         drawablePadding: 7.0.w,
         drawableEnd: InkWell(
           onTap: () async {

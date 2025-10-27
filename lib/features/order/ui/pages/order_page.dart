@@ -4,7 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_multi_type/image_multi_type.dart';
+import 'package:victoria/core/api_manager/api_service.dart';
 import 'package:victoria/core/extensions/extensions.dart';
+import 'package:victoria/core/helper/launcher_helper.dart';
+import 'package:victoria/core/widgets/my_button.dart';
 import 'package:victoria/core/widgets/refresh_widget/refresh_widget.dart';
 import 'package:victoria/features/address/ui/widget/item_address.dart';
 import 'package:victoria/features/order/ui/widget/item_order_widget.dart';
@@ -16,6 +19,7 @@ import '../../../../core/widgets/app_bar/app_bar_widget.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../bloc/order_cubit/order_cubit.dart';
+import '../../bloc/orders_cubit/orders_cubit.dart';
 import '../widget/item_product.dart';
 
 class OrderPage extends StatelessWidget {
@@ -23,7 +27,16 @@ class OrderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<OrderCubit, OrderInitial>(
+    return BlocConsumer<OrderCubit, OrderInitial>(
+      listenWhen: (p, c) => c.done && (!c.payOrder.paymentId.isBlankNumber),
+      listener: (context, state) {
+        LauncherHelper.openPage(state.payOrder.paymentUrl).then(
+          (value) {
+            context.read<OrderCubit>().getData(newData: true);
+            context.read<OrdersCubit>().getData(newData: true);
+          },
+        );
+      },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBarWidget(
@@ -39,15 +52,15 @@ class OrderPage extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 5.0).r,
                       margin: const EdgeInsets.symmetric(horizontal: 20.0).r,
                       decoration: BoxDecoration(
-                        color: state.result.status.getOrderStateColorText.withValues(alpha: 0.2),
+                        color: state.result.status.color.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(8.0).r,
                         border: Border.all(
-                          color: state.result.status.getOrderStateColorText,
+                          color: state.result.status.color,
                         ),
                       ),
                       child: DrawableText(
                         text: state.result.status.name,
-                        color: state.result.status.getOrderStateColorText,
+                        color: state.result.status.color,
                       ),
                     );
                   },
@@ -55,6 +68,18 @@ class OrderPage extends StatelessWidget {
               )
             ],
           ),
+          bottomNavigationBar: state.result.isTemporary
+              ? Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: MyButton(
+                    loading: state.loading,
+                    onTap: () {
+                      context.read<OrderCubit>().payOrder();
+                    },
+                    text: S.of(context).ePayment,
+                  ),
+                )
+              : null,
           body: RefreshWidget(
             onRefresh: () {
               context.read<OrderCubit>().getData(newData: true);

@@ -126,7 +126,7 @@ class _MyTextFormOutLineWidgetState extends State<MyTextFormOutLineWidget> {
       fillColor: AppColorManager.f9,
       label: DrawableText(
         text: widget.label,
-        color: AppColorManager.gray,
+        color: AppColorManager.grey,
         size: 16.0.spMin,
       ),
       counter: const SizedBox(),
@@ -134,7 +134,7 @@ class _MyTextFormOutLineWidgetState extends State<MyTextFormOutLineWidget> {
       floatingLabelBehavior: FloatingLabelBehavior.always,
       hintTextDirection: widget.textDirection,
       hintStyle: TextStyle(
-        color: AppColorManager.gray,
+        color: AppColorManager.grey,
         fontSize: 14.0.sp,
         fontFamily: FontManager.semeBold.name,
       ),

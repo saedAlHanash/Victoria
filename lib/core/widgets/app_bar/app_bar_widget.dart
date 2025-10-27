@@ -113,8 +113,8 @@ class BackBtnWidget extends StatelessWidget {
         if (!Navigator.canPop(context)) return;
         Navigator.pop(context);
       },
-      icon: Icon(
-        Icons.arrow_back_ios,
+      icon: ImageMultiType(
+        url:  Assets.iconsBack,
         color: isColorDark(appBarColor) ? Colors.white : AppColorManager.black,
       ),
     );

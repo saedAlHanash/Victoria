@@ -345,5 +345,6 @@
   "notifications": "الإشعارات",
   "quantity": "الكمية",
   "yourAccountHasBeenCreatedSuccessfully": "تم إنشاء حسابك بنجاح.",
-  "no": "لا"
+  "no": "لا",
+  "needPay": "الدفع مطلوب"
 }

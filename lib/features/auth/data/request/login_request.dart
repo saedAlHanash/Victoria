@@ -1,3 +1,4 @@
+import 'package:victoria/core/extensions/extensions.dart';
 import 'package:victoria/services/firebase_service.dart';
 
 class LoginRequest {
@@ -13,7 +14,7 @@ class LoginRequest {
 
   Future<Map<String, dynamic>> toJson() async {
     return {
-      'phone': phone,
+      'phone': phone.fixPhone,
       'password': password,
       'otp': code,
       'fcm_token': 'no token',

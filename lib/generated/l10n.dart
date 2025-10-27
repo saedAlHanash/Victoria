@@ -2633,6 +2633,11 @@ class S {
   String get no {
     return Intl.message('No', name: 'no', desc: '', args: []);
   }
+
+  /// `Need Pay`
+  String get needPay {
+    return Intl.message('Need Pay', name: 'needPay', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

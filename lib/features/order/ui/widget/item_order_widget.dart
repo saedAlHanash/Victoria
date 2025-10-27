@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 import 'package:image_multi_type/round_image_widget.dart';
+import 'package:victoria/core/app_theme.dart';
 import 'package:victoria/core/extensions/extensions.dart';
+import 'package:victoria/core/widgets/my_button.dart';
 
 import '../../../../core/strings/app_color_manager.dart';
 import '../../../../core/strings/enum_manager.dart';
@@ -11,8 +13,8 @@ import '../../../../generated/l10n.dart';
 import '../../../../router/app_router.dart';
 import '../../data/response/order_response.dart';
 
-class ItemOrderWidget extends StatelessWidget {
-  const ItemOrderWidget({super.key, required this.order});
+class ItemOrderHeader extends StatelessWidget {
+  const ItemOrderHeader({super.key, required this.order});
 
   final Order order;
 
@@ -37,13 +39,13 @@ class ItemOrderWidget extends StatelessWidget {
       trailing: Container(
         padding: const EdgeInsets.all(5.0),
         decoration: BoxDecoration(
-          color: order.status.getOrderStateColorText.withValues(alpha: 0.2),
+          color: order.status.color.withValues(alpha: 0.2),
           borderRadius: BorderRadius.circular(8.0.r),
         ),
         child: DrawableText(
           text: order.status.name,
           size: 14.0.sp,
-          color: order.status.getOrderStateColorText,
+          color: order.status.color,
           drawableAlin: DrawableAlin.between,
         ),
       ),
@@ -90,6 +92,7 @@ class OrderPrices extends StatelessWidget {
   const OrderPrices({super.key, required this.order});
 
   final Order order;
+
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -26,6 +26,7 @@ class SeeAllHeader extends StatelessWidget {
               child: DrawableText(
                 text: S.of(context).see_all,
                 color: AppColorManager.mainColor,
+                size: 12.0.sp,
                 drawableEnd: ImageMultiType(
                   height: 12.0.sp,
                   url: Icons.arrow_forward_ios,

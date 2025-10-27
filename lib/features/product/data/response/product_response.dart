@@ -1,5 +1,11 @@
+import 'package:drawable_text/drawable_text.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:victoria/core/api_manager/api_service.dart';
+import 'package:victoria/core/extensions/extensions.dart';
 
+import '../../../../core/strings/app_color_manager.dart';
+import '../../../../core/strings/enum_manager.dart';
 import '../../../category/data/response/category_response.dart';
 
 class Products {
@@ -70,6 +76,67 @@ class Product {
 
   int count = 1;
   final List<Product> suggestedProducts;
+
+  Widget get priceWidget => Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          DrawableText(
+            text: priceAfter.formatPrice,
+            color: AppColorManager.black,
+            matchParent: true,
+            fontFamily: FontManager.bold.name,
+            size: 16.0.sp,
+          ),
+          2.0.verticalSpace,
+          // if ((price != priceAfter))
+          DrawableText(
+            text: price.formatPrice,
+            textDecoration: TextDecoration.lineThrough,
+            color: AppColorManager.grey,
+            matchParent: true,
+          ),
+        ],
+      );
+
+  Widget get priceWidgetH => Row(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          DrawableText(
+            text: priceAfter.formatPrice,
+            color: AppColorManager.black,
+            fontFamily: FontManager.bold.name,
+          ),
+          5.0.horizontalSpace,
+          if ((price != priceAfter))
+            DrawableText(
+              text: price.formatPrice,
+              size: 12.0.sp,
+              textDecoration: TextDecoration.lineThrough,
+              color: AppColorManager.lightGrayAb,
+            ),
+        ],
+      );
+
+  Widget get priceWidgetH1 => Row(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          if ((price != priceAfter))
+            DrawableText(
+              text: price.formatPrice,
+              textDecoration: TextDecoration.lineThrough,
+              color: AppColorManager.grey,
+              size: 18.0.sp,
+            ),
+          5.0.horizontalSpace,
+          DrawableText(
+            text: priceAfter.formatPrice,
+            fontFamily: FontManager.bold.name,
+            color: AppColorManager.mainColor,
+            fontWeight: FontWeight.bold,
+            size: 18.0.sp,
+          ),
+        ],
+      );
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(

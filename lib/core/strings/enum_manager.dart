@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:string_similarity/string_similarity.dart';
+import 'package:victoria/core/api_manager/api_service.dart';
 
 import '../../generated/l10n.dart';
 import '../util/pair_class.dart';
@@ -246,9 +247,11 @@ enum OrderStatus {
   accepted,
   completed,
   cancelled,
-  returned;
+  returned,
+  needPay,
+  ;
 
-  Color get getOrderStateColorText {
+  Color get color {
     switch (this) {
       case OrderStatus.pending:
       case OrderStatus.accepted:
@@ -258,6 +261,8 @@ enum OrderStatus {
       case OrderStatus.cancelled:
       case OrderStatus.returned:
         return Colors.red;
+      case OrderStatus.needPay:
+        return Colors.grey;
     }
   }
 
@@ -269,10 +274,12 @@ enum OrderStatus {
       OrderStatus.completed => S().completed,
       OrderStatus.cancelled => S().cancelled,
       OrderStatus.returned => S().returned,
+      OrderStatus.needPay => S().needPay,
     };
   }
 
   static OrderStatus getByNameOrIndex(String name) {
+
     final i = int.tryParse(name);
     if (i != null) {
       return OrderStatus.values[i];
@@ -283,6 +290,7 @@ enum OrderStatus {
       'completed' => OrderStatus.completed,
       'cancelled' => OrderStatus.cancelled,
       'returned' => OrderStatus.returned,
+      'need_pay' => OrderStatus.needPay,
       _ => OrderStatus.pending,
     };
   }

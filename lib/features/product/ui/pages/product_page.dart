@@ -27,7 +27,7 @@ class ProductPage extends StatelessWidget {
       builder: (context, state) {
         final product = state.result;
         return Scaffold(
-          appBar: AppBarWidget(titleText: state.result.name, color: Colors.white),
+          appBar: AppBarWidget(color: Colors.white),
           bottomNavigationBar: Padding(
             padding: const EdgeInsets.all(15.0).r,
             child: Row(
@@ -49,16 +49,19 @@ class ProductPage extends StatelessWidget {
             },
             child: ListView(
               children: [
-                CardImageSlider(
-                  images: state.result.image,
-                  stackChild: [
-                    PositionedDirectional(
-                      top: 10,
-                      start: 10,
-                      child: FavBtnWidget(product: state.result),
-                    ),
-                  ],
-                  height: 300.0.h,
+                Container(
+                  color: AppColorManager.ef,
+                  child: CardImageSlider(
+                    images: state.result.image,
+                    stackChild: [
+                      PositionedDirectional(
+                        top: 10,
+                        start: 10,
+                        child: FavBtnWidget(product: state.result),
+                      ),
+                    ],
+                    height: 293.0.h,
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(20.0).r,
@@ -67,62 +70,42 @@ class ProductPage extends StatelessWidget {
                       DrawableText(
                         text: state.result.name,
                         matchParent: true,
-                        size: 24.0,
+                        drawableEnd: DrawableText(
+                          text: '(${S.of(context).quantity}:${product.quantity})',
+                          color: Colors.grey,
+                        ),
+                        size: 18.0,
                       ),
                       10.0.verticalSpace,
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Expanded(
-                            child: Row(
-                              children: [
-                                if (product.priceAfter != product.price)
-                                  DrawableText(
-                                    text: product.price.formatPrice,
-                                    textDecoration: TextDecoration.lineThrough,
-                                    color: Colors.grey,
-                                    size: 18.0.sp,
-                                  ),
-                                4.0.horizontalSpace,
-                                DrawableText(
-                                  text: product.priceAfter.formatPrice,
-                                  color: Colors.purple,
-                                  fontWeight: FontWeight.bold,
-                                  size: 18.0.sp,
-                                ),
-                              ],
-                            ),
+                            child: product.priceWidgetH1,
                           ),
                           AmountWidgetCart(product: product),
                         ],
                       ),
-                      20.0.verticalSpace,
-                      Container(
-                        decoration: MyStyle.roundBoxGray,
-                        padding: EdgeInsets.all(10.0),
-                        child: DrawableText(
-                          text: S.of(context).quantity,
-                          matchParent: true,
-                          size: 18.0,
-                          drawableEnd: DrawableText(
-                            text: product.quantity.toString(),
-                            size: 18.0.sp,
-                          ),
+                      10.0.verticalSpace,
+                      if (product.description.isNotEmpty) ...[
+                        20.0.verticalSpace,
+                        Column(
+                          children: [
+                            DrawableText(
+                              text: S.of(context).description,
+                              size: 18.0.sp,
+                              matchParent: true,
+                            ),
+                            DrawableText(
+                              text: product.description,
+                              matchParent: true,
+                              padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0).r,
+                              color: Colors.grey,
+                            ),
+                          ],
                         ),
-                      ),
+                      ],
                       10.0.verticalSpace,
-                      DrawableText(
-                        text: S.of(context).description,
-                        matchParent: true,
-                        size: 18.0,
-                      ),
-                      10.0.verticalSpace,
-                      DrawableText(
-                        text: product.description,
-                        matchParent: true,
-                        color: Colors.grey,
-                      ),
-                      20.0.verticalSpace,
                       RelatedProducts(product: product),
                     ],
                   ),
@@ -185,7 +168,7 @@ class _AmountWidgetCartState extends State<AmountWidgetCart> {
       DrawableText(
         text: widget.product.count.toString(),
         padding: widget.axis == Axis.horizontal
-            ? EdgeInsets.symmetric(horizontal: 10.0).r
+            ? EdgeInsets.symmetric(horizontal: 15.0).r
             : EdgeInsets.symmetric(vertical: 5.0).r,
         color: Colors.black,
       ),
