@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:victoria/core/extensions/extensions.dart';
+import 'package:victoria/core/strings/enum_manager.dart';
 import 'package:victoria/core/widgets/not_found_widget.dart';
 import 'package:victoria/core/widgets/refresh_widget/refresh_widget.dart';
 import 'package:victoria/core/widgets/spinner_widget.dart';
@@ -64,6 +65,15 @@ class _CartScreenState extends State<CartScreen> {
                             for (var e in state.result) ItemProductCart(product: e),
                             20.0.verticalSpace,
                             const CouponWidget(),
+                            SpinnerWidget(
+                              items:
+                                  PaymentMethod.values.getSpinnerItems(selectedId: oState.cRequest.paymentMethod.index),
+                              hintLabel: 'طريقة الدفع',
+                              onChanged: (spinnerItem) {
+                                oState.cRequest.paymentMethod = spinnerItem.item;
+                              },
+                            ),
+                            20.0.verticalSpace,
                             BlocBuilder<AddressesCubit, AddressesInitial>(
                               builder: (context, aState) {
                                 return SpinnerWidget(
