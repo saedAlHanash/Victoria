@@ -58,10 +58,6 @@ class OrdersCubit extends MCubit<OrdersInitial> {
 
   //region CRUD
   Future<void> create() async {
-    // emit(state.copyWith(statuses: CubitStatuses.loading));
-    // await Future.delayed(const Duration(seconds: 1));
-    // emit(state.copyWith(statuses: CubitStatuses.done));
-    // return;
     emit(state.copyWith(statuses: CubitStatuses.loading, cubitCrud: CubitCrud.create));
 
     final response = await APIService().callApi(
@@ -71,6 +67,24 @@ class OrdersCubit extends MCubit<OrdersInitial> {
     );
 
     await getData(newData: true);
+  }
+
+  Future<void> payOrder() async {
+    emit(state.copyWith(statuses: CubitStatuses.loading));
+
+    final response = await APIService().callApi(
+      type: ApiType.get,
+      url: GetUrl.getPaymentUrl,
+      path: state.id.toString(),
+    );
+
+    if (response.statusCode.success) {
+      final m = PayOrderResponse.fromJson(response.jsonBody);
+      emit(state.copyWith(payOrder: m, statuses: CubitStatuses.done));
+    } else {
+      emit(state.copyWith(error: ErrorManager.getApiError(response), statuses: CubitStatuses.error));
+      showErrorFromApi(state);
+    }
   }
 
   Future<void> update() async {

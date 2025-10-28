@@ -278,7 +278,11 @@ class AppRoutes {
           return MaterialPageRoute(
             builder: (_) {
               final providers = [
-                BlocProvider(create: (_) => sl<OrderCubit>()..getData(orderId: settings.arguments.toString())),
+                BlocProvider(
+                    create: (_) => sl<OrderCubit>()
+                      ..getData(
+                        orderId: settings.arguments.toString(),
+                      )),
               ];
               return MultiBlocProvider(
                 providers: providers,

@@ -9,23 +9,28 @@ class OrdersInitial extends AbstractState<List<Order>> {
     super.cubitCrud,
     super.createUpdateRequest,
     super.statuses,
+    required this.payOrder,
     super.id,
   });
 
+  final PayOrderResponse payOrder;
+
   factory OrdersInitial.initial() {
-    return  OrdersInitial(
+    return OrdersInitial(
       result: [],
       createUpdateRequest: CreateOrderRequest.fromJson({}),
+      payOrder: PayOrderResponse.fromJson({}),
     );
   }
 
-  CreateOrderRequest get  cRequest => createUpdateRequest;
+  CreateOrderRequest get cRequest => createUpdateRequest;
 
   String get mId => id;
 
   @override
   List<Object> get props => [
         statuses,
+        payOrder,
         result,
         error,
         cubitCrud,
@@ -37,6 +42,7 @@ class OrdersInitial extends AbstractState<List<Order>> {
 
   OrdersInitial copyWith({
     CubitStatuses? statuses,
+    PayOrderResponse? payOrder,
     CubitCrud? cubitCrud,
     List<Order>? result,
     String? error,
@@ -47,6 +53,7 @@ class OrdersInitial extends AbstractState<List<Order>> {
   }) {
     return OrdersInitial(
       statuses: statuses ?? this.statuses,
+      payOrder: payOrder ?? this.payOrder,
       cubitCrud: cubitCrud ?? this.cubitCrud,
       result: result ?? this.result,
       error: error ?? this.error,
@@ -57,4 +64,3 @@ class OrdersInitial extends AbstractState<List<Order>> {
     );
   }
 }
-
