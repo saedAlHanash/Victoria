@@ -25,7 +25,7 @@ class AddToCartProductCard extends StatelessWidget {
         context.read<CartCubit>().addToCart(product);
       },
       color: AppColorManager.mainColor,
-      radios: 16.0.r,
+      radios: 8.0.r,
       height: 26.0.h,
       child: DrawableText(
         text: S.of(context).addToCart,

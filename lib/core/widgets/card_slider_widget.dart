@@ -123,7 +123,7 @@ class _CardImageSliderState extends State<CardImageSlider> {
               url: e,
               width: widget.width ?? 1.0.sw,
               height: 1.0.sh,
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             );
           },
         ).toList(),
@@ -141,29 +141,7 @@ class _CardImageSliderState extends State<CardImageSlider> {
     );
 
     if (widget.stackChild != null) {
-      widgets.add(
-        IgnorePointer(
-          child: Container(
-            height: 1.0.sh,
-            width: widget.width ?? 1.0.sw,
-            clipBehavior: Clip.hardEdge,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12.0.r),
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.black.withValues(alpha: 0.01),
-                  Colors.black.withValues(alpha: 0.01),
-                  Colors.black.withValues(alpha: 0.1),
-                  Colors.black.withValues(alpha: 0.2),
-                  Colors.black.withValues(alpha: 0.4),
-                ],
-              ),
-            ),
-          ),
-        ),
-      );
+
       for (var e in widget.stackChild!) {
         widgets.add(e);
       }
@@ -198,13 +176,18 @@ class _CardImageSliderState extends State<CardImageSlider> {
   }
 }
 
+
 class IndicatorSliderWidget extends StatefulWidget {
   const IndicatorSliderWidget({
     super.key,
     required this.length,
+    this.selectedColor,
+    this.unselectedColor,
   });
 
   final int length;
+  final Color? selectedColor;
+  final Color? unselectedColor;
 
   @override
   State<IndicatorSliderWidget> createState() => IndicatorSliderWidgetState();
@@ -225,9 +208,15 @@ class IndicatorSliderWidgetState extends State<IndicatorSliderWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    if (widget.length < 2) return 0.0.verticalSpace;
+    return Container(
       //7
-      height: 5.0.h,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12.0).r,
+        color: Colors.black26,
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 7.0, vertical: 5.0).r,
+      height: 10.0.h,
       child: ListView.separated(
         itemCount: widget.length,
         shrinkWrap: true,
@@ -235,10 +224,12 @@ class IndicatorSliderWidgetState extends State<IndicatorSliderWidget> {
         itemBuilder: (context, i) {
           return AnimatedContainer(
             //20      /7
-            width: selected == i ? 15.0.w : 5.0.w,
+            width: selected == i ? 10.0.w : 10.0.w,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5.0),
-                color: selected == i ? AppColorManager.mainColor : Colors.white),
+                color: selected == i
+                    ? (widget.selectedColor ?? AppColorManager.mainColorLight)
+                    : (widget.unselectedColor ?? Colors.white)),
             duration: const Duration(milliseconds: 150),
           );
         },

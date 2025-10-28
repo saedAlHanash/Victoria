@@ -425,7 +425,7 @@ class SpinnerOutlineTitle extends StatelessWidget {
           expanded: expanded,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.0.r),
-            border: Border.all(color: AppColorManager.gray, width: 1.0.r),
+            border: Border.all(color: AppColorManager.grey, width: 1.0.r),
           ),
         )
       ],

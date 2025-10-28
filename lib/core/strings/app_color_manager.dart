@@ -7,7 +7,7 @@ class AppColorManager {
   static const textColor = Color(0xFF606060);
   static const black = Color(0xFF000000);
   static const ampere = Color(0xFFFFC107);
-  static const gray = Color(0xFF848484);
+  static const grey = Color(0xFF848484);
   static const lightGray = Color(0xFFFBFBFB);
   static const lightGrayAb = Color(0xFFABABAB);
   static const lightGrayEd = Color(0xFFEDEDED);
@@ -35,6 +35,8 @@ class AppColorManager {
   static const f8 = Color(0xFFF8F8F8);
   static const d2 = Color(0xFFD2D2D2);
   static const c1 = Color(0xFF1C1C1C);
+  static const ef = Color(0xFFEFEFEF);
+
 }
 
 Color getColorFromHex(String hexColor) {
@@ -55,7 +57,7 @@ Color getCheckColor(Color color) {
   if (isColorDark(color)) {
     return Colors.white;
   } else {
-    return AppColorManager.gray;
+    return AppColorManager.grey;
   }
 }
 

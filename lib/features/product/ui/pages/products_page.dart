@@ -214,7 +214,7 @@ class _SearchProductsWidgetState extends State<SearchProductsWidget> {
       },
       icon: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0).w,
-        child: ImageMultiType(url: Icons.search, color: AppColorManager.gray),
+        child: ImageMultiType(url: Icons.search, color: AppColorManager.grey),
       ),
       hint: S.of(context).search_In_All,
       textInputAction: TextInputAction.search,

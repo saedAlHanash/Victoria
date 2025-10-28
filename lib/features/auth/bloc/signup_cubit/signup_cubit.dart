@@ -55,7 +55,7 @@ class SignupCubit extends MCubit<SignupInitial> {
   set setBirthday(DateTime? birthday) => state.request.birthday = birthday;
 
   set setPhone(String? phone) => state.request.phone = phone;
-  set setEmail(String? phone) => state.request.phone = phone;
+  set setEmail(String? phone) => state.request.email = phone;
 
   set setPassword(String? password) => state.request.password = password;
 

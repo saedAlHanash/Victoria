@@ -27,22 +27,22 @@ class MyStyle {
       color: AppColorManager.mainColor.withValues(alpha: 0.9));
 
   static var normalShadow = [
-    BoxShadow(color: AppColorManager.gray.withValues(alpha: 0.6), blurRadius: 15, offset: const Offset(0, 5))
+    BoxShadow(color: AppColorManager.grey.withValues(alpha: 0.6), blurRadius: 15, offset: const Offset(0, 5))
   ];
 
   static var lightShadow = [
-    BoxShadow(color: AppColorManager.gray.withValues(alpha: 0.5), blurRadius: 5, offset: const Offset(0, 2))
+    BoxShadow(color: AppColorManager.grey.withValues(alpha: 0.5), blurRadius: 5, offset: const Offset(0, 2))
   ];
 
   static var allShadow = [
     BoxShadow(
-      color: AppColorManager.gray.withValues(alpha: 0.5),
+      color: AppColorManager.grey.withValues(alpha: 0.5),
       blurRadius: 10,
     )
   ];
   static var allShadowDark = [
     BoxShadow(
-      color: AppColorManager.gray.withValues(alpha: 0.6),
+      color: AppColorManager.grey.withValues(alpha: 0.6),
       blurRadius: 10.spMin,
     )
   ];
@@ -56,7 +56,7 @@ class MyStyle {
   static final hintStyle = TextStyle(
     fontFamily: FontManager.semeBold.name,
     fontSize: 18.0.spMin,
-    color: AppColorManager.gray.withValues(alpha: 0.6),
+    color: AppColorManager.grey.withValues(alpha: 0.6),
   );
   static final textFormTextStyle = TextStyle(
     color: Colors.black87,

@@ -1,6 +1,7 @@
 import 'package:m_cubit/abstraction.dart';
 import 'package:victoria/core/api_manager/api_service.dart';
 import 'package:victoria/core/api_manager/api_url.dart';
+import 'package:victoria/core/error/error_manager.dart';
 import 'package:victoria/core/extensions/extensions.dart';
 import 'package:victoria/core/strings/enum_manager.dart';
 import 'package:victoria/core/util/pair_class.dart';
@@ -15,7 +16,7 @@ class OrderCubit extends MCubit<OrderInitial> {
   String get nameCache => 'order';
 
   @override
-  String get filter => state.filter;
+  String get filter => state.id.toString();
 
   Future<void> getData({bool newData = false, String? orderId}) async {
     emit(state.copyWith(id: orderId));
@@ -26,6 +27,24 @@ class OrderCubit extends MCubit<OrderInitial> {
       getDataApi: _getData,
       newData: newData,
     );
+  }
+
+  Future<void> payOrder() async {
+    emit(state.copyWith(statuses: CubitStatuses.loading));
+
+    final response = await APIService().callApi(
+      type: ApiType.get,
+      url: GetUrl.getPaymentUrl,
+      path: state.id.toString(),
+    );
+
+    if (response.statusCode.success) {
+      final m = PayOrderResponse.fromJson(response.jsonBody);
+      emit(state.copyWith(payOrder: m, statuses: CubitStatuses.done));
+    } else {
+      emit(state.copyWith(error: ErrorManager.getApiError(response), statuses: CubitStatuses.error));
+      showErrorFromApi(state);
+    }
   }
 
   Future<Pair<Order?, String?>> _getData() async {

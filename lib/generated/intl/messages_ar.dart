@@ -295,6 +295,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "needLogin": MessageLookupByLibrary.simpleMessage(
       "للمتابعة يرجى تسجيل الدخول",
     ),
+    "needPay": MessageLookupByLibrary.simpleMessage("الدفع مطلوب"),
     "new1": MessageLookupByLibrary.simpleMessage("جديد"),
     "newPassword": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
     "new_arrival": MessageLookupByLibrary.simpleMessage("وصول جديد"),

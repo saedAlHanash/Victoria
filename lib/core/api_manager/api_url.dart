@@ -107,6 +107,8 @@ class GetUrl {
   static const freeExams = 'exam/free-exams';
 
   static var examCategorized = 'exam/categorized';
+
+  static const getPaymentUrl = 'order/payment';
 }
 
 class PostUrl {

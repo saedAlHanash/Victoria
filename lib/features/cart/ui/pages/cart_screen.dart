@@ -93,7 +93,7 @@ class _CartScreenState extends State<CartScreen> {
                                   ..couponCode = state.couponCode
                                   ..address = state.address
                                   ..products =
-                                      state.result.map((e) => ProductDto(id: e.id, quantity: e.quantity)).toList();
+                                      state.result.map((e) => ProductDto(id: e.id, quantity: e.count)).toList();
 
                                 context.read<OrdersCubit>().create();
                               },

@@ -14,10 +14,10 @@ class LauncherHelper {
     }
   }
 
-  static Future<void> openPage(String url) async {
+  static Future<bool> openPage(String url) async {
     final googleUrl = Uri.parse(url);
 
-    await launchUrl(googleUrl, mode: LaunchMode.externalApplication);
+    return await launchUrl(googleUrl, mode: LaunchMode.platformDefault);
   }
 
   static Future<void> callPhone({String? phone}) async {

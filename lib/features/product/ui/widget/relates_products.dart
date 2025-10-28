@@ -20,6 +20,7 @@ class RelatedProducts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final list = product.suggestedProducts.toList();
+    if(list.isEmpty)return 0.0.verticalSpace;
     return BlocProvider(
       create: (context) => sl<ProductsCubit>()..getData(type: GetProductsType.topSell),
       child: Builder(

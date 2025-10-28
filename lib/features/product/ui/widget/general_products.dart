@@ -22,6 +22,7 @@ class GeneralProducts extends StatelessWidget {
         builder: (context) {
           return BlocBuilder<ProductsCubit, ProductsInitial>(
             builder: (context, state) {
+              if(state.isDataEmpty)return 0.0.verticalSpace;
               final list = state.result.take(3).toList();
               return Column(
                 children: [
@@ -37,7 +38,7 @@ class GeneralProducts extends StatelessWidget {
                   ),
                   10.0.verticalSpace,
                   SizedBox(
-                    height: 220.0.h,
+                    height: 213.0.h,
                     width: 1.0.sw,
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,

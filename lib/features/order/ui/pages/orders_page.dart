@@ -1,7 +1,9 @@
 import 'package:collection/collection.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:victoria/core/extensions/extensions.dart';
 import 'package:victoria/core/util/my_style.dart';
 
 import '../../../../core/widgets/app_bar/app_bar_widget.dart';
@@ -20,14 +22,18 @@ class OrdersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(titleText: S.of(context).myOrders),
+      appBar: AppBarWidget(titleText: S
+          .of(context)
+          .myOrders),
       body: BlocBuilder<OrdersCubit, OrdersInitial>(
         builder: (context, state) {
           final list = state.result;
 
           if (list.isEmpty && !state.loading) {
             return NotFoundWidget(
-              text: S.of(context).emptyOrders,
+              text: S
+                  .of(context)
+                  .emptyOrders,
               icon: Assets.imagesEmpty,
             );
           }
@@ -38,20 +44,21 @@ class OrdersPage extends StatelessWidget {
               context.read<OrdersCubit>().getData(newData: true);
             },
             child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(horizontal: 20.0).r,
+              padding: EdgeInsets
+                  .symmetric(horizontal: 20.0)
+                  .r,
               child: MyExpansionWidget(
                 decoration: MyStyle.roundBoxGray,
                 elevation: 0.0,
                 items: list
                     .mapIndexed(
-                      (i, e) => ItemExpansion(
-                        id: e.id,
+                      (i, e) =>
+                      ItemExpansion(
+                        id: e.id.isBlankNumber ? Random().nextInt(1000) : e.id,
                         body: ItemOrderBody(order: e),
-                        header: ItemOrderWidget(
-                          order: e,
-                        ),
+                        header: ItemOrderHeader(order: e),
                       ),
-                    )
+                )
                     .toList(),
               ),
             ),
