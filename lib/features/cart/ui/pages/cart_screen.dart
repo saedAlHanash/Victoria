@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:victoria/core/extensions/extensions.dart';
+import 'package:victoria/core/helper/launcher_helper.dart';
 import 'package:victoria/core/strings/enum_manager.dart';
 import 'package:victoria/core/widgets/not_found_widget.dart';
 import 'package:victoria/core/widgets/refresh_widget/refresh_widget.dart';
@@ -42,9 +43,16 @@ class _CartScreenState extends State<CartScreen> {
             context.read<CartCubit>()
               ..clearCash()
               ..getDataFromCache();
+
             context.read<HomeCubit>().jumpPage(0);
+
             Navigator.pushNamed(context, RouteName.orders);
+            if (!state.payOrder.paymentId.isBlankNumber) {
+              LauncherHelper.openPage(state.payOrder.paymentUrl);
+            }
+
             NoteMessage.showSuccessSnackBar(context: context, message: S.of(context).done);
+            context.read<OrdersCubit>().reInitial();
           },
         ),
       ],

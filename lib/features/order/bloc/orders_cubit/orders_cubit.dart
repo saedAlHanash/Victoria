@@ -65,25 +65,27 @@ class OrdersCubit extends MCubit<OrdersInitial> {
       url: PostUrl.createOrder,
       body: state.cRequest.toJson(),
     );
-
-    await getData(newData: true);
+    final order = Order.fromJson(response.jsonBodyData);
+    if (!order.isTemporary) {
+      await getData(newData: true);
+    } else {
+      await payOrder(order.id);
+      await getData(newData: true);
+    }
   }
 
-  Future<void> payOrder() async {
-    emit(state.copyWith(statuses: CubitStatuses.loading));
+  Future<void> payOrder(int id) async {
+    // emit(state.copyWith(statuses: CubitStatuses.loading));
 
     final response = await APIService().callApi(
       type: ApiType.get,
       url: GetUrl.getPaymentUrl,
-      path: state.id.toString(),
+      path: id.toString(),
     );
 
     if (response.statusCode.success) {
       final m = PayOrderResponse.fromJson(response.jsonBody);
-      emit(state.copyWith(payOrder: m, statuses: CubitStatuses.done));
-    } else {
-      emit(state.copyWith(error: ErrorManager.getApiError(response), statuses: CubitStatuses.error));
-      showErrorFromApi(state);
+      emit(state.copyWith(payOrder: m));
     }
   }
 
@@ -157,5 +159,9 @@ class OrdersCubit extends MCubit<OrdersInitial> {
     if (listJson == null) return;
     final list = listJson.map((e) => Order.fromJson(e)).toList();
     emit(state.copyWith(result: list));
+  }
+
+  void reInitial() {
+    emit(OrdersInitial.initial());
   }
 }
