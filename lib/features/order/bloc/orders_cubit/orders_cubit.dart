@@ -8,6 +8,7 @@ import 'package:victoria/core/util/pair_class.dart';
 import 'package:victoria/features/order/data/request/create_order_request.dart';
 import 'package:victoria/features/order/data/response/order_response.dart';
 
+import '../../../../core/app/app_provider.dart';
 import '../../../../core/error/error_manager.dart';
 
 part 'orders_state.dart';
@@ -32,6 +33,7 @@ class OrdersCubit extends MCubit<OrdersInitial> {
       );
 
   Future<void> getData({bool newData = false}) async {
+    if (AppProvider.isGuest) return;
     await getDataAbstract(
       fromJson: Order.fromJson,
       state: state,

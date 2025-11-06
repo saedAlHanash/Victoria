@@ -77,6 +77,8 @@ class AppProvider {
     return false;
   }
 
+  static bool get isGuest => AppSharedPreference.getToken.isEmpty;
+
   static Future<void> login({required LoginResponse response}) async {
     await AppSharedPreference.cashToken(response.token);
     await AppSharedPreference.cashUser(response.user);

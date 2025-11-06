@@ -13,6 +13,7 @@ import 'package:victoria/router/app_router.dart';
 import 'package:victoria/services/app_info_service.dart';
 
 import '../../../../../core/strings/app_color_manager.dart';
+import '../../../../../core/widgets/need_login_widget.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../profile/bloc/get_me_cubit/get_me_cubit.dart';
@@ -31,6 +32,9 @@ class _MenuScreenState extends State<MenuScreen> {
       border: Border.all(color: AppColorManager.cardColor),
       borderRadius: BorderRadius.circular(14.0.r),
     );
+    if (AppProvider.isGuest) {
+      return NeedLoginWidget();
+    }
     return Scaffold(
       body: BlocBuilder<GetMeCubit, GetMeInitial>(
         builder: (context, state) {
