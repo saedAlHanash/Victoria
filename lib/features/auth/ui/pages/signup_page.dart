@@ -76,14 +76,14 @@ class _SignupPageState extends State<SignupPage> {
                           hint: S.of(context).phoneNumberMustStartWith07,
                           onChanged: (val) => signupCubit.setPhone = val,
                         ),
-                        //البريد
-                        MyTextFormOutLineWidget(
-                          validator: (p0) => p0.validateEmpty,
-                          initialValue: signupState.request.email,
-                          keyBordType: TextInputType.emailAddress,
-                          hint: S.of(context).email,
-                          onChanged: (val) => signupCubit.setEmail = val,
-                        ),
+                        // //البريد
+                        // MyTextFormOutLineWidget(
+                        //   validator: (p0) => p0.validateEmpty,
+                        //   initialValue: signupState.request.email,
+                        //   keyBordType: TextInputType.emailAddress,
+                        //   hint: S.of(context).email,
+                        //   onChanged: (val) => signupCubit.setEmail = val,
+                        // ),
                         // كلمة السر
                         MyTextFormOutLineWidget(
                           validator: (p0) => signupCubit.validatePassword,

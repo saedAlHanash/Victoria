@@ -34,8 +34,8 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
 
         switch (getStartPage) {
           case StartPage.login:
-            Navigator.pushReplacementNamed(ctx!, RouteName.login);
-            break;
+            // Navigator.pushReplacementNamed(ctx!, RouteName.login);
+            // break;
           case StartPage.home:
             Navigator.pushReplacementNamed(ctx!, RouteName.home);
             break;
