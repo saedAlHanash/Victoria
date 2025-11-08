@@ -9,6 +9,7 @@ import 'package:intl/intl.dart';
 import 'package:victoria/core/api_manager/api_service.dart';
 
 import '../../features/cart/data/response/coupon_response.dart';
+import '../../features/product/data/response/product_response.dart';
 import '../../generated/l10n.dart';
 import '../error/error_manager.dart';
 import '../strings/app_color_manager.dart';
@@ -96,6 +97,7 @@ extension SplitByLength on String {
   }
 
   num get tryParseOrZero => num.tryParse(this) ?? 0;
+
   bool get tryParseOrFalse {
     if (toLowerCase() == 'true') return true;
     if (toLowerCase() == 'false') return false;
@@ -536,4 +538,105 @@ class FormatDateTime {
         '$minutes\n'
         '$seconds\n';
   }
+}
+
+extension ProductH on Product {
+  Widget get priceWidget => Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+
+          DrawableText(
+            text: priceAfter.formatPrice,
+            size: 20.0.sp,
+            fontWeight: FontWeight.bold,
+            fontFamily: FontManager.bold.name,
+            color: AppColorManager.mainColor,
+          ),
+          10.0.horizontalSpace,
+          // if ((price != priceAfter))
+          DrawableText(
+            text: price.formatPrice,
+            textDecoration: TextDecoration.lineThrough,
+            color: AppColorManager.grey,
+            size: 10.0.sp,
+          ),
+        ],
+      );
+
+  Widget get priceWidgetH => Row(
+        crossAxisAlignment: CrossAxisAlignment.baseline,
+        textBaseline: TextBaseline.alphabetic,
+        children: [
+          DrawableText(
+            text: S().price,
+            size: 16.0.sp,
+            fontWeight: FontWeight.bold,
+            fontFamily: FontManager.bold.name,
+            color: AppColorManager.black,
+          ),
+          Spacer(),
+          DrawableText(
+            padding: EdgeInsets.only(top: 10.0),
+            text: priceAfter.formatPrice,
+            size: 16.0.sp,
+            fontWeight: FontWeight.bold,
+            fontFamily: FontManager.bold.name,
+            color: AppColorManager.black,
+          ),
+          5.0.horizontalSpace,
+          if ((price != priceAfter))
+            DrawableText(
+              text: price.formatPrice,
+              textDecoration: TextDecoration.lineThrough,
+              color: AppColorManager.red,
+              size: 10.0.sp,
+            ),
+          5.0.verticalSpace,
+        ],
+      );
+
+  Widget get priceWidgetCart => Row(
+        crossAxisAlignment: CrossAxisAlignment.baseline,
+        textBaseline: TextBaseline.alphabetic,
+        children: [
+          DrawableText(
+            text: S().price,
+            size: 16.0.sp,
+            fontWeight: FontWeight.bold,
+            fontFamily: FontManager.bold.name,
+            color: AppColorManager.dividerColor,
+          ),
+          5.0.horizontalSpace,
+          DrawableText(
+            padding: EdgeInsets.only(top: 10.0),
+            text: priceAfter.formatPrice,
+            size: 16.0.sp,
+            fontWeight: FontWeight.bold,
+            fontFamily: FontManager.bold.name,
+            color: AppColorManager.dividerColor,
+          ),
+        ],
+      );
+
+  String get cartId => '$id';
+
+  bool get isAvailable => quantity > 0;
+
+  Widget get availableWidget => Container(
+        height: 30.0.h,
+        margin: EdgeInsets.symmetric(horizontal: 10.0).w,
+        padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 8.0).r,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: isAvailable ? AppColorManager.cardColor : AppColorManager.red,
+          borderRadius: BorderRadius.circular(200.0.r),
+        ),
+        child: DrawableText(
+          text: isAvailable ? 'متوفر' : 'غير متوفر',
+          fontWeight: FontWeight.bold,
+          fontFamily: FontManager.bold.name,
+          color: isAvailable ? AppColorManager.black : AppColorManager.white,
+        ),
+      );
 }

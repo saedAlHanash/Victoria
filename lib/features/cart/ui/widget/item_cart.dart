@@ -6,6 +6,8 @@ import 'package:image_multi_type/image_multi_type.dart';
 import 'package:image_multi_type/round_image_widget.dart';
 import 'package:victoria/core/api_manager/api_service.dart';
 import 'package:victoria/core/extensions/extensions.dart';
+import 'package:victoria/core/strings/enum_manager.dart';
+import 'package:victoria/core/util/snack_bar_message.dart';
 import 'package:victoria/features/product/ui/pages/product_page.dart';
 import 'package:victoria/router/app_router.dart';
 
@@ -55,22 +57,21 @@ class ItemProductCart extends StatelessWidget {
                 text: product.priceAfter.formatPrice,
                 color: AppColorManager.black,
                 matchParent: true,
-                drawablePadding: 10.0.w,
-                drawableAlin: DrawableAlin.withText,
-                drawableEnd: (product.price != product.priceAfter)
-                    ? DrawableText(
-                        text: product.price.formatPrice,
-                        textDecoration: TextDecoration.lineThrough,
-                        color: AppColorManager.redPrice,
-                        size: 12.0.sp,
-                      )
-                    : null,
+                fontFamily: FontManager.bold.name,
+                size: 16.0.sp,
               ),
             ),
           ),
           IconButton(
             onPressed: () {
-              context.read<CartCubit>().removeFromCart(product);
+              NoteMessage.showCheckDialog(
+                context,
+                text: 'هل تريد ازالة المنتج من السلة؟',
+                textButton: 'إزالة المنتج',
+                onConfirm: () {
+                  context.read<CartCubit>().removeFromCart(product);
+                },
+              );
             },
             icon: ImageMultiType(url: Assets.iconsDelete),
           ),

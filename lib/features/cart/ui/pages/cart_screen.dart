@@ -15,6 +15,7 @@ import 'package:victoria/features/order/data/request/create_order_request.dart';
 import '../../../../core/app/app_provider.dart';
 import '../../../../core/strings/app_color_manager.dart';
 import '../../../../core/util/snack_bar_message.dart';
+import '../../../../core/widgets/app_bar/app_bar_widget.dart';
 import '../../../../core/widgets/dashed_line.dart';
 import '../../../../core/widgets/my_button.dart';
 import '../../../../generated/l10n.dart';
@@ -27,7 +28,9 @@ import '../../bloc/coupon_cubit/coupon_cubit.dart';
 import '../widget/item_cart.dart';
 
 class CartScreen extends StatefulWidget {
-  const CartScreen({super.key});
+  const CartScreen({super.key, this.withAppBar = false});
+
+  final bool withAppBar;
 
   @override
   State<CartScreen> createState() => _CartScreenState();
@@ -63,73 +66,75 @@ class _CartScreenState extends State<CartScreen> {
           builder: (context, oState) {
             return BlocBuilder<CartCubit, CartInitial>(
               builder: (context, state) {
-                return RefreshWidget(
-                  isLoading: state.loading,
-                  onRefresh: () => context.read<CartCubit>().getDataFromCache(),
-                  child: state.isDataEmpty
+                return Scaffold(
+                  appBar: widget.withAppBar ? AppBarWidget(titleText: S.of(context).cart) : null,
+                  body: state.isDataEmpty
                       ? NotFoundWidget()
-                      : ListView(
-                          padding: EdgeInsets.symmetric(horizontal: 24.0).r,
-                          children: [
-                            for (var e in state.result) ItemProductCart(product: e),
-                            if (!AppProvider.isGuest) ...[
+                      : RefreshWidget(
+                          isLoading: state.loading,
+                          onRefresh: () => context.read<CartCubit>().getDataFromCache(),
+                          child: ListView(
+                            padding: EdgeInsets.symmetric(horizontal: 24.0).r,
+                            children: [
+                              for (var e in state.result) ItemProductCart(product: e),
+                              if (!AppProvider.isGuest) ...[
+                                20.0.verticalSpace,
+                                const CouponWidget(),
+                                SpinnerWidget(
+                                  items:
+                                      PaymentMethod.values.getSpinnerItems(selectedId: oState.cRequest.paymentMethod.index),
+                                  hintLabel: 'طريقة الدفع',
+                                  onChanged: (spinnerItem) {
+                                    oState.cRequest.paymentMethod = spinnerItem.item;
+                                  },
+                                ),
+                                20.0.verticalSpace,
+                                BlocBuilder<AddressesCubit, AddressesInitial>(
+                                  builder: (context, aState) {
+                                    return SpinnerWidget(
+                                      onChanged: (spinnerItem) {
+                                        if (spinnerItem.id < 0) {
+                                          Navigator.pushNamed(context, RouteName.address);
+                                        }
+                                        context.read<CartCubit>().setAddress(spinnerItem.item);
+                                      },
+                                      loading: aState.loading,
+                                      hintText: S.of(context).selectAddress,
+                                      hintLabel: S.of(context).selectAddress,
+                                      items: aState.getSpinnerItems(
+                                        selectedId: state.address.id.toString(),
+                                      ),
+                                    );
+                                  },
+                                ),
+                                20.0.verticalSpace,
+                              ],
+                              _TotalWidget(),
                               20.0.verticalSpace,
-                              const CouponWidget(),
-                              SpinnerWidget(
-                                items: PaymentMethod.values
-                                    .getSpinnerItems(selectedId: oState.cRequest.paymentMethod.index),
-                                hintLabel: 'طريقة الدفع',
-                                onChanged: (spinnerItem) {
-                                  oState.cRequest.paymentMethod = spinnerItem.item;
-                                },
-                              ),
-                              20.0.verticalSpace,
-                              BlocBuilder<AddressesCubit, AddressesInitial>(
-                                builder: (context, aState) {
-                                  return SpinnerWidget(
-                                    onChanged: (spinnerItem) {
-                                      if (spinnerItem.id < 0) {
-                                        Navigator.pushNamed(context, RouteName.address);
-                                      }
-                                      context.read<CartCubit>().setAddress(spinnerItem.item);
-                                    },
-                                    loading: aState.loading,
-                                    hintText: S.of(context).selectAddress,
-                                    hintLabel: S.of(context).selectAddress,
-                                    items: aState.getSpinnerItems(
-                                      selectedId: state.address.id.toString(),
-                                    ),
-                                  );
-                                },
-                              ),
-                              20.0.verticalSpace,
-                            ],
-                            _TotalWidget(),
-                            20.0.verticalSpace,
-                            if (!AppProvider.isGuest)
-                              MyButton(
-                                loading: oState.loading,
-                                color: AppColorManager.mainColor,
-                                onTap: () {
-                                  context.read<OrdersCubit>().state.cRequest
-                                    ..couponCode = state.couponCode
-                                    ..address = state.address
-                                    ..products =
-                                        state.result.map((e) => ProductDto(id: e.id, quantity: e.count)).toList();
+                              if (!AppProvider.isGuest)
+                                MyButton(
+                                  loading: oState.loading,
+                                  color: AppColorManager.mainColor,
+                                  onTap: () {
+                                    context.read<OrdersCubit>().state.cRequest
+                                      ..couponCode = state.couponCode
+                                      ..address = state.address
+                                      ..products = state.result.map((e) => ProductDto(id: e.id, quantity: e.count)).toList();
 
-                                  context.read<OrdersCubit>().create();
-                                },
-                                enable: (state.address.id != 0) && state.result.isNotEmpty,
-                                text: S.of(context).continueTo,
-                              )
-                            else
-                              MyButton(
-                                text: S.of(context).login,
-                                onTap: () {
-                                  Navigator.pushNamedAndRemoveUntil(context, RouteName.login, (route) => false);
-                                },
-                              ),
-                          ],
+                                    context.read<OrdersCubit>().create();
+                                  },
+                                  enable: (state.address.id != 0) && state.result.isNotEmpty,
+                                  text: S.of(context).continueTo,
+                                )
+                              else
+                                MyButton(
+                                  text: S.of(context).login,
+                                  onTap: () {
+                                    Navigator.pushNamedAndRemoveUntil(context, RouteName.login, (route) => false);
+                                  },
+                                ),
+                            ],
+                          ),
                         ),
                 );
               },

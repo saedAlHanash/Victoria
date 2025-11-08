@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
+import 'package:victoria/core/api_manager/api_service.dart';
 import 'package:victoria/core/strings/app_color_manager.dart';
 import 'package:victoria/core/widgets/my_card_widget.dart';
 
@@ -40,7 +41,7 @@ class CardSlider extends StatelessWidget {
             },
           ).toList(),
           options: CarouselOptions(
-            enableInfiniteScroll: false,
+
             autoPlayInterval: const Duration(seconds: 5),
             autoPlay: true,
             viewportFraction: 1,
@@ -52,18 +53,23 @@ class CardSlider extends StatelessWidget {
       ),
     );
 
+    // widgets.add(
+    //   Container(
+    //     height: height ?? 160.0.h,
+    //     width: 1.0.sw,
+    //     color: Colors.black12,
+    //   ),
+    // );
+
     widgets.add(
-      Container(
-        height: height ?? 160.0.h,
-        width: 1.0.sw,
-        color: Colors.black12,
+      Positioned(
+        bottom: 15.0.h,
+        child: IndicatorSliderWidget(
+          key: key,
+          length: images.length,
+        ),
       ),
     );
-
-    widgets.add(Positioned(
-      bottom: 15.0.h,
-      child: IndicatorSliderWidget(key: key, length: images.length),
-    ));
     return SizedBox(
       width: width,
       height: height,
@@ -141,7 +147,6 @@ class _CardImageSliderState extends State<CardImageSlider> {
     );
 
     if (widget.stackChild != null) {
-
       for (var e in widget.stackChild!) {
         widgets.add(e);
       }
@@ -176,7 +181,6 @@ class _CardImageSliderState extends State<CardImageSlider> {
   }
 }
 
-
 class IndicatorSliderWidget extends StatefulWidget {
   const IndicatorSliderWidget({
     super.key,
@@ -210,25 +214,23 @@ class IndicatorSliderWidgetState extends State<IndicatorSliderWidget> {
   Widget build(BuildContext context) {
     if (widget.length < 2) return 0.0.verticalSpace;
     return Container(
-      //7
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12.0).r,
-        color: Colors.black26,
-      ),
-      padding: EdgeInsets.symmetric(horizontal: 7.0, vertical: 5.0).r,
-      height: 10.0.h,
+
+      padding: EdgeInsets.symmetric(horizontal: 7.0).r,
+      height: 12.0.h,
       child: ListView.separated(
         itemCount: widget.length,
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, i) {
+          // return ImageMultiType(url: Icons.celebration);
           return AnimatedContainer(
-            //20      /7
-            width: selected == i ? 10.0.w : 10.0.w,
+            height: 5.0.h,
+            margin: EdgeInsets.symmetric(vertical: 2.0),
+            width: selected == i ? 15.0.w : 8.0.w,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5.0),
                 color: selected == i
-                    ? (widget.selectedColor ?? AppColorManager.mainColorLight)
+                    ? (widget.selectedColor ?? AppColorManager.mainColor)
                     : (widget.unselectedColor ?? Colors.white)),
             duration: const Duration(milliseconds: 150),
           );

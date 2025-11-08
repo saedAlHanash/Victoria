@@ -12,33 +12,53 @@ import 'package:victoria/features/favorite/ui/widget/fav_btn_widget.dart';
 import 'package:victoria/features/product/ui/widget/relates_products.dart';
 
 import '../../../../core/strings/app_color_manager.dart';
+import '../../../../core/strings/enum_manager.dart';
 import '../../../../core/widgets/app_bar/app_bar_widget.dart';
 import '../../../../core/widgets/refresh_widget/refresh_widget.dart';
 import '../../../../generated/l10n.dart';
+import '../../../../router/app_router.dart';
 import '../../bloc/product_cubit/product_cubit.dart';
 import '../../data/response/product_response.dart';
 
-class ProductPage extends StatelessWidget {
+class ProductPage extends StatefulWidget {
   const ProductPage({super.key});
 
+  @override
+  State<ProductPage> createState() => _ProductPageState();
+}
+
+class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProductCubit, ProductInitial>(
       builder: (context, state) {
         final product = state.result;
         return Scaffold(
-          appBar: AppBarWidget(color: Colors.white),
           bottomNavigationBar: Padding(
             padding: const EdgeInsets.all(15.0).r,
             child: Row(
               children: [
                 Expanded(
-                    child: MyButton(
-                  onTap: () {
-                    context.read<CartCubit>().addToCart(state.result);
-                  },
-                  text: S.of(context).add_to_cart,
-                )),
+                  flex: 2,
+                  child: MyButton(
+                    radios: 40.0.r,
+                    enable: state.result.isAvailable,
+                    onTap: () {
+                      context.read<CartCubit>().addToCart(state.result, context: context);
+                    },
+                    text: S.of(context).add_to_cart,
+                  ),
+                ),
+                15.0.horizontalSpace,
+                Expanded(
+                  child: OutLineButton(
+                    radios: 40.0.r,
+                    onTap: () {
+                      Navigator.pushNamed(context, RouteName.cart);
+                    },
+                    text: S.of(context).cart,
+                  ),
+                ),
               ],
             ),
           ),
@@ -55,9 +75,23 @@ class ProductPage extends StatelessWidget {
                     images: state.result.image,
                     stackChild: [
                       PositionedDirectional(
-                        top: 10,
-                        start: 10,
+                        top: MediaQuery.of(context).padding.top + 10,
+                        end: 10,
                         child: FavBtnWidget(product: state.result),
+                      ),
+                      PositionedDirectional(
+                        top: MediaQuery.of(context).padding.top + 10,
+                        start: 10,
+                        child: Transform.scale(
+                          scale: 0.8,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                            ),
+                            child: BackBtnWidget(appBarColor: Colors.white),
+                          ),
+                        ),
                       ),
                     ],
                     height: 293.0.h,
@@ -70,42 +104,40 @@ class ProductPage extends StatelessWidget {
                       DrawableText(
                         text: state.result.name,
                         matchParent: true,
-                        drawableEnd: DrawableText(
-                          text: '(${S.of(context).quantity}:${product.quantity})',
-                          color: Colors.grey,
-                        ),
-                        size: 18.0,
+                        fontFamily: FontManager.bold.name,
+                        size: 20.0,
                       ),
                       10.0.verticalSpace,
                       Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Expanded(
-                            child: product.priceWidgetH1,
+                            child: product.priceWidget,
                           ),
-                          AmountWidgetCart(product: product),
+                          AmountWidgetCart(
+                            product: product,
+                            onIncrement: (product) {
+                              setState(() {});
+                            },
+                            onDecrement: (product) {
+                              setState(() {});
+                            },
+                          ),
                         ],
                       ),
-                      10.0.verticalSpace,
-                      if (product.description.isNotEmpty) ...[
-                        20.0.verticalSpace,
-                        Column(
-                          children: [
-                            DrawableText(
-                              text: S.of(context).description,
-                              size: 18.0.sp,
-                              matchParent: true,
-                            ),
-                            DrawableText(
-                              text: product.description,
-                              matchParent: true,
-                              padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0).r,
-                              color: Colors.grey,
-                            ),
-                          ],
-                        ),
-                      ],
-                      10.0.verticalSpace,
+                      20.0.verticalSpace,
+                      Divider(),
+                      DrawableText(
+                        text: S.of(context).description,
+                        matchParent: true,
+                        size: 18.0.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      DrawableText(
+                        text: product.description,
+                        matchParent: true,
+                        padding: EdgeInsets.symmetric(vertical: 5.0).r,
+                        color: Colors.grey,
+                      ),
                       RelatedProducts(product: product),
                     ],
                   ),
@@ -144,18 +176,18 @@ class _AmountWidgetCartState extends State<AmountWidgetCart> {
     final items = [
       Builder(
         builder: (context) {
-          return Container(
-            height: 24.0.r,
-            width: 24.0.r,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: AppColorManager.mainColor)),
-            child: InkWell(
-              onTap: () {
-                setState(() {
-                  widget.product.count++;
-                  widget.onIncrement?.call(widget.product);
-                });
-              },
+          return InkWell(
+            onTap: () {
+              setState(() {
+                widget.product.count++;
+                widget.onIncrement?.call(widget.product);
+              });
+            },
+            child: Container(
+              height: 35.0.r,
+              width: 35.0.r,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: AppColorManager.mainColor)),
               child: ImageMultiType(
                 url: Icons.add,
                 color: AppColorManager.mainColor,
@@ -170,23 +202,25 @@ class _AmountWidgetCartState extends State<AmountWidgetCart> {
         padding: widget.axis == Axis.horizontal
             ? EdgeInsets.symmetric(horizontal: 15.0).r
             : EdgeInsets.symmetric(vertical: 5.0).r,
-        color: Colors.black,
+        size: 20.0.sp,
+        color: AppColorManager.grey,
+        fontWeight: FontWeight.bold,
       ),
       Builder(
         builder: (context) {
-          return Container(
-            height: 24.0.r,
-            width: 24.0.r,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: AppColorManager.mainColor)),
-            child: InkWell(
-              onTap: () {
-                if (widget.product.count <= 1) return;
-                setState(() {
-                  widget.product.count--;
-                  widget.onDecrement?.call(widget.product);
-                });
-              },
+          return InkWell(
+            onTap: () {
+              if (widget.product.count <= 1) return;
+              setState(() {
+                widget.product.count--;
+                widget.onDecrement?.call(widget.product);
+              });
+            },
+            child: Container(
+              height: 35.0.r,
+              width: 35.0.r,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: AppColorManager.mainColor)),
               child: ImageMultiType(
                 url: Icons.remove,
                 color: AppColorManager.mainColor,

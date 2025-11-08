@@ -5,6 +5,7 @@ class Assets {
   static const String fontsCairo = 'assets/fonts/cairo.ttf';
   static const String fontsCairoBold = 'assets/fonts/cairo_bold.ttf';
   static const String fontsCairoSemiBold = 'assets/fonts/cairo_semi_bold.ttf';
+  static const String iconsAddToCart = 'assets/icons/add_to_cart.svg';
   static const String iconsAppBarBack = 'assets/icons/app_bar_back.svg';
   static const String iconsBack = 'assets/icons/back.svg';
   static const String iconsBox = 'assets/icons/box.svg';
@@ -14,6 +15,7 @@ class Assets {
   static const String iconsDone = 'assets/icons/done.svg';
   static const String iconsEdit = 'assets/icons/edit.svg';
   static const String iconsEmpty = 'assets/icons/empty.svg';
+  static const String iconsEmptyQuantity = 'assets/icons/empty_quantity.svg';
   static const String iconsFileList = 'assets/icons/file-list.svg';
   static const String iconsHeart = 'assets/icons/heart.svg';
   static const String iconsHeartF = 'assets/icons/heart_f.svg';

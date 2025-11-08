@@ -132,39 +132,43 @@ class OutLineButton extends StatelessWidget {
           size: 14.0.sp,
           drawableEnd: loading
               ? SizedBox(
-                  height: 15.0.r,
-                  width: 15.0.r,
-                  child: CircularProgressIndicator.adaptive(
-                    backgroundColor: color,
-                    valueColor: const AlwaysStoppedAnimation<Color>(AppColorManager.mainColor),
-                  ),
-                )
+            height: 15.0.r,
+            width: 15.0.r,
+            child: CircularProgressIndicator.adaptive(
+              backgroundColor: color,
+              valueColor: const AlwaysStoppedAnimation<Color>(Colors.white),
+            ),
+          )
               : null,
           fontWeight: FontWeight.bold,
         );
 
     return SizedBox(
       width: width ?? .9.sw,
-      height: height,
+      height: height ?? 50.0.h,
       child: ElevatedButton(
         style: ButtonStyle(
-          surfaceTintColor: WidgetStatePropertyAll(color ?? AppColorManager.mainColor),
-          backgroundColor: WidgetStatePropertyAll(color ?? AppColorManager.mainColor),
+          surfaceTintColor: WidgetStatePropertyAll(color ?? AppColorManager.white),
+          backgroundColor: WidgetStatePropertyAll(color ?? AppColorManager.white),
           padding: WidgetStatePropertyAll(
             height != null ? EdgeInsets.zero : padding ?? const EdgeInsets.symmetric(vertical: 13.0).r,
           ),
+          elevation: WidgetStatePropertyAll(0),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(radios ?? 8.0.r),
-                side: BorderSide(color: AppColorManager.mainColor)),
+              borderRadius: BorderRadius.circular(radios ?? 50.0.r),
+              side: BorderSide(
+                color: AppColorManager.mainColor,
+              ),
+            ),
           ),
           alignment: Alignment.center,
         ),
         onPressed: loading
             ? null
             : !(enable ?? true)
-                ? null
-                : onTap,
+            ? null
+            : onTap,
         child: child,
       ),
     );

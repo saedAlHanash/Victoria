@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:victoria/core/strings/app_color_manager.dart';
 import 'package:victoria/core/widgets/card_slider_widget.dart';
 import 'package:victoria/features/ads/bloc/adss_cubit/adss_cubit.dart';
 
@@ -27,6 +28,7 @@ class AddsSlider extends StatelessWidget {
         return Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.0.r),
+            color: AppColorManager.cardColor,
           ),
           clipBehavior: Clip.hardEdge,
           child: CardSlider(

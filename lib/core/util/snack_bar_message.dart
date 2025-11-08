@@ -7,13 +7,101 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
 import 'package:victoria/core/strings/enum_manager.dart';
 
+import '../../generated/assets.dart';
 import '../../generated/l10n.dart';
+import '../api_manager/api_service.dart';
 import '../app/app_widget.dart';
 import '../strings/app_color_manager.dart';
 import '../widgets/my_button.dart';
 import '../widgets/snake_bar_widget.dart';
 
 class NoteMessage {
+  static void showTopMessage({
+    required BuildContext? context,
+    String? message,
+  }) {
+    if (context == null) return;
+    _showTopSnack(
+      context: context,
+      widget: Container(
+        padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0).r,
+        decoration: BoxDecoration(
+          color: Color(0xff005B19),
+          borderRadius: BorderRadius.circular(12.0).r,
+        ),
+        child: ListTile(
+          leading: ImageMultiType(url: Assets.iconsAddToCart),
+          title: DrawableText(
+            text: message ?? 'تم الأضافة الى السلة بنجاح',
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+
+  static void showTopMessageError({
+    required BuildContext? context,
+  }) {
+    if (context == null) return;
+    _showTopSnack(
+      context: context,
+      widget: Container(
+        padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0).r,
+        decoration: BoxDecoration(
+          color: Color(0xff27272A),
+          borderRadius: BorderRadius.circular(12.0).r,
+        ),
+        child: ListTile(
+          leading: ImageMultiType(url: Assets.iconsEmptyQuantity),
+          title: DrawableText(
+            text: 'عذرا هذا الكمية غير متوفر حاليا',
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+
+  static void _showTopSnack({
+    required BuildContext context,
+    required Widget widget,
+  }) {
+    loggerObject.w(MediaQuery.of(ctx!).padding.top);
+    final overlay = Overlay.of(context);
+    late OverlayEntry entry;
+
+    entry = OverlayEntry(
+      builder: (context) {
+        return Positioned(
+          top: MediaQuery.of(ctx!).padding.top + 10,
+          left: 10,
+          right: 10,
+          child: Material(
+            color: Colors.transparent,
+            child: AnimatedSlide(
+              duration: const Duration(milliseconds: 300),
+              offset: const Offset(0, 0),
+              child: TweenAnimationBuilder<double>(
+                  tween: Tween(begin: 0, end: 1),
+                  duration: const Duration(milliseconds: 300),
+                  builder: (context, value, child) {
+                    return Opacity(opacity: value, child: child);
+                  },
+                  child: widget),
+            ),
+          ),
+        );
+      },
+    );
+
+    overlay.insert(entry);
+
+    Future.delayed(const Duration(seconds: 3)).then((_) {
+      entry.remove();
+    });
+  }
+
   static void showSuccessSnackBar({required String message, required BuildContext context}) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -73,7 +161,7 @@ class NoteMessage {
     );
   }
 
-  static Future<bool> showConfirm(BuildContext context, {required String text}) async {
+  static Future<bool> showConfirm(BuildContext context, {required String text,Function()? onConfirm}) async {
     // show the dialog
     final result = await showDialog(
       context: context,

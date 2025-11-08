@@ -21,26 +21,25 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0, bottom: 120.0).r,
+        padding: EdgeInsets.symmetric(horizontal: 20.0).r,
         children: [
-          12.0.verticalSpace,
-          AddsSlider(type: AdsType.banner),
+          AddsSlider(type: AdsType.banner, height: 300.0),
           20.0.verticalSpace,
           HomeCategories(),
-
           TopSellingProducts(),
           24.0.verticalSpace,
-          AddsSlider(type: AdsType.slider),
+          AddsSlider(type: AdsType.slider, height: 140.0.h),
           10.0.verticalSpace,
           LatestProducts(),
           20.0.verticalSpace,
-          AddsSlider(type: AdsType.middle),
+          AddsSlider(type: AdsType.middle, height: 140.0.h),
           10.0.verticalSpace,
           OffersProducts(),
           20.0.verticalSpace,
-          AddsSlider(type: AdsType.last, height: 220.0.h),
+          AddsSlider(type: AdsType.last, height: 140.0.h),
           10.0.verticalSpace,
           GeneralProducts(),
+          20.0.verticalSpace,
         ],
       ),
     );

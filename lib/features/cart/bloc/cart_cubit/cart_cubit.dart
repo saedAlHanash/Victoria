@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:m_cubit/m_cubit.dart';
 import 'package:victoria/core/api_manager/api_service.dart';
 import 'package:victoria/core/api_manager/api_service.dart';
@@ -61,13 +62,13 @@ class CartCubit extends MCubit<CartInitial> {
     }
   }
 
-  Future<void> addToCart(Product item) async {
+  Future<void> addToCart(Product item, {BuildContext? context}) async {
     var r = await _addToCart(item);
 
     if (r) {
-      NoteMessage.showSuccessSnackBar(message: S.of(ctx!).done, context: ctx!);
+      NoteMessage.showTopMessage(context: context);
     } else {
-      NoteMessage.showErrorSnackBar(message: "لا يمكن إضافة أكثر من الكمية المتوفرة: ${item.quantity}", context: ctx!);
+      NoteMessage.showTopMessageError(context: context);
     }
   }
 

@@ -43,31 +43,33 @@ class ProductsPage extends StatelessWidget {
         body: BlocBuilder<ProductsCubit, ProductsInitial>(
           builder: (context, state) {
             return Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Column(
                 children: [
                   if (withSearch) _Search(),
                   Expanded(
-                    child: RefreshWidget(
-                      isLoading: state.loading,
-                      onRefresh: () => context.read<ProductsCubit>().getData(newData: true),
-                      child: state.isDataEmpty
-                          ? NotFoundWidget()
-                          : GridView.builder(
-                              padding: EdgeInsets.all(20.0).r,
-                              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 10.0.r,
-                                mainAxisSpacing: 20.0.r,
-                                mainAxisExtent: 220.0.h,
-                              ),
-                              itemCount: state.result.length,
-                              itemBuilder: (_, i) {
-                                final item = state.result[i];
-                                return ItemProduct(product: item);
-                              },
-                            ),
-                    ),
+                    child: state.isDataEmpty
+                        ? NotFoundWidget()
+                        : RefreshWidget(
+                            isLoading: state.loading,
+                            onRefresh: () => context.read<ProductsCubit>().getData(newData: true),
+                            child: state.isDataEmpty
+                                ? NotFoundWidget()
+                                : GridView.builder(
+                                    padding: EdgeInsets.all(20.0).r,
+                                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                      crossAxisSpacing: 10.0.r,
+                                      mainAxisSpacing: 20.0.r,
+                                      mainAxisExtent: 220.0.h,
+                                    ),
+                                    itemCount: state.result.length,
+                                    itemBuilder: (_, i) {
+                                      final item = state.result[i];
+                                      return ItemProduct(product: item);
+                                    },
+                                  ),
+                          ),
                   ),
                 ],
               ),
@@ -88,30 +90,30 @@ class _Search extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: SpinnerWidget(
-                    hintText: S.of(context).sortBy,
-                    items: SortBy.values.getSpinnerItems(selectedId: state.mRequest.sortBy?.index),
-                    onChanged: (spinnerItem) {
-                      context.read<ProductsCubit>().setSortBy(spinnerItem.item);
-                    },
-                  ),
-                ),
-                10.0.horizontalSpace,
-                Expanded(
-                  child: SpinnerWidget(
-                    hintText: S.of(context).sortOrder,
-                    items: SortOrder.values.getSpinnerItems(selectedId: state.mRequest.sortOrder?.index),
-                    onChanged: (spinnerItem) {
-                      context.read<ProductsCubit>().setSortOrder(spinnerItem.item);
-                    },
-                  ),
-                ),
-              ],
-            ),
-            10.0.verticalSpace,
+            // Row(
+            //   children: [
+            //     Expanded(
+            //       child: SpinnerWidget(
+            //         hintText: S.of(context).sortBy,
+            //         items: SortBy.values.getSpinnerItems(selectedId: state.mRequest.sortBy?.index),
+            //         onChanged: (spinnerItem) {
+            //           context.read<ProductsCubit>().setSortBy(spinnerItem.item);
+            //         },
+            //       ),
+            //     ),
+            //     10.0.horizontalSpace,
+            //     Expanded(
+            //       child: SpinnerWidget(
+            //         hintText: S.of(context).sortOrder,
+            //         items: SortOrder.values.getSpinnerItems(selectedId: state.mRequest.sortOrder?.index),
+            //         onChanged: (spinnerItem) {
+            //           context.read<ProductsCubit>().setSortOrder(spinnerItem.item);
+            //         },
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            // 10.0.verticalSpace,
             SearchProductsWidget(),
             10.0.verticalSpace,
             Container(
@@ -129,7 +131,8 @@ class _Search extends StatelessWidget {
                     itemBuilder: (context, i) {
                       final e = cState.result[i];
                       return Container(
-                        width: 0.25.sw,
+                        width: 0.26.sw,
+                        padding: EdgeInsets.symmetric(horizontal: 7.0, vertical: 5.0).r,
                         decoration: BoxDecoration(
                           color: state.mRequest.category?.id == e.id ? Colors.grey[100]! : Colors.transparent,
                           borderRadius: BorderRadius.circular(8.0).r,
@@ -147,10 +150,11 @@ class _Search extends StatelessWidget {
                                   width: 30.0.r,
                                   url: e.image,
                                 ),
-                                5.0.verticalSpace,
+                                Spacer(),
                                 DrawableText(
                                   text: e.name,
                                   textAlign: TextAlign.center,
+                                  size: 11.0.sp,
                                   matchParent: true,
                                 ),
                               ],
@@ -216,6 +220,7 @@ class _SearchProductsWidgetState extends State<SearchProductsWidget> {
         padding: const EdgeInsets.symmetric(horizontal: 20.0).w,
         child: ImageMultiType(url: Icons.search, color: AppColorManager.grey),
       ),
+      backgroundColor: Colors.grey[50]!,
       hint: S.of(context).search_In_All,
       textInputAction: TextInputAction.search,
       onFieldSubmitted: (val) {

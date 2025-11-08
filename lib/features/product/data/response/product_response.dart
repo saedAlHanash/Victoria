@@ -77,26 +77,6 @@ class Product {
   int count = 1;
   final List<Product> suggestedProducts;
 
-  Widget get priceWidget => Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          DrawableText(
-            text: priceAfter.formatPrice,
-            color: AppColorManager.black,
-            matchParent: true,
-            fontFamily: FontManager.bold.name,
-            size: 16.0.sp,
-          ),
-          2.0.verticalSpace,
-          // if ((price != priceAfter))
-          DrawableText(
-            text: price.formatPrice,
-            textDecoration: TextDecoration.lineThrough,
-            color: AppColorManager.grey,
-            matchParent: true,
-          ),
-        ],
-      );
 
   Widget get priceWidgetH => Row(
         mainAxisSize: MainAxisSize.max,

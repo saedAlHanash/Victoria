@@ -17,10 +17,10 @@ class FavBtnWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      padding: const EdgeInsets.all(3.0).r,
+      padding: const EdgeInsets.all(7.0).r,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8.0.r),
         color: Colors.white,
+        shape: BoxShape.circle,
       ),
       child: BlocBuilder<FavoritesCubit, FavoritesInitial>(
         buildWhen: (p, c) => c.mId == product.id.toString(),

@@ -29,6 +29,7 @@ import '../features/auth/ui/pages/reset_password_page.dart';
 import '../features/auth/ui/pages/signup_page.dart';
 import '../features/auth/ui/pages/splash_screen_page.dart';
 
+import '../features/cart/ui/pages/cart_screen.dart';
 import '../features/category/bloc/categories_cubit/categories_cubit.dart';
 import '../features/home/ui/pages/home_page.dart';
 import '../features/order/bloc/order_cubit/order_cubit.dart';
@@ -194,6 +195,15 @@ class AppRoutes {
           );
         }
       //endregion
+      case RouteName.cart:
+
+        {
+          return MaterialPageRoute(
+            builder: (_) {
+              return CartScreen(withAppBar: true);
+            },
+          );
+        }
       //endregion home
 
       //region product
@@ -374,4 +384,5 @@ class RouteName {
 
   static const order = '/order';
   static const categories = '/categories';
+  static const cart = '/cart';
 }
