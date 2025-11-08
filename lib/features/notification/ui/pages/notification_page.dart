@@ -7,6 +7,7 @@ import 'package:victoria/core/app/app_provider.dart';
 import 'package:victoria/core/extensions/extensions.dart';
 import 'package:victoria/core/util/shared_preferences.dart';
 import 'package:victoria/core/widgets/app_bar/app_bar_widget.dart';
+import 'package:victoria/core/widgets/need_login_widget.dart';
 import 'package:victoria/core/widgets/refresh_widget/refresh_widget.dart';
 
 import '../../../../core/strings/app_color_manager.dart';
@@ -37,40 +38,25 @@ class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AppProvider.isLogin
-          ? BlocBuilder<NotificationCubit, NotificationsInitial>(
-              builder: (context, state) {
-                final list = state.result;
-                return RefreshWidget(
-                  isLoading: state.loading,
-                  child: state.result.isEmpty
-                      ? const NotFoundWidget()
-                      : ListView.separated(
-                          padding: const EdgeInsets.symmetric(vertical: 20.0).h,
-                          itemBuilder: (_, i) {
-                            return ListTile();
-                          },
-                          separatorBuilder: (_, i) => 20.0.verticalSpace,
-                          itemCount: list.length,
-                        ),
-                );
-              },
-            )
-          : Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const DrawableText(text: 'يرجى تسجيل الدخول للمتابعة'),
-                  20.0.verticalSpace,
-                  MyButton(
-                    text: 'تسجيل الدخول',
-                    onTap: () {
-                      Navigator.pushNamedAndRemoveUntil(context, RouteName.login, (route) => false);
-                    },
-                  ),
-                ],
-              ),
-            ),
-    );
+        body: AppProvider.isLogin
+            ? BlocBuilder<NotificationCubit, NotificationsInitial>(
+                builder: (context, state) {
+                  final list = state.result;
+                  return RefreshWidget(
+                    isLoading: state.loading,
+                    child: state.result.isEmpty
+                        ? const NotFoundWidget()
+                        : ListView.separated(
+                            padding: const EdgeInsets.symmetric(vertical: 20.0).h,
+                            itemBuilder: (_, i) {
+                              return ListTile();
+                            },
+                            separatorBuilder: (_, i) => 20.0.verticalSpace,
+                            itemCount: list.length,
+                          ),
+                  );
+                },
+              )
+            : NeedLoginWidget());
   }
 }

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:victoria/core/extensions/extensions.dart';
+import 'package:victoria/core/helper/launcher_helper.dart';
+import 'package:victoria/core/strings/enum_manager.dart';
 import 'package:victoria/core/widgets/not_found_widget.dart';
 import 'package:victoria/core/widgets/refresh_widget/refresh_widget.dart';
 import 'package:victoria/core/widgets/spinner_widget.dart';
@@ -10,6 +12,7 @@ import 'package:victoria/features/cart/ui/widget/coupon_widget.dart';
 import 'package:victoria/features/home/bloc/home_cubit/home_cubit.dart';
 import 'package:victoria/features/order/data/request/create_order_request.dart';
 
+import '../../../../core/app/app_provider.dart';
 import '../../../../core/strings/app_color_manager.dart';
 import '../../../../core/util/snack_bar_message.dart';
 import '../../../../core/widgets/dashed_line.dart';
@@ -41,9 +44,16 @@ class _CartScreenState extends State<CartScreen> {
             context.read<CartCubit>()
               ..clearCash()
               ..getDataFromCache();
+
             context.read<HomeCubit>().jumpPage(0);
+
             Navigator.pushNamed(context, RouteName.orders);
+            if (!state.payOrder.paymentId.isBlankNumber) {
+              LauncherHelper.openPage(state.payOrder.paymentUrl);
+            }
+
             NoteMessage.showSuccessSnackBar(context: context, message: S.of(context).done);
+            context.read<OrdersCubit>().reInitial();
           },
         ),
       ],
@@ -62,44 +72,63 @@ class _CartScreenState extends State<CartScreen> {
                           padding: EdgeInsets.symmetric(horizontal: 24.0).r,
                           children: [
                             for (var e in state.result) ItemProductCart(product: e),
-                            20.0.verticalSpace,
-                            const CouponWidget(),
-                            BlocBuilder<AddressesCubit, AddressesInitial>(
-                              builder: (context, aState) {
-                                return SpinnerWidget(
-                                  onChanged: (spinnerItem) {
-                                    if (spinnerItem.id < 0) {
-                                      Navigator.pushNamed(context, RouteName.address);
-                                    }
-                                    context.read<CartCubit>().setAddress(spinnerItem.item);
-                                  },
-                                  loading: aState.loading,
-                                  hintText: S.of(context).selectAddress,
-                                  hintLabel: S.of(context).selectAddress,
-                                  items: aState.getSpinnerItems(
-                                    selectedId: state.address.id.toString(),
-                                  ),
-                                );
-                              },
-                            ),
-                            20.0.verticalSpace,
+                            if (!AppProvider.isGuest) ...[
+                              20.0.verticalSpace,
+                              const CouponWidget(),
+                              SpinnerWidget(
+                                items: PaymentMethod.values
+                                    .getSpinnerItems(selectedId: oState.cRequest.paymentMethod.index),
+                                hintLabel: 'طريقة الدفع',
+                                onChanged: (spinnerItem) {
+                                  oState.cRequest.paymentMethod = spinnerItem.item;
+                                },
+                              ),
+                              20.0.verticalSpace,
+                              BlocBuilder<AddressesCubit, AddressesInitial>(
+                                builder: (context, aState) {
+                                  return SpinnerWidget(
+                                    onChanged: (spinnerItem) {
+                                      if (spinnerItem.id < 0) {
+                                        Navigator.pushNamed(context, RouteName.address);
+                                      }
+                                      context.read<CartCubit>().setAddress(spinnerItem.item);
+                                    },
+                                    loading: aState.loading,
+                                    hintText: S.of(context).selectAddress,
+                                    hintLabel: S.of(context).selectAddress,
+                                    items: aState.getSpinnerItems(
+                                      selectedId: state.address.id.toString(),
+                                    ),
+                                  );
+                                },
+                              ),
+                              20.0.verticalSpace,
+                            ],
                             _TotalWidget(),
                             20.0.verticalSpace,
-                            MyButton(
-                              loading: oState.loading,
-                              color: AppColorManager.mainColor,
-                              onTap: () {
-                                context.read<OrdersCubit>().state.cRequest
-                                  ..couponCode = state.couponCode
-                                  ..address = state.address
-                                  ..products =
-                                      state.result.map((e) => ProductDto(id: e.id, quantity: e.count)).toList();
+                            if (!AppProvider.isGuest)
+                              MyButton(
+                                loading: oState.loading,
+                                color: AppColorManager.mainColor,
+                                onTap: () {
+                                  context.read<OrdersCubit>().state.cRequest
+                                    ..couponCode = state.couponCode
+                                    ..address = state.address
+                                    ..products =
+                                        state.result.map((e) => ProductDto(id: e.id, quantity: e.count)).toList();
 
-                                context.read<OrdersCubit>().create();
-                              },
-                              enable: (state.address.id != 0) && state.result.isNotEmpty,
-                              text: S.of(context).continueTo,
-                            )
+                                  context.read<OrdersCubit>().create();
+                                },
+                                enable: (state.address.id != 0) && state.result.isNotEmpty,
+                                text: S.of(context).continueTo,
+                              )
+                            else
+                              MyButton(
+                                text: S.of(context).login,
+                                onTap: () {
+                                  Navigator.pushNamedAndRemoveUntil(context, RouteName.login, (route) => false);
+                                },
+                              ),
                           ],
                         ),
                 );

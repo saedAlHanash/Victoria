@@ -27,16 +27,7 @@ class OrderPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<OrderCubit, OrderInitial>(
-      listenWhen: (p, c) => c.done && (!c.payOrder.paymentId.isBlankNumber),
-      listener: (context, state) {
-        LauncherHelper.openPage(state.payOrder.paymentUrl).then(
-          (value) {
-            context.read<OrderCubit>().getData(newData: true);
-            context.read<OrdersCubit>().getData(newData: true);
-          },
-        );
-      },
+    return BlocBuilder<OrderCubit, OrderInitial>(
       builder: (context, state) {
         return Scaffold(
           appBar: AppBarWidget(

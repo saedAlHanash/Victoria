@@ -82,16 +82,15 @@ class PayOrderResponse {
   final String paymentUrl;
   final int paymentId;
 
-  factory PayOrderResponse.fromJson(Map<String, dynamic> json){
+  factory PayOrderResponse.fromJson(Map<String, dynamic> json) {
     return PayOrderResponse(
       paymentUrl: json["payment_url"] ?? "",
-      paymentId: json["payment_id"] ?? 0,
+      paymentId: (json["payment_id"] ?? '0').toString().tryParseOrZero.toInt(),
     );
   }
 
   Map<String, dynamic> toJson() => {
-    "payment_url": paymentUrl,
-    "payment_id": paymentId,
-  };
-
+        "payment_url": paymentUrl,
+        "payment_id": paymentId,
+      };
 }

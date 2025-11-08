@@ -8,6 +8,7 @@ import 'package:victoria/core/util/pair_class.dart';
 import 'package:victoria/features/order/data/request/create_order_request.dart';
 import 'package:victoria/features/order/data/response/order_response.dart';
 
+import '../../../../core/app/app_provider.dart';
 import '../../../../core/error/error_manager.dart';
 
 part 'orders_state.dart';
@@ -32,6 +33,7 @@ class OrdersCubit extends MCubit<OrdersInitial> {
       );
 
   Future<void> getData({bool newData = false}) async {
+    if (AppProvider.isGuest) return;
     await getDataAbstract(
       fromJson: Order.fromJson,
       state: state,
@@ -58,10 +60,6 @@ class OrdersCubit extends MCubit<OrdersInitial> {
 
   //region CRUD
   Future<void> create() async {
-    // emit(state.copyWith(statuses: CubitStatuses.loading));
-    // await Future.delayed(const Duration(seconds: 1));
-    // emit(state.copyWith(statuses: CubitStatuses.done));
-    // return;
     emit(state.copyWith(statuses: CubitStatuses.loading, cubitCrud: CubitCrud.create));
 
     final response = await APIService().callApi(
@@ -69,8 +67,28 @@ class OrdersCubit extends MCubit<OrdersInitial> {
       url: PostUrl.createOrder,
       body: state.cRequest.toJson(),
     );
+    final order = Order.fromJson(response.jsonBodyData);
+    if (!order.isTemporary) {
+      await getData(newData: true);
+    } else {
+      await payOrder(order.id);
+      await getData(newData: true);
+    }
+  }
 
-    await getData(newData: true);
+  Future<void> payOrder(int id) async {
+    // emit(state.copyWith(statuses: CubitStatuses.loading));
+
+    final response = await APIService().callApi(
+      type: ApiType.get,
+      url: GetUrl.getPaymentUrl,
+      path: id.toString(),
+    );
+
+    if (response.statusCode.success) {
+      final m = PayOrderResponse.fromJson(response.jsonBody);
+      emit(state.copyWith(payOrder: m));
+    }
   }
 
   Future<void> update() async {
@@ -143,5 +161,9 @@ class OrdersCubit extends MCubit<OrdersInitial> {
     if (listJson == null) return;
     final list = listJson.map((e) => Order.fromJson(e)).toList();
     emit(state.copyWith(result: list));
+  }
+
+  void reInitial() {
+    emit(OrdersInitial.initial());
   }
 }

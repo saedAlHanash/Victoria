@@ -9,6 +9,7 @@ import 'package:victoria/features/favorite/data/request/create_favorite_request.
 import 'package:victoria/features/favorite/data/response/favorite_response.dart';
 import 'package:victoria/features/product/data/response/product_response.dart';
 
+import '../../../../core/app/app_provider.dart';
 import '../../../../core/error/error_manager.dart';
 
 part 'favorites_state.dart';
@@ -33,6 +34,7 @@ class FavoritesCubit extends MCubit<FavoritesInitial> {
       );
 
   Future<void> getData({bool newData = false}) async {
+    if (AppProvider.isGuest) return;
     await getDataAbstract(
       fromJson: Product.fromJson,
       state: state,

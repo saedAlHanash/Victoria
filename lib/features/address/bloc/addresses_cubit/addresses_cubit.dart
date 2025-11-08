@@ -8,6 +8,7 @@ import 'package:victoria/features/address/data/response/address_response.dart';
 import 'package:http/http.dart';
 import 'package:m_cubit/m_cubit.dart';
 
+import '../../../../core/app/app_provider.dart';
 import '../../../../core/error/error_manager.dart';
 import '../../../../core/widgets/spinner_widget.dart';
 
@@ -33,6 +34,7 @@ class AddressesCubit extends MCubit<AddressesInitial> {
       );
 
   Future<void> getData({bool newData = false}) async {
+    if (AppProvider.isGuest) return;
     await getDataAbstract(
       fromJson: Address.fromJson,
       state: state,
