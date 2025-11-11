@@ -30,6 +30,7 @@ class Assets {
   static const String iconsPerson = 'assets/icons/person.svg';
   static const String iconsPersonF = 'assets/icons/person_f.svg';
   static const String iconsPhoneFlip = 'assets/icons/phone-flip.svg';
+  static const String iconsSearch = 'assets/icons/search.svg';
   static const String iconsTrash = 'assets/icons/trash.svg';
   static const String imagesBandtechLogo = 'assets/images/bandtech_logo.png';
   static const String imagesEmpty = 'assets/images/empty.png';

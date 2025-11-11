@@ -19,7 +19,7 @@ class ProductsCubit extends MCubit<ProductsInitial> {
   String get nameCache => 'products';
 
   @override
-  String get filter => state.filter;
+  String get filter => (state.mRequest.toJson()..addAll(state.meta.toJsonNext())).toString().hashCode.toString();
 
   PaginationMeta? _meta;
 
@@ -33,13 +33,24 @@ class ProductsCubit extends MCubit<ProductsInitial> {
         },
       );
 
-  Future<void> getData({bool newData = false, GetProductsType? type}) async {
-    emit(state.copyWith(id: type?.index));
+  Future<void> getData({bool newData = true, GetProductsType? type}) async {
+    emit(state.copyWith(id: type?.index, statuses: CubitStatuses.loading));
+
     await getDataAbstract(
       fromJson: Product.fromJson,
       state: state,
       getDataApi: _getData,
       newData: newData,
+      onSuccess: (data, emitState) {
+        loggerObject.f(_meta?.toJson());
+        emit(
+          state.copyWith(
+            result: data,
+            meta: _meta,
+            statuses: emitState,
+          ),
+        );
+      },
     );
   }
 
@@ -62,10 +73,12 @@ class ProductsCubit extends MCubit<ProductsInitial> {
     final response = await APIService().callApi(
       type: ApiType.get,
       url: PostUrl.products(state.mId),
-      query: state.mRequest.toJson(),
+      query: state.mRequest.toJson()..addAll(state.meta.toJsonNext()),
     );
 
     if (response.statusCode.success) {
+      _meta = PaginationMeta.fromJson(response.jsonBody);
+
       return Pair(Products.fromJson(response.jsonBody).data, null);
     } else {
       return response.getPairError;
@@ -74,7 +87,7 @@ class ProductsCubit extends MCubit<ProductsInitial> {
 
   //endregion
 
-  void setFilterRequest(FilterProductRequest? request) {
+  void setFilterRequest(SearchRequest? request) {
     emit(state.copyWith(request: request));
   }
 
@@ -100,6 +113,19 @@ class ProductsCubit extends MCubit<ProductsInitial> {
 
   void setSortOrder(SortOrder? sortOrder) {
     emit(state.copyWith(request: state.mRequest..sortOrder = sortOrder));
+    getData();
+  }
+
+  void removeFilters() {
+    emit(
+      state
+          .copyWith(
+            request: state.mRequest
+              ..sortOrder = null
+              ..sortBy = null,
+          )
+          .copyWith(),
+    );
     getData();
   }
 

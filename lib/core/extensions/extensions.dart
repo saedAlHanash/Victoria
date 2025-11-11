@@ -222,6 +222,15 @@ extension ListEnumHelper on List {
       ),
     );
   }
+
+  dynamic getOrNull(int i) {
+    if (i < 0 || length >= i) return null;
+    try {
+      return this[i];
+    } catch (_) {
+      return null;
+    }
+  }
 }
 
 extension ResponseHelper on http.Response {
@@ -564,6 +573,7 @@ extension ProductH on Product {
             ),
         ],
       );
+
   Widget get priceWidgetMini => Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,

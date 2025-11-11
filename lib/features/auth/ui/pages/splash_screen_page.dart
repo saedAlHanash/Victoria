@@ -34,8 +34,8 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
 
         switch (getStartPage) {
           case StartPage.login:
-            // Navigator.pushReplacementNamed(ctx!, RouteName.login);
-            // break;
+          // Navigator.pushReplacementNamed(ctx!, RouteName.login);
+          // break;
           case StartPage.home:
             Navigator.pushReplacementNamed(ctx!, RouteName.home);
             break;
@@ -54,7 +54,8 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
+      body: Container(
+        padding: EdgeInsets.all(30.0).r,
         width: 1.0.sw,
         height: 1.0.sh,
         child: const Center(

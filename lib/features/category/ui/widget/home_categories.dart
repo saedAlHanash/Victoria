@@ -48,8 +48,8 @@ class HomeCategories extends StatelessWidget {
                     onTap: (category) {
                       Navigator.pushNamed(
                         context,
-                        RouteName.products,
-                        arguments: [FilterProductRequest(category: category), S.of(context).products],
+                        RouteName.search,
+                        arguments: [SearchRequest(category: category), category.name],
                       );
                     },
                   );

@@ -14,6 +14,7 @@ import '../../../product/data/request/filter_product_request.dart';
 import '../../bloc/home_cubit/home_cubit.dart';
 import '../widget/bottom_nav_widget.dart';
 import '../widget/screens/menu_screen.dart';
+import '../widget/screens/search_drawer.dart';
 import 'home_screen.dart';
 
 class Homepage extends StatefulWidget {
@@ -42,21 +43,8 @@ class _HomepageState extends State<Homepage> {
             color: Colors.white,
             onPopInvoked: (isPop, result) => cubit.jumpPage(0),
             canPop: cubit.canPop,
-            actions: state.getIndex != 0
-                ? null
-                : [
-                    IconButton(
-                      icon: ImageMultiType(url: Icons.search),
-                      onPressed: () {
-                        Navigator.pushNamed(
-                          context,
-                          RouteName.products,
-                          arguments: [FilterProductRequest(), S.of(context).products],
-                        );
-                      },
-                    ),
-                  ],
           ),
+          drawer: state.getIndex != 0 ? null : HomeDrawer(),
           bottomNavigationBar: NewNav(),
           body: BlocBuilder<DeleteAccountCubit, DeleteAccountInitial>(
             buildWhen: (p, c) => c.done,

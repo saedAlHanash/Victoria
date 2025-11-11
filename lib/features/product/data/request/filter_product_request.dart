@@ -1,8 +1,8 @@
 import '../../../../core/strings/enum_manager.dart';
 import '../../../category/data/response/category_response.dart';
 
-class FilterProductRequest {
-  FilterProductRequest({
+class SearchRequest {
+  SearchRequest({
     this.category,
     this.sortBy,
     this.sortOrder,
@@ -14,8 +14,8 @@ class FilterProductRequest {
   SortOrder? sortOrder;
   String? search;
 
-  factory FilterProductRequest.fromJson(Map<String, dynamic> json) {
-    return FilterProductRequest(
+  factory SearchRequest.fromJson(Map<String, dynamic> json) {
+    return SearchRequest(
       category: json["category_id"],
       sortBy: json["sort_by"] == null ? null : SortBy.values[json["sort_by"] ?? 0],
       sortOrder: json["sort_order"] == null ? null : SortOrder.values[json["sort_order"] ?? 0],
@@ -35,13 +35,13 @@ class FilterProductRequest {
     return '${category.hashCode}${sortBy.hashCode}${sortOrder.hashCode}${search.hashCode}';
   }
 
-  FilterProductRequest copyWith({
+  SearchRequest copyWith({
     Category? category,
     SortBy? sortBy,
     SortOrder? sortOrder,
     String? search,
   }) =>
-      FilterProductRequest(
+      SearchRequest(
         category: category ?? this.category,
         sortBy: sortBy ?? this.sortBy,
         sortOrder: sortOrder ?? this.sortOrder,
