@@ -9,6 +9,7 @@ import 'package:victoria/core/widgets/card_slider_widget.dart';
 import 'package:victoria/core/widgets/my_button.dart';
 import 'package:victoria/features/cart/bloc/cart_cubit/cart_cubit.dart';
 import 'package:victoria/features/favorite/ui/widget/fav_btn_widget.dart';
+import 'package:victoria/features/product/ui/widget/attacments_widget.dart';
 import 'package:victoria/features/product/ui/widget/relates_products.dart';
 
 import '../../../../core/strings/app_color_manager.dart';
@@ -69,34 +70,7 @@ class _ProductPageState extends State<ProductPage> {
             },
             child: ListView(
               children: [
-                Container(
-                  color: AppColorManager.ef,
-                  child: CardImageSlider(
-                    images: state.result.image,
-                    stackChild: [
-                      PositionedDirectional(
-                        top: MediaQuery.of(context).padding.top + 10,
-                        end: 10,
-                        child: FavBtnWidget(product: state.result),
-                      ),
-                      PositionedDirectional(
-                        top: MediaQuery.of(context).padding.top + 10,
-                        start: 10,
-                        child: Transform.scale(
-                          scale: 0.8,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.white,
-                            ),
-                            child: BackBtnWidget(appBarColor: Colors.white),
-                          ),
-                        ),
-                      ),
-                    ],
-                    height: 293.0.h,
-                  ),
-                ),
+                CardAttachmentsSlider(product: product),
                 Padding(
                   padding: const EdgeInsets.all(20.0).r,
                   child: Column(

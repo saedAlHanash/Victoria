@@ -41,7 +41,6 @@ class CardSlider extends StatelessWidget {
             },
           ).toList(),
           options: CarouselOptions(
-
             autoPlayInterval: const Duration(seconds: 5),
             autoPlay: true,
             viewportFraction: 1,
@@ -89,24 +88,32 @@ class CardImageSlider extends StatefulWidget {
     required this.images,
     this.height,
     this.width,
+    this.onChange,
     this.card = false,
   });
 
   final EdgeInsets? margin;
   final List<Widget>? stackChild;
-  final List<String> images;
+  final List<Widget> images;
   final double? height;
   final double? width;
   final bool card;
+  final Function()? onChange;
 
   @override
-  State<CardImageSlider> createState() => _CardImageSliderState();
+  State<CardImageSlider> createState() => CardImageSliderState();
 }
 
-class _CardImageSliderState extends State<CardImageSlider> {
+class CardImageSliderState extends State<CardImageSlider> {
   late final CarouselSliderController controller;
 
   late int currentImage;
+
+  void setIndex(int i) {
+    key.currentState?.changePage(i);
+    currentImage = i;
+    controller.animateToPage(currentImage);
+  }
 
   @override
   void initState() {
@@ -115,57 +122,49 @@ class _CardImageSliderState extends State<CardImageSlider> {
     super.initState();
   }
 
+  final key = GlobalKey<IndicatorSliderWidgetState>();
+
   @override
   Widget build(BuildContext context) {
-    final widgets = <Widget>[];
-
-    final key = GlobalKey<IndicatorSliderWidgetState>();
-    widgets.add(
-      CarouselSlider(
-        carouselController: controller,
-        items: widget.images.map(
-          (e) {
-            return ImageMultiType(
-              url: e,
-              width: widget.width ?? 1.0.sw,
-              height: 1.0.sh,
-              fit: BoxFit.fill,
-            );
-          },
-        ).toList(),
-        options: CarouselOptions(
-          autoPlayInterval: const Duration(seconds: 10),
-          height: widget.height,
-          viewportFraction: 1,
-          enableInfiniteScroll: false,
-          onPageChanged: (i, reason) {
-            key.currentState!.changePage(i);
-            currentImage = i;
-          },
-        ),
-      ),
-    );
-
-    if (widget.stackChild != null) {
-      for (var e in widget.stackChild!) {
-        widgets.add(e);
-      }
-    }
-    widgets.add(
-      Positioned(
-        bottom: 29.0.h,
-        left: 29.0.h,
-        width: 1.0.sw,
-        child: IndicatorSliderWidget(key: key, length: widget.images.length),
-      ),
-    );
-
     Widget widgetSlider = SizedBox(
       width: widget.width,
       height: widget.height,
-      child: Stack(
-        alignment: Alignment.center,
-        children: widgets,
+      child: Column(
+        children: [
+          Expanded(
+            child: CarouselSlider(
+              carouselController: controller,
+              items: widget.images.map(
+                (e) {
+                  return ImageMultiType(
+                    url: e,
+                    width: widget.width ?? 1.0.sw,
+                    height: 1.0.sh,
+                    fit: BoxFit.contain,
+                  );
+                },
+              ).toList(),
+              options: CarouselOptions(
+                autoPlayInterval: const Duration(seconds: 15),
+                height: widget.height,
+                viewportFraction: 1,
+                enableInfiniteScroll: false,
+                onPageChanged: (i, reason) {
+                  key.currentState!.changePage(i);
+                  currentImage = i;
+                  widget.onChange?.call();
+                },
+              ),
+            ),
+          ),
+          10.0.verticalSpace,
+          IndicatorSliderWidget(
+            key: key,
+            length: widget.images.length,
+            selectedColor: AppColorManager.mainColor,
+            unselectedColor: Colors.grey,
+          ),
+        ],
       ),
     );
     if (widget.card) {
@@ -214,7 +213,6 @@ class IndicatorSliderWidgetState extends State<IndicatorSliderWidget> {
   Widget build(BuildContext context) {
     if (widget.length < 2) return 0.0.verticalSpace;
     return Container(
-
       padding: EdgeInsets.symmetric(horizontal: 7.0).r,
       height: 12.0.h,
       child: ListView.separated(
