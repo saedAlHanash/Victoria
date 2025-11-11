@@ -24,7 +24,7 @@ class CategoriesPage extends StatelessWidget {
               separatorBuilder: (_, i) => 10.0.verticalSpace,
               itemBuilder: (_, i) {
                 final item = state.result[i];
-                return ItemCategory(category: item);
+                return 0.0.verticalSpace;
               },
             ),
           );

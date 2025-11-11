@@ -51,6 +51,7 @@ class _CartScreenState extends State<CartScreen> {
             context.read<HomeCubit>().jumpPage(0);
 
             Navigator.pushNamed(context, RouteName.orders);
+
             if (!state.payOrder.paymentId.isBlankNumber) {
               LauncherHelper.openPage(state.payOrder.paymentUrl);
             }
@@ -81,8 +82,8 @@ class _CartScreenState extends State<CartScreen> {
                                 20.0.verticalSpace,
                                 const CouponWidget(),
                                 SpinnerWidget(
-                                  items:
-                                      PaymentMethod.values.getSpinnerItems(selectedId: oState.cRequest.paymentMethod.index),
+                                  items: PaymentMethod.values
+                                      .getSpinnerItems(selectedId: oState.cRequest.paymentMethod.index),
                                   hintLabel: 'طريقة الدفع',
                                   onChanged: (spinnerItem) {
                                     oState.cRequest.paymentMethod = spinnerItem.item;
@@ -119,7 +120,8 @@ class _CartScreenState extends State<CartScreen> {
                                     context.read<OrdersCubit>().state.cRequest
                                       ..couponCode = state.couponCode
                                       ..address = state.address
-                                      ..products = state.result.map((e) => ProductDto(id: e.id, quantity: e.count)).toList();
+                                      ..products =
+                                          state.result.map((e) => ProductDto(id: e.id, quantity: e.count)).toList();
 
                                     context.read<OrdersCubit>().create();
                                   },
