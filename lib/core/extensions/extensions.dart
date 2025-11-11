@@ -541,12 +541,12 @@ class FormatDateTime {
 }
 
 extension ProductH on Product {
-  Widget get priceWidget => Row(
+  Widget get priceWidget => Column(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           DrawableText(
+            matchParent: true,
             text: priceAfter.formatPrice,
             size: 20.0.sp,
             fontWeight: FontWeight.bold,
@@ -554,13 +554,36 @@ extension ProductH on Product {
             color: AppColorManager.mainColor,
           ),
           10.0.horizontalSpace,
-          // if ((price != priceAfter))
+          if ((price != priceAfter))
+            DrawableText(
+              matchParent: true,
+              text: price.formatPrice,
+              textDecoration: TextDecoration.lineThrough,
+              color: AppColorManager.grey,
+              size: 12.0.sp,
+            ),
+        ],
+      );
+  Widget get priceWidgetMini => Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           DrawableText(
-            text: price.formatPrice,
-            textDecoration: TextDecoration.lineThrough,
-            color: AppColorManager.grey,
-            size: 10.0.sp,
+            matchParent: true,
+            text: priceAfter.formatPrice,
+            fontWeight: FontWeight.bold,
+            fontFamily: FontManager.bold.name,
+            color: AppColorManager.mainColor,
           ),
+          10.0.horizontalSpace,
+          if ((price != priceAfter))
+            DrawableText(
+              matchParent: true,
+              text: price.formatPrice,
+              textDecoration: TextDecoration.lineThrough,
+              color: AppColorManager.grey,
+              size: 10.0.sp,
+            ),
         ],
       );
 

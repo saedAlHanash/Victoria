@@ -22,60 +22,44 @@ class CardSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final widgets = <Widget>[];
-
     final key = GlobalKey<IndicatorSliderWidgetState>();
-    widgets.add(
-      SizedBox(
-        height: height ?? 160.0.h,
-        width: 1.0.sw,
-        child: CarouselSlider(
-          items: images.map(
-            (e) {
-              return ImageMultiType(
-                url: e,
-                height: 1.0.sh,
-                width: width ?? 1.0.sw,
-                fit: BoxFit.fill,
-              );
-            },
-          ).toList(),
-          options: CarouselOptions(
-            autoPlayInterval: const Duration(seconds: 5),
-            autoPlay: true,
-            viewportFraction: 1,
-            onPageChanged: (i, reason) {
-              key.currentState!.changePage(i);
-            },
+
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        SizedBox(
+          width: width,
+          height: height ?? 160.0.h,
+          child: CarouselSlider(
+            items: images.map(
+              (e) {
+                return ImageMultiType(
+                  url: e,
+                  height: 1.0.sh,
+                  width: width ?? 1.0.sw,
+                  fit: BoxFit.fill,
+                );
+              },
+            ).toList(),
+            options: CarouselOptions(
+              height: height ?? 160.0.h,
+              autoPlayInterval: const Duration(seconds: 5),
+              autoPlay: true,
+              viewportFraction: 1,
+              onPageChanged: (i, reason) {
+                key.currentState!.changePage(i);
+              },
+            ),
           ),
         ),
-      ),
-    );
-
-    // widgets.add(
-    //   Container(
-    //     height: height ?? 160.0.h,
-    //     width: 1.0.sw,
-    //     color: Colors.black12,
-    //   ),
-    // );
-
-    widgets.add(
-      Positioned(
-        bottom: 15.0.h,
-        child: IndicatorSliderWidget(
-          key: key,
-          length: images.length,
+        Positioned(
+          bottom: 15.0.h,
+          child: IndicatorSliderWidget(
+            key: key,
+            length: images.length,
+          ),
         ),
-      ),
-    );
-    return SizedBox(
-      width: width,
-      height: height,
-      child: Stack(
-        alignment: Alignment.center,
-        children: widgets,
-      ),
+      ],
     );
   }
 }
@@ -126,46 +110,39 @@ class CardImageSliderState extends State<CardImageSlider> {
 
   @override
   Widget build(BuildContext context) {
-    Widget widgetSlider = SizedBox(
-      width: widget.width,
-      height: widget.height,
-      child: Column(
-        children: [
-          Expanded(
-            child: CarouselSlider(
-              carouselController: controller,
-              items: widget.images.map(
-                (e) {
-                  return ImageMultiType(
-                    url: e,
-                    width: widget.width ?? 1.0.sw,
-                    height: 1.0.sh,
-                    fit: BoxFit.contain,
-                  );
-                },
-              ).toList(),
-              options: CarouselOptions(
-                autoPlayInterval: const Duration(seconds: 15),
-                height: widget.height,
-                viewportFraction: 1,
-                enableInfiniteScroll: false,
-                onPageChanged: (i, reason) {
-                  key.currentState!.changePage(i);
-                  currentImage = i;
-                  widget.onChange?.call();
-                },
-              ),
+    Widget widgetSlider = Stack(
+      alignment: AlignmentGeometry.center,
+      children: [
+        SizedBox(
+          width: widget.width,
+          height: widget.height,
+          child: CarouselSlider(
+            carouselController: controller,
+            items: widget.images.map((e) => e).toList(),
+            options: CarouselOptions(
+              height: widget.height,
+              autoPlayInterval: const Duration(seconds: 10),
+              viewportFraction: 1,
+              enableInfiniteScroll: true,
+              onPageChanged: (i, reason) {
+                key.currentState!.changePage(i);
+                currentImage = i;
+                widget.onChange?.call();
+              },
             ),
           ),
-          10.0.verticalSpace,
-          IndicatorSliderWidget(
+        ),
+        Positioned(
+          bottom: 15.0.h,
+          child: IndicatorSliderWidget(
             key: key,
             length: widget.images.length,
             selectedColor: AppColorManager.mainColor,
-            unselectedColor: Colors.grey,
+            unselectedColor: AppColorManager.grey,
           ),
-        ],
-      ),
+        ),
+        if (widget.stackChild != null) ...widget.stackChild!,
+      ],
     );
     if (widget.card) {
       widgetSlider = MyCardWidget(

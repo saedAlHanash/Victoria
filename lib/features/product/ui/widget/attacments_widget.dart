@@ -79,6 +79,19 @@ class _CardAttachmentsSliderState extends State<CardAttachmentsSlider> {
           key: key,
           images: widget.product.image.map((e) => getAttachment(e)).toList(),
           height: 300.0.h,
+          stackChild: [
+            Positioned(
+              top: MediaQuery.of(context).padding.top + 5,
+              right: 10.0.w,
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColorManager.cardColor,
+                ),
+                child: BackButton(),
+              ),
+            ),
+          ],
           onChange: () {
             setState(() {});
           },
@@ -98,16 +111,20 @@ class _CardAttachmentsSliderState extends State<CardAttachmentsSlider> {
                 splashColor: Colors.transparent,
                 child: Container(
                   decoration: BoxDecoration(
-                    border: Border.all(color: isCurrent ? AppColorManager.mainColor : Colors.transparent),
+                    border: Border.all(
+                      color: isCurrent ? AppColorManager.mainColor : Colors.transparent,
+                      width: 2.0.r,
+                      strokeAlign: BorderSide.strokeAlignOutside,
+                    ),
                     borderRadius: BorderRadius.circular(12.0.r),
+                    color: AppColorManager.cardColor,
                   ),
-                  padding: EdgeInsets.all(3.0).r,
                   clipBehavior: Clip.hardEdge,
                   child: ImageMultiType(
                     url: item,
                     height: 60.0.r,
                     width: 60.0.r,
-                    fit: BoxFit.contain,
+                    fit: BoxFit.cover,
                   ),
                 ),
               );

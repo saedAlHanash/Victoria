@@ -42,8 +42,13 @@ class HomeCategories extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, i) {
                   final e = state.result[i];
-                  return SizedBox(
-                    width: 0.25.sw,
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: AppColorManager.cardColor,
+                      borderRadius: BorderRadius.circular(12.0).r,
+                    ),
+                    clipBehavior: Clip.hardEdge,
+                    width: 0.2.sw,
                     child: InkWell(
                       onTap: () {
                         Navigator.pushNamed(
@@ -52,19 +57,31 @@ class HomeCategories extends StatelessWidget {
                           arguments: [FilterProductRequest(category: e), S.of(context).products],
                         );
                       },
-                      child: Center(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            ImageMultiType(
-                              height: 30.0.r,
-                              width: 30.0.r,
-                              url: e.image,
+                      child: Stack(
+                        children: [
+                          ImageMultiType(
+                            url: e.image,
+                            height: 1.0.sh,
+                            width: 1.0.sw,
+                            fit: BoxFit.cover,
+                          ),
+                          Align(
+                            alignment: AlignmentGeometry.bottomCenter,
+                            child: Container(
+                              width: 1.0.sw,
+                              color: Colors.black38,
+                              constraints: BoxConstraints(maxHeight: 35.0.h, minHeight: 15.0.h),
+                              child: DrawableText(
+                                text: e.name,
+                                matchParent: true,
+                                textAlign: TextAlign.center,
+                                maxLines: 2,
+                                color: Colors.white,
+                                size: 12.0.sp,
+                              ),
                             ),
-                            5.0.verticalSpace,
-                            DrawableText(text: e.name),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   );

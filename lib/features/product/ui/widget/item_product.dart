@@ -62,7 +62,6 @@ class ItemProduct extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
-
                   children: [
                     Spacer(),
                     DrawableText(
@@ -72,7 +71,7 @@ class ItemProduct extends StatelessWidget {
                       matchParent: true,
                     ),
                     2.0.verticalSpace,
-                    product.priceWidgetH,
+                    product.priceWidgetMini,
                     Spacer(),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
