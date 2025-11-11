@@ -46,7 +46,9 @@ class _ProductPageState extends State<ProductPage> {
                     onTap: () {
                       context.read<CartCubit>().addToCart(state.result, context: context);
                     },
-                    text: S.of(context).add_to_cart,
+                    text: S
+                        .of(context)
+                        .add_to_cart,
                   ),
                 ),
                 15.0.horizontalSpace,
@@ -56,7 +58,9 @@ class _ProductPageState extends State<ProductPage> {
                     onTap: () {
                       Navigator.pushNamed(context, RouteName.cart);
                     },
-                    text: S.of(context).cart,
+                    text: S
+                        .of(context)
+                        .cart,
                   ),
                 ),
               ],
@@ -75,12 +79,18 @@ class _ProductPageState extends State<ProductPage> {
                     images: state.result.image,
                     stackChild: [
                       PositionedDirectional(
-                        top: MediaQuery.of(context).padding.top + 10,
+                        top: MediaQuery
+                            .of(context)
+                            .padding
+                            .top + 10,
                         end: 10,
                         child: FavBtnWidget(product: state.result),
                       ),
                       PositionedDirectional(
-                        top: MediaQuery.of(context).padding.top + 10,
+                        top: MediaQuery
+                            .of(context)
+                            .padding
+                            .top + 10,
                         start: 10,
                         child: Transform.scale(
                           scale: 0.8,
@@ -127,7 +137,9 @@ class _ProductPageState extends State<ProductPage> {
                       20.0.verticalSpace,
                       Divider(),
                       DrawableText(
-                        text: S.of(context).description,
+                        text: S
+                            .of(context)
+                            .description,
                         matchParent: true,
                         size: 18.0.sp,
                         fontWeight: FontWeight.bold,
@@ -135,7 +147,9 @@ class _ProductPageState extends State<ProductPage> {
                       DrawableText(
                         text: product.description,
                         matchParent: true,
-                        padding: EdgeInsets.symmetric(vertical: 5.0).r,
+                        padding: EdgeInsets
+                            .symmetric(vertical: 5.0)
+                            .r,
                         color: Colors.grey,
                       ),
                       RelatedProducts(product: product),
@@ -200,8 +214,12 @@ class _AmountWidgetCartState extends State<AmountWidgetCart> {
       DrawableText(
         text: widget.product.count.toString(),
         padding: widget.axis == Axis.horizontal
-            ? EdgeInsets.symmetric(horizontal: 15.0).r
-            : EdgeInsets.symmetric(vertical: 5.0).r,
+            ? EdgeInsets
+            .symmetric(horizontal: 15.0)
+            .r
+            : EdgeInsets
+            .symmetric(vertical: 5.0)
+            .r,
         size: 20.0.sp,
         color: AppColorManager.grey,
         fontWeight: FontWeight.bold,
