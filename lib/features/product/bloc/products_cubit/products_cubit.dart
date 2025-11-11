@@ -42,7 +42,6 @@ class ProductsCubit extends MCubit<ProductsInitial> {
       getDataApi: _getData,
       newData: newData,
       onSuccess: (data, emitState) {
-        loggerObject.f(_meta?.toJson());
         emit(
           state.copyWith(
             result: data,
