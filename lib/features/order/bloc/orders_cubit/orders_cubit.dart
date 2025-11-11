@@ -67,6 +67,7 @@ class OrdersCubit extends MCubit<OrdersInitial> {
       url: PostUrl.createOrder,
       body: state.cRequest.toJson(),
     );
+
     final order = Order.fromJson(response.jsonBodyData);
     if (!order.isTemporary) {
       await getData(newData: true);

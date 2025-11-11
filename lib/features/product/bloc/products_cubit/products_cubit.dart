@@ -7,6 +7,7 @@ import 'package:victoria/core/util/pair_class.dart';
 import 'package:victoria/features/product/data/request/filter_product_request.dart';
 import 'package:victoria/features/product/data/response/product_response.dart';
 
+import '../../../../core/api_manager/request_models/command.dart';
 import '../../../category/data/response/category_response.dart';
 
 part 'products_state.dart';
@@ -19,6 +20,8 @@ class ProductsCubit extends MCubit<ProductsInitial> {
 
   @override
   String get filter => state.filter;
+
+  PaginationMeta? _meta;
 
   //region getData
 
@@ -38,6 +41,21 @@ class ProductsCubit extends MCubit<ProductsInitial> {
       getDataApi: _getData,
       newData: newData,
     );
+  }
+
+  Future<void> getNextPage() async {
+    if (!state.meta.haveNext) return;
+    emit(state.copyWith(statuses: CubitStatuses.noLoading, meta: state.meta.next));
+    final pair = await _getData();
+    if (pair.first != null) {
+      emit(state.copyWith(
+        result: [...state.result, ...(pair.first!)],
+        meta: _meta,
+        statuses: CubitStatuses.done,
+      ));
+    } else {
+      emit(state.copyWith(statuses: CubitStatuses.error));
+    }
   }
 
   Future<Pair<List<Product>?, String?>> _getData() async {

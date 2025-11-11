@@ -9,6 +9,7 @@ import 'package:victoria/core/extensions/extensions.dart';
 import 'package:victoria/core/extensions/extensions.dart';
 import 'package:victoria/core/widgets/not_found_widget.dart';
 import 'package:victoria/core/widgets/spinner_widget.dart';
+import 'package:victoria/features/category/ui/widget/item_category.dart';
 
 import '../../../../core/strings/app_color_manager.dart';
 import '../../../../core/strings/enum_manager.dart';
@@ -129,38 +130,14 @@ class _Search extends StatelessWidget {
                   return ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, i) {
-                      final e = cState.result[i];
-                      return Container(
-                        width: 0.26.sw,
-                        padding: EdgeInsets.symmetric(horizontal: 7.0, vertical: 5.0).r,
-                        decoration: BoxDecoration(
-                          color: state.mRequest.category?.id == e.id ? Colors.grey[100]! : Colors.transparent,
-                          borderRadius: BorderRadius.circular(8.0).r,
-                        ),
-                        child: InkWell(
-                          onTap: () {
-                            context.read<ProductsCubit>().setCategory(e);
-                          },
-                          child: Center(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                ImageMultiType(
-                                  height: 30.0.r,
-                                  width: 30.0.r,
-                                  url: e.image,
-                                ),
-                                Spacer(),
-                                DrawableText(
-                                  text: e.name,
-                                  textAlign: TextAlign.center,
-                                  size: 11.0.sp,
-                                  matchParent: true,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                      final category = cState.result[i];
+                      return ItemCategory(
+                        selected: state.mRequest.category?.id == category.id,
+                        category: category,
+                        onTap: (category) {
+                          if (state.loading) return;
+                          context.read<ProductsCubit>().setCategory(category);
+                        },
                       );
                     },
                     separatorBuilder: (context, i) => 10.0.horizontalSpace,

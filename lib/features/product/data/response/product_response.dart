@@ -77,7 +77,6 @@ class Product {
   int count = 1;
   final List<Product> suggestedProducts;
 
-
   Widget get priceWidgetH => Row(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -130,14 +129,14 @@ class Product {
       isOffer: json["is_offer"] ?? false,
       isFavorite: json["isFavorite"] ?? false,
       offerName: json["offer_name"] ?? "",
-      image: json["image"] == null
+      image: (json["image"] ?? json["images"]) == null
           ? []
-          : (json["image"] is String)
-              ? [json["image"].toString()]
+          : ((json["image"] ?? json["images"]) is String)
+              ? [(json["image"] ?? json["images"]).toString()]
               : (json['image'] is Map)
                   ? [json['image']?['image_url'] ?? '']
                   : List<String>.from(
-                      json["image"]!.map(
+                      (json["image"] ?? json["images"])!.map(
                         (x) => (x is Map) ? (x['image_url'] ?? '') : x.toString(),
                       ),
                     ),

@@ -1,43 +1,36 @@
 {
-  "data": {
-    "id": 40,
-    "status": "pending",
-    "total": 11000,
-    "delivery_price": 0,
-    "total_with_delivery_price": 11000,
-    "discount": 0,
-    "product": [
+  "data": [],
+  "links": {
+    "first": "https:\/\/back.victoriairaq.com\/api\/v1\/product?page=1",
+    "last": "https:\/\/back.victoriairaq.com\/api\/v1\/product?page=1",
+    "prev": null,
+    "next": null
+  },
+  "meta": {
+    "current_page": 1,
+    "from": null,
+    "last_page": 1,
+    "links": [
       {
-        "id": 1,
-        "name": "\u0641\u0633\u062a\u0627\u0646 \u0633\u0647\u0631\u0629",
-        "quantity": 190,
-        "description": "\u0634\u0633\u064a\u0634",
-        "price": 11000,
-        "price_after": 12000,
-        "is_offer": false,
-        "the_offer": null,
-        "image": {
-          "image_url": "https:\/\/back.victoriairaq.com\/storage\/images\/G0y4ThxUqnXyfcJDNJoUGuBGRYzGi15eF2JldIwm.jpg"
-        },
-        "category": {
-          "id": 5,
-          "name": "Laptops",
-          "image": "https:\/\/back.victoriairaq.com\/storage\/laptops.jpg"
-        }
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "https:\/\/back.victoriairaq.com\/api\/v1\/product?page=1",
+        "label": "1",
+        "active": true
+      },
+      {
+        "url": null,
+        "label": "Next &raquo;",
+        "active": false
       }
     ],
-    "address": {
-      "id": 5,
-      "name": "dsfsd",
-      "governorate": {
-        "id": 5,
-        "name": "\u0628\u063a\u062f\u0627\u062f",
-        "delivery_price": "0"
-      },
-      "longitude": "44.366557784379",
-      "latitude": "33.320131793536"
-    },
-    "payment_method": "gateway",
-    "is_temporary": true
-  }
+    "path": "https:\/\/back.victoriairaq.com\/api\/v1\/product",
+    "per_page": 10,
+    "to": null,
+    "total": 0
+  },
+  "category_product_count": null
 }
