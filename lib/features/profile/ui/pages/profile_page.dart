@@ -68,12 +68,12 @@ class _ProfilePageState extends State<ProfilePage> {
                       label: S.of(context).name,
                       onChanged: (val) => updateCubit.setName = val,
                     ),
-                    MyTextFormOutLineWidget(
-                      validator: (p0) => p0.validateEmpty,
-                      controller: TextEditingController(text: updateState.mRequest.email),
-                      label: S.of(context).email,
-                      onChanged: (val) => updateCubit.setEmail = val,
-                    ),
+                    // MyTextFormOutLineWidget(
+                    //   validator: (p0) => p0.validateEmpty,
+                    //   controller: TextEditingController(text: updateState.mRequest.email),
+                    //   label: S.of(context).email,
+                    //   onChanged: (val) => updateCubit.setEmail = val,
+                    // ),
                     MyTextFormOutLineWidget(
                       validator: (p0) => p0.validateEmpty,
                       controller: TextEditingController(text: updateState.mRequest.phone),

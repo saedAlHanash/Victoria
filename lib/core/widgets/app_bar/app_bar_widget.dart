@@ -78,7 +78,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         centerTitle: true,
         actions: actions,
         elevation: elevation ?? 0.0,
-        shadowColor: AppColorManager.black.withValues(alpha: 0.28),
+        shadowColor: elevation == 0 ? null : AppColorManager.black.withValues(alpha: 0.28),
         iconTheme: const IconThemeData(color: AppColorManager.mainColor),
       ),
     );
@@ -114,7 +114,7 @@ class BackBtnWidget extends StatelessWidget {
         Navigator.pop(context);
       },
       icon: ImageMultiType(
-        url:  Assets.iconsBack,
+        url: Assets.iconsBack,
         color: isColorDark(appBarColor) ? Colors.white : AppColorManager.black,
       ),
     );

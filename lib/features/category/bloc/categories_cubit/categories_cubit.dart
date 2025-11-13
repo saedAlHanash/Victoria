@@ -33,6 +33,7 @@ class CategoriesCubit extends MCubit<CategoriesInitial> {
 
   Future<void> getData({bool newData = false, Category? category}) async {
     emit(state.copyWith(request: category));
+
     await getDataAbstract(
       fromJson: Category.fromJson,
       state: state,

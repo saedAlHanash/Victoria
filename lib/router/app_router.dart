@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:victoria/core/extensions/extensions.dart';
 import 'package:victoria/features/category/data/response/category_response.dart';
 import 'package:victoria/features/category/ui/pages/categorys_page.dart';
 import 'package:victoria/features/order/bloc/orders_cubit/orders_cubit.dart';
@@ -39,6 +40,7 @@ import '../features/product/bloc/products_cubit/products_cubit.dart';
 import '../features/product/data/request/filter_product_request.dart';
 import '../features/product/ui/pages/product_page.dart';
 import '../features/product/ui/pages/products_page.dart';
+import '../features/product/ui/pages/search_page.dart';
 import '../features/profile/bloc/update_profile_cubit/update_profile_cubit.dart';
 import '../features/profile/ui/pages/profile_page.dart';
 
@@ -196,7 +198,6 @@ class AppRoutes {
         }
       //endregion
       case RouteName.cart:
-
         {
           return MaterialPageRoute(
             builder: (_) {
@@ -228,21 +229,37 @@ class AppRoutes {
 
       case RouteName.products:
         final list = settings.arguments as List;
-        var provider = list[0] is ProductsCubit ? list[0] as ProductsCubit : null;
-        var filter = list[0] is FilterProductRequest ? list[0] as FilterProductRequest : null;
 
         final providers = [
-          if (provider == null) BlocProvider(create: (_) => sl<CategoriesCubit>()..getData(category: filter?.category)),
-          if (provider != null) BlocProvider.value(value: provider),
-          if (provider == null) BlocProvider(create: (_) => sl<ProductsCubit>()),
+          BlocProvider.value(value: list[0] as ProductsCubit),
+        ];
+
+        return MaterialPageRoute(
+          builder: (_) {
+            return MultiBlocProvider(
+              providers: providers,
+              child: ProductsPage(title: list[1] as String),
+            );
+          },
+        );
+
+      case RouteName.search:
+        final list = settings.arguments as List;
+        final request = list[0] as SearchRequest;
+        final providers = [
+          BlocProvider(create: (_) => sl<CategoriesCubit>()..getData(category: request.category)),
+          BlocProvider(
+            create: (_) => sl<ProductsCubit>()
+              ..setFilterRequest(request)
+              ..getData(),
+          ),
         ];
         return MaterialPageRoute(
           builder: (_) {
             return MultiBlocProvider(
               providers: providers,
-              child: ProductsPage(
-                title: (settings.arguments as List)[1] as String,
-                withSearch: provider == null,
+              child: SearchPage(
+                title: list[1] as String,
               ),
             );
           },

@@ -10,16 +10,20 @@ class ProductsInitial extends AbstractState<List<Product>> {
     super.createUpdateRequest,
     super.statuses,
     super.id,
+    required this.meta,
   });
 
-  FilterProductRequest get mRequest => request;
+  final PaginationMeta meta;
+
+  SearchRequest get mRequest => request;
 
   factory ProductsInitial.initial() {
     return ProductsInitial(
       result: [],
       id: 0,
-      request: FilterProductRequest.fromJson({}),
-      createUpdateRequest: FilterProductRequest.fromJson({}),
+      request: SearchRequest.fromJson({}),
+      createUpdateRequest: SearchRequest.fromJson({}),
+      meta: PaginationMeta.fromJson({}),
     );
   }
 
@@ -34,6 +38,7 @@ class ProductsInitial extends AbstractState<List<Product>> {
         if (id != null) id,
         if (request != null) request,
         if (filterRequest != null) filterRequest!,
+        meta,
         if (createUpdateRequest != null) createUpdateRequest!,
       ];
 
@@ -43,8 +48,9 @@ class ProductsInitial extends AbstractState<List<Product>> {
     List<Product>? result,
     String? error,
     FilterRequest? filterRequest,
-    FilterProductRequest? request,
+    SearchRequest? request,
     int? id,
+    PaginationMeta? meta,
   }) {
     return ProductsInitial(
       statuses: statuses ?? this.statuses,
@@ -54,6 +60,7 @@ class ProductsInitial extends AbstractState<List<Product>> {
       filterRequest: filterRequest ?? this.filterRequest,
       request: request ?? this.request,
       id: id ?? this.id,
+      meta: meta ?? this.meta,
     );
   }
 }

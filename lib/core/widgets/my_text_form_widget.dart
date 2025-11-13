@@ -33,8 +33,12 @@ class MyTextFormOutLineWidget extends StatefulWidget {
     this.onTap,
     this.autofillHints,
     this.labelText,
+    this.textInputAction,
+    this.onFieldSubmitted,
   });
 
+  final Function(String)? onFieldSubmitted;
+  final TextInputAction? textInputAction;
   final bool? enable;
   final String label;
   final String? labelText;
@@ -178,6 +182,8 @@ class _MyTextFormOutLineWidgetState extends State<MyTextFormOutLineWidget> {
             textDirection: widget.textDirection,
             maxLength: widget.maxLength,
             controller: widget.controller,
+            textInputAction: widget.textInputAction,
+            onFieldSubmitted: widget.onFieldSubmitted,
             keyboardType: widget.keyBordType,
           ),
         ],

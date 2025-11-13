@@ -127,9 +127,10 @@ class _NewNavState extends State<NewNav> {
           padding: const EdgeInsets.only(top: 7.0, bottom: 5.0).r,
           decoration: BoxDecoration(
             color: Colors.white,
-            // border: Border(
-            //   top: BorderSide(color: AppColorManager.dividerColor),
-            // ),
+            borderRadius: BorderRadius.circular(12.0).r,
+            border: Border(
+              top: BorderSide(color: AppColorManager.dividerColor),
+            ),
           ),
           child: Theme(
             data: ThemeData(

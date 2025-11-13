@@ -388,7 +388,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("بحث"),
     "searchAbout": MessageLookupByLibrary.simpleMessage("ابحث عن ..."),
     "searchResult": MessageLookupByLibrary.simpleMessage("نتائج البحث"),
-    "search_In_All": MessageLookupByLibrary.simpleMessage("البحث في الكل"),
+    "search_In_All": MessageLookupByLibrary.simpleMessage("بحث منتجات ......."),
     "second": MessageLookupByLibrary.simpleMessage("ثانية"),
     "seconds": MessageLookupByLibrary.simpleMessage("ثواني"),
     "sections": MessageLookupByLibrary.simpleMessage("الأقسام"),
