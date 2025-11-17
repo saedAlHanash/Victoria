@@ -42,7 +42,7 @@ void main() async {
       timeInterval: 60,
     );
 
-    // await FirebaseService.initial();
+    await FirebaseService.initial();
 
     await Note.initialize();
 
@@ -93,8 +93,8 @@ class Note {
     // vibrationPattern[1] = 1000;
 
     const androidPlatformChannelSpecifics = AndroidNotificationDetails(
-      'Ali Gabory',
-      'Gabory App',
+      'Victoria',
+      'Victoria App',
       playSound: true,
       // enableVibration: true,
       // sound: RawResourceAndroidNotificationSound('sound'),
