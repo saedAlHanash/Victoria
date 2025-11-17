@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_multi_type/image_multi_type.dart';
+import 'package:victoria/core/api_manager/api_service.dart';
 import 'package:victoria/core/extensions/extensions.dart';
 import 'package:victoria/core/extensions/extensions.dart';
 import 'package:victoria/core/widgets/not_found_widget.dart';
@@ -54,11 +55,21 @@ class _ProductsPageState extends State<ProductsPage> {
   }
 
   @override
+  void initState() {
+    final state = context.read<ProductsCubit>().state;
+    if (state.done && state.meta.haveNext) {
+      _scrollController.addListener(scrollListener);
+    }
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarWidget(titleText: widget.title, elevation: 0),
       body: BlocConsumer<ProductsCubit, ProductsInitial>(
         listener: (context, state) {
+          loggerObject.w(state.meta.toJson());
           if (state.done && state.meta.haveNext) {
             _scrollController.addListener(scrollListener);
           } else {
@@ -104,4 +115,3 @@ class _ProductsPageState extends State<ProductsPage> {
     );
   }
 }
-

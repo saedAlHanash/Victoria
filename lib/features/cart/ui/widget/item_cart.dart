@@ -82,7 +82,7 @@ class ItemProductCart extends StatelessWidget {
               context.read<CartCubit>().decrementQuantity(product);
             },
             onIncrement: (product) {
-              context.read<CartCubit>().incrementQuantity(product);
+              context.read<CartCubit>().incrementQuantity(product, context: context);
             },
           ),
         ],

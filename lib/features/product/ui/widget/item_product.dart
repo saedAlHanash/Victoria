@@ -39,7 +39,7 @@ class ItemProduct extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  height: 118.0.h,
+                  height: 110.0.h,
                   decoration: BoxDecoration(
                     color: AppColorManager.cardColor,
                     borderRadius: BorderRadius.circular(8.0.r),

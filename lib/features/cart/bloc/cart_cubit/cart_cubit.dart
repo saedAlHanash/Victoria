@@ -19,7 +19,6 @@ class CartCubit extends MCubit<CartInitial> {
   @override
   String get nameCache => 'cart';
 
-
   //region getData
 
   Future<void> getDataFromCache() async => await getFromCache(
@@ -62,8 +61,9 @@ class CartCubit extends MCubit<CartInitial> {
     }
   }
 
-  Future<void> addToCart(Product item, {BuildContext? context}) async {
+  Future<void> addToCart(Product item, {required BuildContext context}) async {
     var r = await _addToCart(item);
+    if (!context.mounted) return;
 
     if (r) {
       NoteMessage.showTopMessage(context: context);
@@ -87,7 +87,7 @@ class CartCubit extends MCubit<CartInitial> {
     }
   }
 
-  Future<bool> incrementQuantity(Product item) async {
+  Future<bool> incrementQuantity(Product item, {required BuildContext context}) async {
     await getDataFromCache();
     final products = state.result;
     final index = products.indexWhere((p) => p.id == item.id);
@@ -105,7 +105,7 @@ class CartCubit extends MCubit<CartInitial> {
       }
     } else {
       if (item.count <= item.quantity) {
-        await addToCart(item);
+        await addToCart(item, context: context);
         return true;
       } else {
         loggerObject.w("لا يمكن إضافة أكثر من الكمية المتاحة: ${item.quantity}");

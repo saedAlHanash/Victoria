@@ -76,7 +76,7 @@ class ProductsCubit extends MCubit<ProductsInitial> {
     );
 
     if (response.statusCode.success) {
-      _meta = PaginationMeta.fromJson(response.jsonBody);
+      _meta = PaginationMeta.fromJson(response.jsonBody['meta'] ?? {});
 
       return Pair(Products.fromJson(response.jsonBody).data, null);
     } else {

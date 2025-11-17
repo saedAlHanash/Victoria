@@ -22,7 +22,7 @@ class AddToCartProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return MyButton(
       onTap: () {
-        context.read<CartCubit>().addToCart(product);
+        context.read<CartCubit>().addToCart(product, context: context);
       },
       color: AppColorManager.mainColor,
       radios: 8.0.r,
