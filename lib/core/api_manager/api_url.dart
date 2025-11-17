@@ -192,6 +192,8 @@ class PostUrl {
 
   static var createGroup = '';
 
+  static String get insertFcmToken => 'notification/store-fcm-token';
+
   static String addMessage(int id) {
     return 'drivers/messages/$id/add';
   }

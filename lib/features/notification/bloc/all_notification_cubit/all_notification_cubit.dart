@@ -14,13 +14,12 @@ class NotificationCubit extends MCubit<NotificationsInitial> {
   NotificationCubit() : super(NotificationsInitial.initial());
 
   @override
-  String get nameCache => 'teacher';
+  String get nameCache => 'notifications';
 
   @override
   String get filter => '';
 
   Future<void> getData({bool newData = false}) async {
-    return;
     if (AppProvider.isNotLogin) return;
 
     getDataAbstract(
@@ -28,6 +27,15 @@ class NotificationCubit extends MCubit<NotificationsInitial> {
       state: state,
       getDataApi: _getDataApi,
       newData: newData,
+    );
+  }
+
+  Future<void> readAll() async {
+    if (AppProvider.isNotLogin) return;
+
+    await APIService().callApi(
+      type: ApiType.put,
+      url: 'notification/read-all',
     );
   }
 

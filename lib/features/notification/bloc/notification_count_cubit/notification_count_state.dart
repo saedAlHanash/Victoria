@@ -8,8 +8,7 @@ class NotificationCountInitial extends Equatable {
   const NotificationCountInitial({required this.result});
 
   factory NotificationCountInitial.initial() {
-    return NotificationCountInitial(
-        result: AppSharedPreference.getNotificationCount());
+    return NotificationCountInitial(result: 0);
   }
 
   NotificationCountInitial copyWith({

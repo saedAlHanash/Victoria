@@ -6,7 +6,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../core/api_manager/api_service.dart';
+import '../core/api_manager/api_url.dart';
+import '../core/app/app_provider.dart';
 import '../core/app/app_widget.dart';
+import '../core/strings/enum_manager.dart';
 import '../core/util/shared_preferences.dart';
 import '../features/notification/bloc/notification_count_cubit/notification_count_cubit.dart';
 import '../firebase_options.dart';
@@ -60,6 +63,21 @@ class FirebaseService {
     loggerObject.e('FCM Token Empty');
 
     throw Exception('FCM Token Empty');
+  }
+
+  static Future<void> saveFCM() async {
+    if (!AppProvider.isLogin) return;
+
+    final token = await FirebaseMessaging.instance.getToken() ?? '';
+
+    final response = await APIService().callApi(
+      type: ApiType.post,
+      url: PostUrl.insertFcmToken,
+      body: {'fcm_token': token},
+    );
+    if (response.statusCode != 200) {
+      loggerObject.e('error with fcm');
+    }
   }
 
   static Future<String> getFireTokenAsync({bool reNew = false}) async {

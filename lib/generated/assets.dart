@@ -26,6 +26,7 @@ class Assets {
   static const String iconsLogo = 'assets/icons/logo.svg';
   static const String iconsMap = 'assets/icons/map.svg';
   static const String iconsNotification = 'assets/icons/notification.svg';
+  static const String iconsNotificationCardIcon = 'assets/icons/notification_card_icon.svg';
   static const String iconsNotificationF = 'assets/icons/notification_f.svg';
   static const String iconsPerson = 'assets/icons/person.svg';
   static const String iconsPersonF = 'assets/icons/person_f.svg';
@@ -36,5 +37,4 @@ class Assets {
   static const String imagesEmpty = 'assets/images/empty.png';
   static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesUser = 'assets/images/user.png';
-
 }

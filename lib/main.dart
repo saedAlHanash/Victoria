@@ -44,6 +44,8 @@ void main() async {
 
     await FirebaseService.initial();
 
+    FirebaseService.saveFCM();
+
     await Note.initialize();
 
     await AppInfoService.initial();

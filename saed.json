@@ -1,239 +1,499 @@
 {
   "data": [
     {
-      "id": 50,
-      "name": "\u0637\u0627\u0648\u0644\u0629 \u0637\u0639\u0627\u0645 \u0645\u0637\u0628\u062e 4 \u0643\u0631\u0627\u0633\u064a \u0628\u0644\u0648\u0646 \u0627\u0644\u0631\u0635\u0627\u0635\u064a",
-      "quantity": 2,
-      "description": "\u0637\u0627\u0648\u0644\u0629 \u0637\u0639\u0627\u0645 \u0645\u0637\u0628\u062e 4 \u0643\u0631\u0627\u0633\u064a \u0628\u0644\u0648\u0646 \u0627\u0644\u0631\u0635\u0627\u0635\u064a",
-      "price": 450000,
-      "price_after": 300000,
-      "is_offer": true,
-      "images": [
-        "https:\/\/back.victoriairaq.com\/storage\/images\/OWk6XE4nVvziF3z95BZiEsggJmQrF0hrUQ9bmNMm.png",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/Jjx0hSR6sSKgGslq0Nau9eubm2ghXPJ7FmJTVbbU.png",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/HPlh92DZtUnjp321bMtJA17tJgUgu8sxmF57XCJl.png"
-      ],
-      "category": {
-        "id": 34,
-        "name": "\u0637\u0627\u0648\u0644\u0627\u062a \u0627\u0644\u0637\u0639\u0627\u0645",
-        "image": "https:\/\/back.victoriairaq.com\/storage\/images\/mqOvbvgpLvn3UjkOt3shYHZCWtQv68rji0yw2PPU.jpg"
-      }
+      "id": "891fa758-b202-473c-a148-abcb8295775f",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 61
+      },
+      "is_read": false,
+      "created_at": "2025-11-14 21:15:14"
     },
     {
-      "id": 41,
-      "name": "\u0637\u0627\u0648\u0644\u0629 \u0648\u0633\u0637\u064a\u0629 \u0643\u0648\u0631 \u0627\u0628\u064a\u0636",
-      "quantity": 8,
-      "description": "\u062a\u0645 \u062a\u0635\u0645\u064a\u0645 \u0639\u0628\u0648\u0629 \u0642\u0648\u064a\u0629 \u0648\u0642\u0627\u0628\u0644\u0629 \u0644\u0625\u0639\u0627\u062f\u0629 \u0627\u0644\u062a\u062f\u0648\u064a\u0631 \u062e\u0635\u064a\u0635\u064b\u0627 \u0644\u062a\u0648\u0635\u064a\u0644 \u0623\u0643\u062b\u0631 \u0623\u0645\u0627\u0646\u064b\u0627.\r\n\u0633\u0647\u0648\u0644\u0629 \u0648\u0645\u062a\u0639\u0629 \u0627\u0644\u062a\u062c\u0645\u064a\u0639 \u0645\u0639 \u062a\u0639\u0644\u064a\u0645\u0627\u062a \u0648\u0627\u0636\u062d\u0629.\r\n\u0645\u0635\u0646\u0648\u0639 \u0645\u0646 \u062e\u0634\u0628 \u0647\u0646\u062f\u0633\u064a \u0639\u0627\u0644\u064a \u0627\u0644\u062c\u0648\u062f\u0629 \u0645\u0639 \u062a\u0634\u0637\u064a\u0628 \u0645\u0644\u0627\u0645\u064a\u0646 \u0648\u0627\u0642\u064a.\r\n\u0633\u0647\u0644 \u0627\u0644\u0635\u064a\u0627\u0646\u0629 \u0648\u0627\u0644\u062a\u0646\u0638\u064a\u0641\u060c \u0641\u0642\u0637 \u0627\u0633\u062a\u062e\u062f\u0645 \u0642\u0637\u0639\u0629 \u0642\u0645\u0627\u0634 \u0645\u0628\u0644\u0644\u0629\u060c \u0648\u0644\u0627 \u062a\u062d\u062a\u0627\u062c \u0644\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0623\u064a \u0645\u0648\u0627\u062f \u0643\u064a\u0645\u064a\u0627\u0626\u064a\u0629.\r\n\u0623\u0636\u0641 \u0644\u0645\u0633\u0629 \u0645\u0646 \u0627\u0644\u0623\u0646\u0627\u0642\u0629 \u0625\u0644\u0649 \u063a\u0631\u0641\u0629 \u0627\u0644\u0645\u0639\u064a\u0634\u0629 \u0645\u0639 \u0637\u0627\u0648\u0644\u0629 \u0627\u0644\u0642\u0647\u0648\u0629 \u0627\u0644\u062f\u0627\u0626\u0631\u064a\u0629 \u0627\u0644\u0628\u0633\u064a\u0637\u0629 \u0648\u0627\u0644\u0623\u0646\u064a\u0642\u0629.\r\n\u0645\u0635\u0645\u0645\u0629 \u0644\u062a\u0643\u0648\u0646 \u0639\u0645\u0644\u064a\u0629 \u0648\u062c\u0645\u064a\u0644\u0629 \u0641\u064a \u0627\u0644\u0648\u0642\u062a \u0646\u0641\u0633\u0647\u060c \u0648\u0623\u0628\u0639\u0627\u062f\u0647\u0627 80 \u00d7 80 \u00d7 45 \u0633\u0645.\r\n\r\n\u0627\u0644\u0623\u0628\u0639\u0627\u062f: \u0627\u0644\u0627\u0631\u062a\u0641\u0627\u0639 45 \u00d7 \u0627\u0644\u0639\u0631\u0636 80 \u00d7 \u0627\u0644\u0639\u0645\u0642 80 \u0633\u0645\r\n\u0627\u0644\u0648\u0632\u0646: 10.13 \u0643\u062c\u0645",
-      "price": 150000,
-      "price_after": 90000,
-      "is_offer": true,
-      "images": [
-        "https:\/\/back.victoriairaq.com\/storage\/images\/KN4fTBUSS2yIn60d68rsvOh78rC9p7QAcCLTUT8F.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/HDHCp1Dz1ZJrrjMM9BnRD32mkgb0vOYJHMov0Xjo.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/s7af6OabVRBSv22AW7AuUKRS2IIwPGGdaJhHziIt.jpg"
-      ],
-      "category": {
-        "id": 30,
-        "name": "\u0627\u0644\u0637\u0627\u0648\u0644\u0627\u062a \u0627\u0644\u0648\u0633\u0637\u064a\u0629",
-        "image": "https:\/\/back.victoriairaq.com\/storage\/images\/fYtcZi6MbzvgjknTu7D8XvAmjC1JmRCsfMStUmTz.jpg"
-      }
+      "id": "1d293a5d-c664-4d8c-8c42-2823a14979d9",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 60
+      },
+      "is_read": false,
+      "created_at": "2025-11-14 21:13:45"
     },
     {
-      "id": 40,
-      "name": "\u0637\u0627\u0648\u0644\u0629 \u062c\u0627\u0646\u0628\u064a\u0629 \u062f\u064a\u0648\u0646\u0627",
-      "quantity": 10,
-      "description": "\u062a\u064f\u0636\u0641\u064a \u0647\u0630\u0647 \u0627\u0644\u0637\u0627\u0648\u0644\u0629 \u0627\u0644\u062c\u0627\u0646\u0628\u064a\u0629 \u0627\u0644\u0645\u062f\u0645\u062c\u0629 \u0644\u0645\u0633\u0629 \u0645\u0646 \u0627\u0644\u0623\u0635\u0627\u0644\u0629 \u0639\u0644\u0649 \u063a\u0631\u0641\u062a\u0643. \u0641\u0647\u064a \u062a\u062c\u0645\u0639 \u0628\u064a\u0646 \u0627\u0644\u062e\u0634\u0628 \u0627\u0644\u0641\u0627\u062a\u062d \u0627\u0644\u062f\u0627\u0641\u0626 \u0648\u0644\u0648\u062d \u0642\u0627\u0628\u0644 \u0644\u0644\u0627\u0646\u0632\u0644\u0627\u0642 \u0628\u0646\u0645\u0637 \u0647\u0646\u062f\u0633\u064a \u0645\u0645\u064a\u0632 \u0645\u0641\u062a\u0648\u062d. \u062a\u0648\u0641\u0631 \u0645\u0633\u0627\u062d\u0629 \u062a\u062e\u0632\u064a\u0646 \u0645\u0641\u062a\u0648\u062d\u0629 \u0639\u0645\u0644\u064a\u0629 \u0644\u0643\u062a\u0628\u0643 \u0623\u0648 \u0632\u064a\u0646\u062a\u0643. \u0627\u0644\u0623\u0631\u062c\u0644 \u0627\u0644\u0631\u0641\u064a\u0639\u0629 \u0627\u0644\u0645\u0635\u0646\u0648\u0639\u0629 \u0645\u0646 \u0627\u0644\u0645\u0639\u062f\u0646 \u0627\u0644\u0623\u0633\u0648\u062f \u062a\u0645\u0646\u062d\u0647\u0627 \u0645\u0638\u0647\u0631\u0627\u064b \u0639\u0635\u0631\u064a\u0627\u064b \u0648\u0647\u0648\u0627\u0621\u064b. \u0645\u062b\u0627\u0644\u064a\u0629 \u0644\u0644\u0633\u062a\u0627\u064a\u0644 \u0627\u0644\u0628\u0648\u0647\u064a\u0645\u064a \u0623\u0648 \u0627\u0644\u0625\u0633\u0643\u0646\u062f\u0646\u0627\u0641\u064a \u0623\u0648 \u0627\u0644\u0645\u0639\u0627\u0635\u0631.",
-      "price": 15000,
-      "price_after": 90000,
-      "is_offer": true,
-      "images": [
-        "https:\/\/back.victoriairaq.com\/storage\/images\/z2y73tPM5IfeSUSHyjlnoatYy0HJEMkBAnWCiEOU.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/fCJKJbgtfLFvdsEl5MY83kxobXyFFccEG2vInpdC.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/xupbOz0PR7YMXYYJhhN7m5p9ubVjhPQUkyNOpg8N.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/z6NzTUPyXMBisBAaF7Q69pgGA8fGLSXpLTCCUNn5.jpg"
-      ],
-      "category": {
-        "id": 32,
-        "name": "\u0627\u0644\u0637\u0627\u0648\u0644\u0627\u062a \u0627\u0644\u062c\u0627\u0646\u0628\u064a\u0629",
-        "image": "https:\/\/back.victoriairaq.com\/storage\/images\/7VfeX5a4Oqg821VdV3FJbv3C6ryNaGERkt15dMTg.jpg"
-      }
+      "id": "86f819f7-49ec-4b49-a211-4d4ec6ba1faf",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 59
+      },
+      "is_read": false,
+      "created_at": "2025-11-14 21:09:37"
     },
     {
-      "id": 34,
-      "name": "\u0637\u0627\u0648\u0644\u0629 \u0648\u0633\u0637\u064a\u0629 \u0628\u0644\u0648\u0646 \u0627\u0644\u063a\u0627\u0645\u0642 \u0643\u0648\u0631",
-      "quantity": 8,
-      "description": "\u062a\u0635\u0645\u064a\u0645 \u062f\u0627\u0626\u0631\u064a \u0628\u0627\u0646\u0633\u064a\u0627\u0628\u064a\u0629 \u0646\u0627\u0639\u0645\u0629\u060c \u064a\u0636\u0641\u064a \u062a\u0648\u0627\u0632\u0646\u064b\u0627 \u0648\u0627\u0646\u0633\u062c\u0627\u0645\u064b\u0627 \u0641\u064a \u062f\u064a\u0643\u0648\u0631 \u0645\u0646\u0632\u0644\u0643.\r\n\r\n\u0645\u0639\u0631\u0636 \u0641\u0643\u062a\u0648\u0631\u064a\u0627 \u0644\u0644\u0623\u062b\u0627\u062b \u0627\u0644\u0645\u0646\u0632\u0644\u064a\r\n\u0630\u0648\u0642\u0643 \u064a\u0643\u062a\u0645\u0644 \u0639\u0646\u062f\u0646\u0627.\r\n\r\n\u0639\u0631\u0636 80 \u0633\u0645 \u0639\u0645\u0642 80 \u0633\u0645 \u0627\u0631\u062a\u0641\u0627\u0639 45 \u0633\u0645\r\n\r\n\u0627\u0644\u0633\u0639\u0631 \u0628\u0639\u062f \u0627\u0644\u062e\u0635\u0645 90 \u0627\u0644\u0641 \u0641\u0642\u0637\r\n \u0637\u0627\u0648\u0644\u0629 \u0648\u0633\u0637\u064a\u0629 \u0628\u0644\u0648\u0646 \u0627\u0644\u063a\u0627\u0645\u0642 \u0643\u0648\u0631",
-      "price": 150000,
-      "price_after": 90000,
-      "is_offer": true,
-      "images": [
-        "https:\/\/back.victoriairaq.com\/storage\/images\/g0RTynyUiW1RXCuV4885oMYsh0JKMGPKHI0DONbs.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/2biWu9C8aXy3rSA0f0JvwKLs5QOwhf8GHxfsvcq3.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/bhcbRKC0ZMEv0Rj8LHHRlsZS9Wy9VVUdQ5r306EB.jpg"
-      ],
-      "category": {
-        "id": 30,
-        "name": "\u0627\u0644\u0637\u0627\u0648\u0644\u0627\u062a \u0627\u0644\u0648\u0633\u0637\u064a\u0629",
-        "image": "https:\/\/back.victoriairaq.com\/storage\/images\/fYtcZi6MbzvgjknTu7D8XvAmjC1JmRCsfMStUmTz.jpg"
-      }
+      "id": "e9d19143-7ecf-4717-a14c-4fcee67ca951",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 58
+      },
+      "is_read": false,
+      "created_at": "2025-11-14 20:54:42"
     },
     {
-      "id": 33,
-      "name": "\u0637\u0627\u0648\u0644\u0629 \u0648\u0633\u0637\u064a\u0629 \u0643\u0648\u0631 \u0627\u0628\u064a\u0636 \u0648\u062e\u0634\u0628\u064a",
-      "quantity": 9,
-      "description": "\u0628\u0637\u0627\u0648\u0644\u0629 \u0628\u0633\u0637\u062d \u0628\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0628\u0644\u0648\u0637\r\n\u0628\u0627\u0644\u0644\u0648\u0646 \u0627\u0644\u0637\u0628\u064a\u0639\u064a\r\n80 \u0633\u0645\r\n\u0627\u0644\u0627\u0631\u062a\u0641\u0627\u0639 45 \u0633\u0645",
-      "price": 150000,
-      "price_after": 90000,
-      "is_offer": true,
-      "images": [
-        "https:\/\/back.victoriairaq.com\/storage\/images\/NYbKOrOoDT7xNL5zON0ys8fLHnN54A68syzrx8wq.jpg"
-      ],
-      "category": {
-        "id": 30,
-        "name": "\u0627\u0644\u0637\u0627\u0648\u0644\u0627\u062a \u0627\u0644\u0648\u0633\u0637\u064a\u0629",
-        "image": "https:\/\/back.victoriairaq.com\/storage\/images\/fYtcZi6MbzvgjknTu7D8XvAmjC1JmRCsfMStUmTz.jpg"
-      }
+      "id": "74676d83-e8ff-405a-8e65-a51bacfe6247",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 57
+      },
+      "is_read": false,
+      "created_at": "2025-11-14 20:50:45"
     },
     {
-      "id": 26,
-      "name": "\u0637\u0627\u0648\u0644\u0629 \u0648\u0633\u0637\u064a\u0629 \u062e\u0634\u0628 \u0628\u0644\u0648\u0637 \u0645\u0639 \u0637\u0627\u0628\u0648\u0631\u064a\u0629",
-      "quantity": 1,
-      "description": "\u0637\u0627\u0648\u0644\u0629 \u0648\u0633\u0637\u064a\u0629 \u062e\u0634\u0628 \u0628\u0644\u0648\u0637 \u0645\u0639 \u0637\u0627\u0628\u0648\u0631\u064a\u0629",
-      "price": 750000,
-      "price_after": 600000,
-      "is_offer": true,
-      "images": [
-        "https:\/\/back.victoriairaq.com\/storage\/images\/EzLPvwiCT2yXn4pmC3IbRRcQL3hBmro9wID9BsHN.png",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/3bNvKu3AstHP2sKXZl8GEeGRdxMX8GxcG6gsgVF3.png"
-      ],
-      "category": {
-        "id": 30,
-        "name": "\u0627\u0644\u0637\u0627\u0648\u0644\u0627\u062a \u0627\u0644\u0648\u0633\u0637\u064a\u0629",
-        "image": "https:\/\/back.victoriairaq.com\/storage\/images\/fYtcZi6MbzvgjknTu7D8XvAmjC1JmRCsfMStUmTz.jpg"
-      }
+      "id": "7cf79b10-e329-4747-86ca-640616cdc16f",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 56
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 14:41:24"
     },
     {
-      "id": 18,
-      "name": "\u0631\u0648\u062a\u0627 \u0628\u064a\u0631\u062c\u0631 \u0643\u0631\u0633\u064a \u0627\u0633\u062a\u0631\u0627\u062d\u0629 \u0645\u0639 \u0637\u0627\u0648\u0644\u0629 \u062c\u0627\u0646\u0628\u064a\u0629 \u0627\u062e\u0636\u0631",
-      "quantity": 2,
-      "description": "\u0631\u0648\u062a\u0627 \u0628\u064a\u0631\u062c\u0631 \u0643\u0631\u0633\u064a \u0627\u0633\u062a\u0631\u0627\u062d\u0629 \u0645\u0639 \u0637\u0627\u0648\u0644\u0629 \u062c\u0627\u0646\u0628\u064a\u0629 \u0627\u062e\u0636\u0631 \r\n\u0631\u0648\u062a\u0627 \u0628\u064a\u0631\u062c\u0631 \u0639\u0628\u0627\u0631\u0629 \u0639\u0646 \u0642\u0637\u0639\u0629 \u0645\u0630\u0647\u0644\u0629 \u0630\u0627\u062a \u0623\u0631\u062c\u0644 \u0645\u0645\u062a\u062f\u0629 \u064a\u0645\u0643\u0646 \u0627\u0633\u062a\u062e\u062f\u0627\u0645\u0647\u0627 \u0643\u0637\u0627\u0648\u0644\u0629 \u062c\u0627\u0646\u0628\u064a\u0629 \u0645\u0639 \u0643\u0631\u0648\u0645 \u0648\u0645\u0642\u0627\u0639\u062f \u0645\u0631\u064a\u062d\u0629. \u0627\u062e\u062a\u0628\u0631 \u0627\u0644\u0627\u0628\u062a\u0643\u0627\u0631 \u0639\u0644\u0649 \u0645\u0633\u062a\u0648\u0649 \u0645\u062e\u062a\u0644\u0641",
-      "price": 750000,
-      "price_after": 500000,
-      "is_offer": true,
-      "images": [
-        "https:\/\/back.victoriairaq.com\/storage\/images\/Zkdg91aU5EC9gLcrrkImtPLnKCbMlySvyGvxtyg4.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/Ud5fp9ju7D2BUYDixGKieeX6YEqght9RtA0oFYTs.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/R8Ux9CIBnUPkKkYQkDJEFqRC12r1Wh1cq8vTrcKY.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/MTBoH2BhUGU6AFFGzphCOTsKxMcTQR8TeA7rqBwp.jpg"
-      ],
-      "category": {
-        "id": 38,
-        "name": "\u0643\u0631\u0627\u0633\u064a \u0627\u0644\u0627\u0633\u062a\u0631\u0627\u062d\u0629",
-        "image": "https:\/\/back.victoriairaq.com\/storage\/images\/4wcKrDj2u5qpLxy9UI990m8iEiOmvGqmU3iHVu7o.jpg"
-      }
+      "id": "090dc8f3-68cd-49fe-8d93-865f5d673501",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 55
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 14:38:52"
     },
     {
-      "id": 17,
-      "name": "\u0631\u0648\u062a\u0627 \u0628\u064a\u0631\u062c\u0631 \u0643\u0631\u0633\u064a \u0627\u0633\u062a\u0631\u0627\u062d\u0629 \u0645\u0639 \u0637\u0627\u0648\u0644\u0629 \u062c\u0627\u0646\u0628\u064a\u0629 \u0627\u0632\u0631\u0642",
-      "quantity": 2,
-      "description": "\u0631\u0648\u062a\u0627 \u0628\u064a\u0631\u062c\u0631 \u0639\u0628\u0627\u0631\u0629 \u0639\u0646 \u0642\u0637\u0639\u0629 \u0645\u0630\u0647\u0644\u0629 \u0630\u0627\u062a \u0623\u0631\u062c\u0644 \u0645\u0645\u062a\u062f\u0629 \u064a\u0645\u0643\u0646 \u0627\u0633\u062a\u062e\u062f\u0627\u0645\u0647\u0627 \u0643\u0637\u0627\u0648\u0644\u0629 \u062c\u0627\u0646\u0628\u064a\u0629 \u0645\u0639 \u0643\u0631\u0648\u0645 \u0648\u0645\u0642\u0627\u0639\u062f \u0645\u0631\u064a\u062d\u0629. \u0627\u062e\u062a\u0628\u0631 \u0627\u0644\u0627\u0628\u062a\u0643\u0627\u0631 \u0639\u0644\u0649 \u0645\u0633\u062a\u0648\u0649 \u0645\u062e\u062a\u0644\u0641\r\n\u062a\u0627 \u0628\u064a\u0631\u062c\u0631 \u0643\u0631\u0633\u064a \u0627\u0633\u062a\u0631\u0627\u062d\u0629 \u0645\u0639 \u0637\u0627\u0648\u0644\u0629 \u062c\u0627\u0646\u0628\u064a\u0629 \u0627\u0632\u0631\u0642",
-      "price": 750000,
-      "price_after": 500000,
-      "is_offer": true,
-      "images": [
-        "https:\/\/back.victoriairaq.com\/storage\/images\/YkGv188GTeUlUoVaejqUK2rskMXGa234Y40vgbT4.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/i88DJEYl5kXyAGtPdBQKQg1QHO8mY97cfeLJclzs.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/EYaH88xbYAylaXJsYSY6OL5yUGuUg4BsStgo8smI.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/6JE8oXhiSKUU7dIusujvK600utoxo6Wk7skJBKEq.jpg"
-      ],
-      "category": {
-        "id": 38,
-        "name": "\u0643\u0631\u0627\u0633\u064a \u0627\u0644\u0627\u0633\u062a\u0631\u0627\u062d\u0629",
-        "image": "https:\/\/back.victoriairaq.com\/storage\/images\/4wcKrDj2u5qpLxy9UI990m8iEiOmvGqmU3iHVu7o.jpg"
-      }
+      "id": "2daac609-8a14-4699-a213-b3577cf35399",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 54
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 14:33:59"
     },
     {
-      "id": 16,
-      "name": "\u0637\u0642\u0645 \u063a\u0631\u0641\u0629 \u0646\u0648\u0645 \u062d\u062f\u064a\u062b\u060c Belek",
-      "quantity": 10,
-      "description": "\u0637\u0642\u0645 \u063a\u0631\u0641\u0629 \u0646\u0648\u0645 \u062d\u062f\u064a\u062b\u060c Idol-Belek \u0642\u0645 \u0628\u062a\u062d\u062f\u064a\u062b \u063a\u0631\u0641\u0629 \u0646\u0648\u0645\u0643 \u0628\u0627\u0644\u0643\u0627\u0645\u0644 \u0645\u0639 \u0637\u0642\u0645 Belek \u0627\u0644\u0643\u0627\u0645\u0644\u060c \u0627\u0644\u0630\u064a \u064a\u062a\u0636\u0645\u0646 \u0633\u0631\u064a\u0631\u064b\u0627 \u0645\u0628\u0637\u0646\u064b\u0627 (\u0645\u062a\u0648\u0641\u0631 \u0628\u0623\u062d\u062c\u0627\u0645  \u0623\u0648 180x200 \u0633\u0645)\u060c \u0648\u062e\u0632\u0627\u0646\u062a\u064a\u0646 \u062c\u0627\u0646\u0628\u064a\u062a\u064a\u0646\u060c \u0648\u062e\u0632\u0627\u0646\u0629 \u0645\u0639 \u0645\u0631\u0622\u0629\u060c \u0648\u062e\u0632\u0627\u0646\u0629 \u0648\u0627\u0633\u0639\u0629. \u0645\u0635\u0646\u0648\u0639 \u0645\u0646 \u0623\u0644\u0648\u0627\u062d \u062e\u0634\u0628\u064a\u0629 \u0645\u0635\u0641\u062d\u0629 \u0648MDF \u0644\u0644\u0645\u062a\u0627\u0646\u0629. \u062a\u0635\u0645\u064a\u0645 \u0639\u0635\u0631\u064a \u0628\u062e\u0637\u0648\u0637 \u0646\u0638\u064a\u0641\u0629 \u0648\u062a\u0634\u0637\u064a\u0628\u0627\u062a \u0639\u0627\u0644\u064a\u0629 \u0627\u0644\u062c\u0648\u062f\u0629. \u0627\u0644\u0633\u0631\u064a\u0631 \u0647\u0648...\r\n\r\n\u0627\u0644\u0633\u0639\u0631 \u064a\u0634\u0645\u0644 \r\n\r\n\u0633\u0631\u064a\u0631 \r\n\u0643\u0648\u0645\u062f\u064a \u0627\u064a\u0645\u0646 \r\n\u0643\u0648\u0645\u062f\u064a \u0627\u064a\u0633\u0631\r\n\u062e\u0632\u0627\u0646\u0629 \u062b\u064a\u0627\u0628 6 \u0627\u0628\u0648\u0627\u0628 \r\n\u0645\u064a\u0632 \u062a\u0633\u0631\u064a\u062d\u0629 \u064a\u062a\u0636\u0645\u0646 \u0645\u0631\u0627\u064a\u0629 \u0639\u062f\u062f 2 \u0631\u0626\u064a\u0633\u064a\u0629 \u0648\u062c\u0627\u0646\u0628\u064a\u0629 \u0645\u0639 \u0627\u0631\u0641\u0641 \r\n\u062f\u0631\u0648\u0631 \u0645\u0644\u062d\u0642 \u0645\u062c\u0631\u0627\u062a",
-      "price": 3000000,
-      "price_after": 2000000,
-      "is_offer": true,
-      "images": [
-        "https:\/\/back.victoriairaq.com\/storage\/images\/9YjAlvHLj8H8ispVUa5Xz1AxbnONtPtiLRBNIzOY.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/9hy0Y8YzVl09iWe64TBMmFJb4UZYKDzN11vOAT9m.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/jwicUEvqNVVAEtQdRwsFTZoSuoTukYB2bRGIi8Rl.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/AodmqEpfHhL5PEFqK7QxFEGGjVeYneaMaC3C85Bd.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/hh8kjPK7RtGp8xLwpJ82bnxUtvIbXZZo3pP4TekH.jpg"
-      ],
-      "category": {
-        "id": 11,
-        "name": "\u063a\u0631\u0641 \u0627\u0644\u0646\u0648\u0645 \u0627\u0644\u0645\u0632\u062f\u0648\u062c\u0629",
-        "image": "https:\/\/back.victoriairaq.com\/storage\/images\/UjmyO1priLrhAZKLwqrXx5nEUpa1NME9KrBkggSE.jpg"
-      }
+      "id": "526c596a-8e3c-4049-89b8-7a8f9737eedf",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 53
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 14:27:55"
     },
     {
-      "id": 14,
-      "name": "\u0645\u0635\u0628\u0627\u062d \u0623\u0631\u0636\u064a \u0628\u0631\u064a\u0634 \u0627\u0644\u0646\u0639\u0627\u0645\u060c LED \u0642\u0627\u0628\u0644 \u0644\u0644\u062a\u0639\u062a\u064a\u0645\u060c \u0630\u0647\u0628\u064a\u060c \u0631\u064a\u0634 \u0627\u0628\u064a\u0636 \u0645\u0648\u0641\u0631 \u0644\u0644\u0637\u0627\u0642\u0629\u060c \u0627\u0631\u062a\u0641\u0627\u0639 170 \u0633\u0645",
-      "quantity": 10,
-      "description": "\u0623\u0636\u0641 \u0644\u0645\u0633\u0629 \u0645\u0646 \u0627\u0644\u0623\u0633\u0644\u0648\u0628 \u0627\u0644\u0639\u0635\u0631\u064a \u0648\u062a\u0648\u0647\u062c\u064b\u0627 \u062f\u0627\u0641\u0626\u064b\u0627 \u0648\u0645\u0631\u062d\u0651\u0628\u064b\u0627 \u0644\u0623\u064a \u063a\u0631\u0641\u0629 \u0645\u0639 **\u0645\u0635\u0628\u0627\u062d \u0627\u0644\u0623\u0631\u0636\u064a\u0629 \u0627\u0644\u0631\u064a\u0634\u064a \u0627\u0644\u0623\u0646\u064a\u0642**. \u064a\u062c\u0645\u0639 \u0647\u0630\u0627 \u0627\u0644\u0642\u0637\u0639\u0629 \u0627\u0644\u0641\u0631\u064a\u062f\u0629 \u0628\u064a\u0646 \u0627\u0644\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0645\u0639\u0627\u0635\u0631 \u0648\u0627\u0644\u0630\u0648\u0642 \u0627\u0644\u0641\u0646\u064a\u060c \u0645\u0645\u0627 \u064a\u062c\u0639\u0644\u0647\u0627 \u0645\u064a\u0632\u0629 \u0628\u0627\u0631\u0632\u0629 \u0641\u064a \u0623\u064a \u0645\u0633\u0627\u062d\u0629\u060c \u062e\u0627\u0635\u0629 \u0627\u0644\u0645\u062f\u0627\u062e\u0644 \u0623\u0648 \u0627\u0644\u0645\u0646\u0627\u0637\u0642 \u0627\u0644\u0623\u062e\u0631\u0649 \u062d\u064a\u062b \u064a\u0643\u0648\u0646 \u0627\u0644\u0627\u0646\u0637\u0628\u0627\u0639 \u0627\u0644\u0643\u0628\u064a\u0631 \u0623\u0645\u0631\u064b\u0627 \u0645\u0647\u0645\u064b\u0627. \u0645\u062b\u0627\u0644\u064a \u0644\u0644\u0645\u0635\u0645\u0645\u064a\u0646 \u0627\u0644\u0645\u0628\u062f\u0639\u064a\u0646 \u0630\u0648\u064a \u0627\u0644\u0631\u0624\u064a\u0629 \u0627\u0644\u062c\u0631\u064a\u0626\u0629\u060c \u0641\u0647\u0630\u0627 \u0627\u0644\u0645\u0635\u0628\u0627\u062d \u064a\u0639\u062a\u0628\u0631 \u0636\u0631\u0648\u0631\u064a\u064b\u0627 \u0644\u0623\u0648\u0644\u0626\u0643 \u0627\u0644\u0630\u064a\u0646 \u064a\u062a\u0637\u0644\u0639\u0648\u0646 \u0625\u0644\u0649 \u0625\u0636\u0627\u0641\u0629 \u0634\u062e\u0635\u064a\u0629 \u0648\u0623\u0646\u0627\u0642\u0629 \u0625\u0644\u0649 \u062f\u064a\u0643\u0648\u0631\u0647\u0645.",
-      "price": 350000,
-      "price_after": 250000,
-      "is_offer": true,
-      "images": [
-        "https:\/\/back.victoriairaq.com\/storage\/images\/ipc5mZKd2UVb75gw0staBOsZ2Pad2bhBFjIlKUjw.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/hIgZvbSaRaO4qcGJLIRpKABELdHIaeu9BWLrJjrh.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/xanG56e1bFgtaGEXwYIkRA16uSstsLgLOr992MM7.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/zVlZHgsP1gNO8bpPANZwNDvSGrsyzn6TcIQq6AJ2.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/Ufj9dpi0mWhF0hblep13fj6JOx2BGJFUleHHa7Rl.jpg"
-      ],
-      "category": {
-        "id": 37,
-        "name": "\u0627\u0644\u0627\u0646\u0627\u0631\u0629",
-        "image": "https:\/\/back.victoriairaq.com\/storage\/images\/D6qh7xwAB6inBHUj7gxCbMNwuZtFfZGNI5Xd34V5.jpg"
-      }
+      "id": "16db1d20-d420-465a-a5c0-be0ec930f316",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 52
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 14:21:35"
     },
     {
-      "id": 12,
-      "name": "\u0645\u0635\u0628\u0627\u062d \u0623\u0631\u0636\u064a \u0628\u0631\u064a\u0634 \u0627\u0644\u0646\u0639\u0627\u0645\u060c LED \u0642\u0627\u0628\u0644 \u0644\u0644\u062a\u0639\u062a\u064a\u0645\u060c \u0630\u0647\u0628\u064a\u060c \u0631\u064a\u0634 \u0627\u0633\u0648\u062f \u0645\u0648\u0641\u0631 \u0644\u0644\u0637\u0627\u0642\u0629\u060c \u0627\u0631\u062a\u0641\u0627\u0639 170 \u0633\u0645",
-      "quantity": 10,
-      "description": "\u0645\u0635\u0628\u0627\u062d \u0623\u0631\u0636\u064a \u0628\u0631\u064a\u0634 \u0627\u0644\u0646\u0639\u0627\u0645\u060c LED \u0642\u0627\u0628\u0644 \u0644\u0644\u062a\u0639\u062a\u064a\u0645\u060c \u0630\u0647\u0628\u064a\u060c \u0627\u0633\u0648\u062f  \u0645\u0648\u0641\u0631 \u0644\u0644\u0637\u0627\u0642\u0629\u060c \u0627\u0631\u062a\u0641\u0627\u0639 170 \u0633\u0645\r\n\r\n\u0623\u0636\u0641 \u0644\u0645\u0633\u0629 \u0645\u0646 \u0627\u0644\u0623\u0633\u0644\u0648\u0628 \u0627\u0644\u0639\u0635\u0631\u064a \u0648\u062a\u0648\u0647\u062c\u064b\u0627 \u062f\u0627\u0641\u0626\u064b\u0627 \u0648\u0645\u0631\u062d\u0651\u0628\u064b\u0627 \u0644\u0623\u064a \u063a\u0631\u0641\u0629 \u0645\u0639 **\u0645\u0635\u0628\u0627\u062d \u0627\u0644\u0623\u0631\u0636\u064a\u0629 \u0627\u0644\u0631\u064a\u0634\u064a \u0627\u0644\u0623\u0646\u064a\u0642**. \u064a\u062c\u0645\u0639 \u0647\u0630\u0627 \u0627\u0644\u0642\u0637\u0639\u0629 \u0627\u0644\u0641\u0631\u064a\u062f\u0629 \u0628\u064a\u0646 \u0627\u0644\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0645\u0639\u0627\u0635\u0631 \u0648\u0627\u0644\u0630\u0648\u0642 \u0627\u0644\u0641\u0646\u064a\u060c \u0645\u0645\u0627 \u064a\u062c\u0639\u0644\u0647\u0627 \u0645\u064a\u0632\u0629 \u0628\u0627\u0631\u0632\u0629 \u0641\u064a \u0623\u064a \u0645\u0633\u0627\u062d\u0629\u060c \u062e\u0627\u0635\u0629 \u0627\u0644\u0645\u062f\u0627\u062e\u0644 \u0623\u0648 \u0627\u0644\u0645\u0646\u0627\u0637\u0642 \u0627\u0644\u0623\u062e\u0631\u0649 \u062d\u064a\u062b \u064a\u0643\u0648\u0646 \u0627\u0644\u0627\u0646\u0637\u0628\u0627\u0639 \u0627\u0644\u0643\u0628\u064a\u0631 \u0623\u0645\u0631\u064b\u0627 \u0645\u0647\u0645\u064b\u0627. \u0645\u062b\u0627\u0644\u064a \u0644\u0644\u0645\u0635\u0645\u0645\u064a\u0646 \u0627\u0644\u0645\u0628\u062f\u0639\u064a\u0646 \u0630\u0648\u064a \u0627\u0644\u0631\u0624\u064a\u0629 \u0627\u0644\u062c\u0631\u064a\u0626\u0629\u060c \u0641\u0647\u0630\u0627 \u0627\u0644\u0645\u0635\u0628\u0627\u062d \u064a\u0639\u062a\u0628\u0631 \u0636\u0631\u0648\u0631\u064a\u064b\u0627 \u0644\u0623\u0648\u0644\u0626\u0643 \u0627\u0644\u0630\u064a\u0646 \u064a\u062a\u0637\u0644\u0639\u0648\u0646 \u0625\u0644\u0649 \u0625\u0636\u0627\u0641\u0629 \u0634\u062e\u0635\u064a\u0629 \u0648\u0623\u0646\u0627\u0642\u0629 \u0625\u0644\u0649 \u062f\u064a\u0643\u0648\u0631\u0647\u0645.",
-      "price": 350000,
-      "price_after": 250000,
-      "is_offer": true,
-      "images": [
-        "https:\/\/back.victoriairaq.com\/storage\/images\/B51X2j1tljHmBLt7xVchnv7tV6iLJOBMwq7172er.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/onCr5jL14y3oVohG0ckVzrsWAAbJXJpUHgMjfIKY.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/9z36pITmg1wyOqiMa9b7auVBMvuOuHL3E55Wi8sj.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/NkufxppmIc5THfwErhHbazyd6xlFvT4C9QIOatGe.jpg"
-      ],
-      "category": {
-        "id": 37,
-        "name": "\u0627\u0644\u0627\u0646\u0627\u0631\u0629",
-        "image": "https:\/\/back.victoriairaq.com\/storage\/images\/D6qh7xwAB6inBHUj7gxCbMNwuZtFfZGNI5Xd34V5.jpg"
-      }
+      "id": "86c6e6ba-bedf-4a56-98bf-f1adeeede922",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 51
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 14:15:22"
     },
     {
-      "id": 10,
-      "name": "\u0645\u0635\u0628\u0627\u062d \u0623\u0631\u0636\u064a \u0628\u0631\u064a\u0634 \u0627\u0644\u0646\u0639\u0627\u0645\u060c LED \u0642\u0627\u0628\u0644 \u0644\u0644\u062a\u0639\u062a\u064a\u0645\u060c \u0630\u0647\u0628\u064a\u060c \u0645\u0648\u0641\u0631 \u0644\u0644\u0637\u0627\u0642\u0629\u060c \u0627\u0631\u062a\u0641\u0627\u0639 170 \u0633\u0645",
-      "quantity": 10,
-      "description": "\u0645\u0635\u0628\u0627\u062d \u0623\u0631\u0636\u064a \u0628\u0631\u064a\u0634 \u0627\u0644\u0646\u0639\u0627\u0645\u060c LED \u0642\u0627\u0628\u0644 \u0644\u0644\u062a\u0639\u062a\u064a\u0645\u060c \u0630\u0647\u0628\u064a\u060c \u0645\u0648\u0641\u0631 \u0644\u0644\u0637\u0627\u0642\u0629\u060c \u0627\u0631\u062a\u0641\u0627\u0639 170 \u0633\u0645\r\n\u0646\u0648\u0639 \u0627\u0644\u062a\u0634\u0637\u064a\u0628 \u0627\u0644\u0646\u0647\u0627\u0626\u064a\tPolished\r\n\u0642\u0627\u0639\u062f\u0629 \u0627\u0644\u0645\u0635\u0628\u0627\u062d\tE14\r\n\u0646\u0648\u0639 \u0627\u0644\u0645\u0635\u0628\u0627\u062d\tLight Emitting\r\n\u0644\u0648\u0646 \u0627\u0644\u0638\u0644\tWhite\r\n\u0645\u0627\u062f\u0629 \u0627\u0644\u062a\u0638\u0644\u064a\u0644\tFeather\r\n\u0646\u0648\u0639 \u0627\u0644\u062a\u0628\u062f\u064a\u0644\tDimmer\r\n\u0627\u0644\u0646\u0645\u0637\tModern\r\n\u0627\u0633\u0645 \u0627\u0644\u0639\u0644\u0627\u0645\u0629 \u0627\u0644\u062a\u062c\u0627\u0631\u064a\u0629\tYHYYU\r\n\u0627\u0644\u0644\u0648\u0646\tGold \u0648\u0627\u0644\u0631\u064a\u0634 \u0628\u064a\u062c\r\n\u0645\u0645\u064a\u0632\u0627\u062a \u062e\u0627\u0635\u0629\tEnergy Efficient",
-      "price": 350000,
-      "price_after": 250000,
-      "is_offer": true,
-      "images": [
-        "https:\/\/back.victoriairaq.com\/storage\/images\/HfIY2hHUfCYUZHcoOOjvuOKY6Msyauk3OxNWru7Y.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/k9GzsjM515A8uT9HSkiwQN3fweDpoU9LNcfjIWCZ.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/m8Sr1SCBWd6aBi4DYFa8sfCvvLdWxbKKSiSUpzZs.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/JCkor1a6BUW3jWeIF7SqK51gNh7U1rEwzfBhypPl.jpg",
-        "https:\/\/back.victoriairaq.com\/storage\/images\/P5epIrH7xEjD29giISOnTDCDl3vhQZaI6TSaz4Ey.jpg"
-      ],
-      "category": {
-        "id": 37,
-        "name": "\u0627\u0644\u0627\u0646\u0627\u0631\u0629",
-        "image": "https:\/\/back.victoriairaq.com\/storage\/images\/D6qh7xwAB6inBHUj7gxCbMNwuZtFfZGNI5Xd34V5.jpg"
-      }
+      "id": "2ff2e3d6-8c90-4202-a09b-5972e23e91de",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 50
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 13:48:59"
+    },
+    {
+      "id": "b05297c5-eda0-4014-897e-110862caa112",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 49
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 13:36:17"
+    },
+    {
+      "id": "28b0c50c-3f94-4387-903b-de9a1fb73c2f",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 48
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 13:19:59"
+    },
+    {
+      "id": "00763be6-ecfc-4293-a43d-fdd7ed7dded9",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 47
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 13:14:21"
+    },
+    {
+      "id": "fa4abd39-c083-44c8-9111-051a911838c8",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 46
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 13:01:12"
+    },
+    {
+      "id": "248469f7-a41a-4e4f-afcd-2491142b57bc",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 45
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 12:59:21"
+    },
+    {
+      "id": "770e9c81-6191-4bb7-8028-27886e748a7c",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 44
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 12:45:24"
+    },
+    {
+      "id": "40478316-7caf-410a-8187-75cc79c9e36c",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 43
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 12:11:19"
+    },
+    {
+      "id": "a236bb04-8983-41f5-ad13-bcd549e75659",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 42
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 11:57:26"
+    },
+    {
+      "id": "acb93c13-5e2b-4276-9ba1-284391dcf1f4",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 41
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 11:45:21"
+    },
+    {
+      "id": "98502d02-e7b6-4c02-bdfd-7e029101bbac",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 40
+      },
+      "is_read": false,
+      "created_at": "2025-11-13 11:39:18"
+    },
+    {
+      "id": "d0fbddd5-13b9-49c5-8e47-8d11a609b73e",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 39
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 20:00:51"
+    },
+    {
+      "id": "4c636520-0a46-44ea-8555-bb707cbd9c1b",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 38
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 19:58:28"
+    },
+    {
+      "id": "954ff1d3-196f-4dff-af87-91c2f8aedba4",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 37
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 19:57:00"
+    },
+    {
+      "id": "af0ab6bd-4580-49d7-ad3f-a66b15035890",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 36
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 19:52:53"
+    },
+    {
+      "id": "ab8aa5ed-b937-4235-b683-6fa881969bed",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 35
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 19:48:19"
+    },
+    {
+      "id": "1d26364d-cd37-491e-9aa9-e236e2944445",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 34
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 19:37:31"
+    },
+    {
+      "id": "170b8fff-3c2b-4f34-8426-db6d15911317",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 33
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 19:31:54"
+    },
+    {
+      "id": "83312de6-2089-4805-b6e8-0e4f0f1d9f88",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 32
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 19:23:36"
+    },
+    {
+      "id": "5aeb8901-6a1e-4a41-8512-fb7706e5c774",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 31
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 19:11:01"
+    },
+    {
+      "id": "53f64561-ce97-4212-8fd1-a89917cee5a7",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 30
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 17:52:53"
+    },
+    {
+      "id": "e1feafd3-6bec-42a5-b7e2-8a603e267c88",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 29
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 17:50:30"
+    },
+    {
+      "id": "d4869748-c365-463c-8d67-91c1339095af",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 28
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 17:38:57"
+    },
+    {
+      "id": "03ac51c1-e242-45a2-9d8a-8e300b010aa2",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 27
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 17:33:23"
+    },
+    {
+      "id": "254c9acb-7673-4eee-836a-04e0323cdeaa",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 26
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 17:29:17"
+    },
+    {
+      "id": "424eea1c-b2cf-49a9-a251-90174fd3932b",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 25
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 17:10:29"
+    },
+    {
+      "id": "ea8b4416-3346-4bf6-b501-8c14ab6beee5",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 24
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 16:39:27"
+    },
+    {
+      "id": "39bf1754-9e71-40c8-8b4b-2b37edd55156",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 23
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 16:25:34"
+    },
+    {
+      "id": "cb17185e-512a-44a4-8b0d-fe5b54d22e21",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 22
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 16:22:42"
+    },
+    {
+      "id": "6c583944-4d45-45af-8efe-7cc167894239",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 21
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 16:13:51"
+    },
+    {
+      "id": "53365e1b-b362-4f7a-b1bc-8712a2e3f16d",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 20
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 16:01:16"
+    },
+    {
+      "id": "d686809c-c46a-4427-a99c-83ef221d3192",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 19
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 15:58:07"
+    },
+    {
+      "id": "db086632-90a4-4eec-b023-e7fb311768ab",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 18
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 14:53:41"
+    },
+    {
+      "id": "72d5b798-6123-469a-91f1-275ce4a8f134",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 17
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 14:52:35"
+    },
+    {
+      "id": "7c980846-6a84-41aa-b5ad-eadf775d673b",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 16
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 14:38:44"
+    },
+    {
+      "id": "355abf66-8064-41fa-8952-5bbb3628eb8b",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 15
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 14:34:47"
+    },
+    {
+      "id": "c1f62fd6-71d0-4edf-832b-83910cdafcd8",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 14
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 14:34:40"
+    },
+    {
+      "id": "2b62c39a-e43a-45f7-8714-071491006f04",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 13
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 14:33:00"
+    },
+    {
+      "id": "17142022-8552-4c24-8173-90e7e5d12341",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 12
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 14:30:41"
+    },
+    {
+      "id": "334a87d5-128f-4c2f-a70d-5c9c97c0166f",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 11
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 14:23:14"
+    },
+    {
+      "id": "39745376-a652-428b-a9b3-255b10525513",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 10
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 14:17:40"
+    },
+    {
+      "id": "081140e0-5243-43f6-9ab0-4c4da75051be",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 9
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 14:17:37"
+    },
+    {
+      "id": "b84f2b44-e55c-4365-8b97-9acd16e7586e",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 8
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 14:14:37"
+    },
+    {
+      "id": "3eb74f2a-3b06-4408-8f78-0fe1d5d538db",
+      "notification": {
+        "title": "\u062a\u0645 \u0627\u0636\u0627\u0641\u0629 \u0645\u0646\u062a\u062c \u062c\u062f\u064a\u062f",
+        "product_id": 7
+      },
+      "is_read": false,
+      "created_at": "2025-11-12 14:14:10"
     }
   ]
 }
