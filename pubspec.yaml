@@ -28,17 +28,16 @@ dependencies:
     git:
       url: https://github.com/saedAlHanash/m_cubit
 
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^1.6.0
 
   #  flutter_cached_pdfview: ^0.4.3
   #  screen_protector: ^1.4.2+1
   group_button: ^5.3.4
   flutter_bloc: ^9.1.1
   equatable: ^2.0.7
-  get_it: ^8.2.0
+  get_it: ^9.0.5
   http: ^1.5.0
   shared_preferences: ^2.5.3
-  lottie: ^3.3.1
   flutter_screenutil: ^5.9.3
   pinput: ^5.0.2
   carousel_slider: ^5.1.1
@@ -47,9 +46,9 @@ dependencies:
   #  url_launcher_ios: ^6.3.3
   logger: ^2.6.2
   dropdown_button2: ^2.3.9
-  google_maps_flutter: ^2.13.1
-  #  firebase_core: ^4.0.0
-  #  firebase_messaging: ^16.0.0
+  google_maps_flutter: ^2.14.0
+  firebase_core: ^4.2.1
+  firebase_messaging: ^16.0.4
   #  firebase_auth: ^5.6.2
   #  app_links: ^6.4.0
   intl: ^0.20.2
@@ -61,7 +60,7 @@ dependencies:
   package_info_plus: ^8.0.0
   #  hive: ^2.2.3
   #  share_plus: ^11.0.0
-  awesome_dialog: ^3.2.1
+  awesome_dialog: ^3.3.0
   #  google_sign_in: ^7.1.0
   #  file_picker: ^10.3.1
   #  open_filex: ^4.7.0

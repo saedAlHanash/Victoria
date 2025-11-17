@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "121318433129",
+    "project_id": "victoria-543a9",
+    "storage_bucket": "victoria-543a9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121318433129:android:dc7a08610c062fe3c11df8",
+        "android_client_info": {
+          "package_name": "com.bandtech.victoria"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNciv98DrY2NzV6UI97iw6K7ri21CUhZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
